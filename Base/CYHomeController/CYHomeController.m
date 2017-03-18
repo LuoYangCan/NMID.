@@ -36,6 +36,7 @@
 }
 #pragma mark - 初始化vc
 -(void)initVC{
+    self.edgesForExtendedLayout = UIRectEdgeNone;
     self.ALLPVC = [[CYAllPeopleViewController alloc]init];
     self.ProVC = [[CYProjectViewController alloc]init];
     self.currentVC = self.ProVC;

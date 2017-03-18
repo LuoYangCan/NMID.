@@ -18,6 +18,7 @@
 		2D0E5C751E7D59D600D69F2B /* CYProjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D0E5C741E7D59D600D69F2B /* CYProjectViewController.m */; };
 		2D0E5C7A1E7D5B1B00D69F2B /* CYHomeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D0E5C791E7D5B1B00D69F2B /* CYHomeController.m */; };
 		2D0E5C7E1E7D5B5F00D69F2B /* CYAllPeopleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D0E5C7D1E7D5B5F00D69F2B /* CYAllPeopleViewController.m */; };
+		2D3F0A6C1E7D793E007642DF /* Property List.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2D3F0A6B1E7D793E007642DF /* Property List.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,7 @@
 		2D0E5C791E7D5B1B00D69F2B /* CYHomeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYHomeController.m; sourceTree = "<group>"; };
 		2D0E5C7C1E7D5B5F00D69F2B /* CYAllPeopleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYAllPeopleViewController.h; sourceTree = "<group>"; };
 		2D0E5C7D1E7D5B5F00D69F2B /* CYAllPeopleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYAllPeopleViewController.m; sourceTree = "<group>"; };
+		2D3F0A6B1E7D793E007642DF /* Property List.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Property List.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +125,7 @@
 				2D0E5C431E7D53D000D69F2B /* LaunchScreen.storyboard */,
 				2D0E5C461E7D53D000D69F2B /* Info.plist */,
 				2D0E5C351E7D53D000D69F2B /* Supporting Files */,
+				2D3F0A6B1E7D793E007642DF /* Property List.plist */,
 			);
 			path = "Young Eagles";
 			sourceTree = "<group>";
@@ -319,6 +322,7 @@
 			files = (
 				2D0E5C451E7D53D000D69F2B /* LaunchScreen.storyboard in Resources */,
 				2D0E5C421E7D53D000D69F2B /* Assets.xcassets in Resources */,
+				2D3F0A6C1E7D793E007642DF /* Property List.plist in Resources */,
 				2D0E5C401E7D53D000D69F2B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -581,6 +585,7 @@
 				2D0E5C611E7D53D100D69F2B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2D0E5C621E7D53D100D69F2B /* Build configuration list for PBXNativeTarget "Young EaglesTests" */ = {
 			isa = XCConfigurationList;
@@ -589,6 +594,7 @@
 				2D0E5C641E7D53D100D69F2B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2D0E5C651E7D53D100D69F2B /* Build configuration list for PBXNativeTarget "Young EaglesUITests" */ = {
 			isa = XCConfigurationList;
@@ -597,6 +603,7 @@
 				2D0E5C671E7D53D100D69F2B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>运营专责</key>
+	<array>
+		<string>张挺</string>
+		<string>陈思捷</string>
+		<string>杨键</string>
+		<string>张文梁</string>
+	</array>
+	<key>中学指导</key>
+	<array>
+		<string>马宪羽</string>
+		<string>李才猛</string>
+		<string>李艺</string>
+		<string>李艺</string>
+	</array>
+	<key>智能运动终端</key>
+	<array>
+		<string>匡正泽</string>
+		<string>周家豪</string>
+		<string>张兴锐</string>
+		<string>黄嘉豪</string>
+		<string>李云飞</string>
+		<string>施伟成</string>
+	</array>
+	<key>基于移动互联的硬件交互反馈系统</key>
+	<array>
+		<string>雷志涵</string>
+		<string>陈恳</string>
+		<string>张怀艺</string>
+		<string>余承熹</string>
+		<string>邓成超</string>
+		<string>税樱姿</string>
+	</array>
+	<key>自行车行车安全导航仪</key>
+	<array>
+		<string>胡炳昭</string>
+		<string>袁瑞</string>
+		<string>匡正泽</string>
+		<string>李思佚</string>
+		<string>余冰</string>
+	</array>
+	<key>城市公厕资源调配系统</key>
+	<array>
+		<string>陈思捷</string>
+		<string>高小明</string>
+		<string>周鑫</string>
+		<string>万雨豪</string>
+		<string>周海林</string>
+	</array>
+	<key>基于web的文件管理系统</key>
+	<array>
+		<string>罗浩</string>
+		<string>王义青</string>
+		<string>何金林</string>
+		<string>喻启洋</string>
+	</array>
+</dict>
+</plist>
