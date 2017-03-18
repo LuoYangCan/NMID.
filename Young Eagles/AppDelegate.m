@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-
+#import "CYHomeController.h"
 @interface AppDelegate ()
 
 @end
@@ -17,6 +17,12 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
+    self.window.backgroundColor = [UIColor whiteColor];
+    CYHomeController *HomeController = [[CYHomeController alloc]init];
+    UINavigationController *naviC = [[UINavigationController alloc]initWithRootViewController:HomeController];
+    self.window.rootViewController = naviC;
+    [self.window makeKeyAndVisible];
     return YES;
 }
 

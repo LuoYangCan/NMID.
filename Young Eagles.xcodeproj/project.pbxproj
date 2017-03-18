@@ -15,6 +15,9 @@
 		2D0E5C451E7D53D000D69F2B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D0E5C431E7D53D000D69F2B /* LaunchScreen.storyboard */; };
 		2D0E5C501E7D53D100D69F2B /* Young_EaglesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D0E5C4F1E7D53D100D69F2B /* Young_EaglesTests.m */; };
 		2D0E5C5B1E7D53D100D69F2B /* Young_EaglesUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D0E5C5A1E7D53D100D69F2B /* Young_EaglesUITests.m */; };
+		2D0E5C751E7D59D600D69F2B /* CYProjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D0E5C741E7D59D600D69F2B /* CYProjectViewController.m */; };
+		2D0E5C7A1E7D5B1B00D69F2B /* CYHomeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D0E5C791E7D5B1B00D69F2B /* CYHomeController.m */; };
+		2D0E5C7E1E7D5B5F00D69F2B /* CYAllPeopleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D0E5C7D1E7D5B5F00D69F2B /* CYAllPeopleViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +54,12 @@
 		2D0E5C561E7D53D100D69F2B /* Young EaglesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Young EaglesUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D0E5C5A1E7D53D100D69F2B /* Young_EaglesUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Young_EaglesUITests.m; sourceTree = "<group>"; };
 		2D0E5C5C1E7D53D100D69F2B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2D0E5C731E7D59D600D69F2B /* CYProjectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYProjectViewController.h; sourceTree = "<group>"; };
+		2D0E5C741E7D59D600D69F2B /* CYProjectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYProjectViewController.m; sourceTree = "<group>"; };
+		2D0E5C781E7D5B1B00D69F2B /* CYHomeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYHomeController.h; sourceTree = "<group>"; };
+		2D0E5C791E7D5B1B00D69F2B /* CYHomeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYHomeController.m; sourceTree = "<group>"; };
+		2D0E5C7C1E7D5B5F00D69F2B /* CYAllPeopleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYAllPeopleViewController.h; sourceTree = "<group>"; };
+		2D0E5C7D1E7D5B5F00D69F2B /* CYAllPeopleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYAllPeopleViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +90,10 @@
 		2D0E5C291E7D53D000D69F2B = {
 			isa = PBXGroup;
 			children = (
+				2D0E5C761E7D5AE100D69F2B /* Base */,
+				2D0E5C711E7D590000D69F2B /* Model */,
+				2D0E5C701E7D590000D69F2B /* View */,
+				2D0E5C6F1E7D590000D69F2B /* Controller */,
 				2D0E5C341E7D53D000D69F2B /* Young Eagles */,
 				2D0E5C4E1E7D53D100D69F2B /* Young EaglesTests */,
 				2D0E5C591E7D53D100D69F2B /* Young EaglesUITests */,
@@ -138,6 +151,64 @@
 				2D0E5C5C1E7D53D100D69F2B /* Info.plist */,
 			);
 			path = "Young EaglesUITests";
+			sourceTree = "<group>";
+		};
+		2D0E5C6F1E7D590000D69F2B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2D0E5C7B1E7D5B5500D69F2B /* CYAllPeopleViewController */,
+				2D0E5C721E7D59B600D69F2B /* CYProjectViewController */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		2D0E5C701E7D590000D69F2B /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2D0E5C711E7D590000D69F2B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		2D0E5C721E7D59B600D69F2B /* CYProjectViewController */ = {
+			isa = PBXGroup;
+			children = (
+				2D0E5C731E7D59D600D69F2B /* CYProjectViewController.h */,
+				2D0E5C741E7D59D600D69F2B /* CYProjectViewController.m */,
+			);
+			path = CYProjectViewController;
+			sourceTree = "<group>";
+		};
+		2D0E5C761E7D5AE100D69F2B /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				2D0E5C771E7D5AE100D69F2B /* CYHomeController */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		2D0E5C771E7D5AE100D69F2B /* CYHomeController */ = {
+			isa = PBXGroup;
+			children = (
+				2D0E5C781E7D5B1B00D69F2B /* CYHomeController.h */,
+				2D0E5C791E7D5B1B00D69F2B /* CYHomeController.m */,
+			);
+			path = CYHomeController;
+			sourceTree = "<group>";
+		};
+		2D0E5C7B1E7D5B5500D69F2B /* CYAllPeopleViewController */ = {
+			isa = PBXGroup;
+			children = (
+				2D0E5C7C1E7D5B5F00D69F2B /* CYAllPeopleViewController.h */,
+				2D0E5C7D1E7D5B5F00D69F2B /* CYAllPeopleViewController.m */,
+			);
+			path = CYAllPeopleViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -273,9 +344,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2D0E5C7A1E7D5B1B00D69F2B /* CYHomeController.m in Sources */,
 				2D0E5C3D1E7D53D000D69F2B /* ViewController.m in Sources */,
 				2D0E5C3A1E7D53D000D69F2B /* AppDelegate.m in Sources */,
+				2D0E5C751E7D59D600D69F2B /* CYProjectViewController.m in Sources */,
 				2D0E5C371E7D53D000D69F2B /* main.m in Sources */,
+				2D0E5C7E1E7D5B5F00D69F2B /* CYAllPeopleViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
