@@ -19,6 +19,7 @@
 		2D0E5C7A1E7D5B1B00D69F2B /* CYHomeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D0E5C791E7D5B1B00D69F2B /* CYHomeController.m */; };
 		2D0E5C7E1E7D5B5F00D69F2B /* CYAllPeopleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D0E5C7D1E7D5B5F00D69F2B /* CYAllPeopleViewController.m */; };
 		2D3F0A6C1E7D793E007642DF /* Property List.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2D3F0A6B1E7D793E007642DF /* Property List.plist */; };
+		2D43CFA21E8154AE006363BF /* CYTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D43CFA11E8154AE006363BF /* CYTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,8 @@
 		2D0E5C7C1E7D5B5F00D69F2B /* CYAllPeopleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYAllPeopleViewController.h; sourceTree = "<group>"; };
 		2D0E5C7D1E7D5B5F00D69F2B /* CYAllPeopleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYAllPeopleViewController.m; sourceTree = "<group>"; };
 		2D3F0A6B1E7D793E007642DF /* Property List.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Property List.plist"; sourceTree = "<group>"; };
+		2D43CFA01E8154AE006363BF /* CYTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYTableViewCell.h; sourceTree = "<group>"; };
+		2D43CFA11E8154AE006363BF /* CYTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +171,7 @@
 		2D0E5C701E7D590000D69F2B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				2D43CF9F1E815491006363BF /* CYTableViewCell */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -212,6 +216,15 @@
 				2D0E5C7D1E7D5B5F00D69F2B /* CYAllPeopleViewController.m */,
 			);
 			path = CYAllPeopleViewController;
+			sourceTree = "<group>";
+		};
+		2D43CF9F1E815491006363BF /* CYTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				2D43CFA01E8154AE006363BF /* CYTableViewCell.h */,
+				2D43CFA11E8154AE006363BF /* CYTableViewCell.m */,
+			);
+			path = CYTableViewCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -348,6 +361,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2D43CFA21E8154AE006363BF /* CYTableViewCell.m in Sources */,
 				2D0E5C7A1E7D5B1B00D69F2B /* CYHomeController.m in Sources */,
 				2D0E5C3D1E7D53D000D69F2B /* ViewController.m in Sources */,
 				2D0E5C3A1E7D53D000D69F2B /* AppDelegate.m in Sources */,

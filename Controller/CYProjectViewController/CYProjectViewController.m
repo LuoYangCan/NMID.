@@ -7,7 +7,7 @@
 //
 
 #import "CYProjectViewController.h"
-
+#import "CYTableViewCell.h"
 @interface CYProjectViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property(nonatomic,strong) UITableView *TableView; /**<   列表*/
 @property(nonatomic,strong) NSDictionary *dic;
@@ -28,19 +28,20 @@
 }
 
 -(void)setup{
-    self.TableView.delegate = self;
-    self.TableView.dataSource = self;
-    self.TableView.rowHeight = 70;
-    self.TableView =[[UITableView alloc]initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height)];
-    [self.view addSubview:self.TableView];
-    
     NSBundle *bundle = [NSBundle mainBundle];
     NSString *plistpath = [bundle pathForResource:@"Property List" ofType:@"plist"];
     self.dic = [[NSDictionary alloc]initWithContentsOfFile:plistpath];
     NSArray *templist = [self.dic allKeys];
     self.projectName = [templist sortedArrayUsingSelector:@selector(compare:)];
+    self.TableView =[[UITableView alloc]initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height)];
+    self.TableView.delegate = self;
+    self.TableView.dataSource = self;
+    self.TableView.tableFooterView = [[UIView alloc]initWithFrame:CGRectZero];
+    [self.view addSubview:self.TableView];
+ 
     
 }
+
 /*
 -(void)DictionarySetup{
     self.dic = [[NSDictionary alloc]init];
@@ -53,23 +54,66 @@
                  @"基于web的文件管理系统":@"罗浩"@"王义青"@"何金林"@"喻启洋"
                  };
 }*/
+-(NSString *)getFirstWordFrom:(NSArray *)StrArray andRow:(NSIndexPath *)indexPath{
+    NSString *allWord = [StrArray objectAtIndex:indexPath.row];
+    NSString *FirstWord = [allWord substringToIndex:1];
+    return FirstWord;
+}
 
+- (UIColor *)getColorfrom:(NSIndexPath *)IndexPath{
+    switch (IndexPath.row) {
+        case 0:
+            return [UIColor orangeColor];
+            break;
+        case 1:
+            return [UIColor redColor];
+            break;
+        case 2:
+            return [UIColor purpleColor];
+            break;
+        case 3:
+            return [UIColor blueColor];
+            break;
+        case 4:
+            return [UIColor grayColor];
+            break;
+        case 5:
+            return [UIColor greenColor];
+            break;
+            
+        default:
+            return [UIColor orangeColor];
+            break;
+    }
+}
 #pragma mark -UITableViewDelegate & UITableViewDataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 1;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 10 ;
+    
+    return self.projectName.count ;
+    
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 70;
+    return 80;
 }
 
 // Row display. Implementers should *always* try to reuse cells by setting each cell's reuseIdentifier and querying for available reusable cells with dequeueReusableCellWithIdentifier:
 // Cell gets various attributes set automatically based on table (separators) and data source (accessory views, editing controls)
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    UITableViewCell *cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"CYProjectViewCellIndentifier"];
+    CYTableViewCell *cell = [[CYTableViewCell alloc]init];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    cell.tLabel.text = self.projectName[indexPath.row];
+    NSString *firstWord = [self getFirstWordFrom:self.projectName andRow:indexPath];
+    UIColor *color = [self getColorfrom:indexPath];
+    cell.leftimage.backgroundColor = color;
+    cell.imlabel.text = firstWord;
+    //UITableViewCell *cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"CYProjectViewCellIndentifier"];
+       // cell.textLabel.text = self.projectName[indexPath.row];
+    
+    
     return cell;
 }
 /*
