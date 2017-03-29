@@ -5,20 +5,28 @@
 //  Created by NMID on 2017/3/18.
 //  Copyright © 2017年 NMID. All rights reserved.
 //
-
+#define screenWidth  [UIScreen mainScreen].bounds.size.width
+#define screenHeight [UIScreen mainScreen].bounds.size.height
 #import "CYProjectViewController.h"
 #import "CYTableViewCell.h"
+#import "CYDrawerView.h"
 @interface CYProjectViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property(nonatomic,strong) UITableView *TableView; /**<   列表*/
 @property(nonatomic,strong) NSDictionary *dic;
 @property(nonatomic,strong) NSArray *projectName;
+@property(nonatomic,assign) CGFloat maxY;
+@property(nonatomic,assign) CGFloat offsetLeft;
+@property(nonatomic,strong) UIView *mainView;
 @end
 
 @implementation CYProjectViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setup];
+    self.maxY = 0;
+    self.offsetLeft = -(screenWidth * 0.7);
+    [self setupUI];
+    [self setupGesture];
     // Do any additional setup after loading the view.
 }
 
@@ -27,21 +35,59 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void)setup{
+-(void)setupUI{
+    self.mainView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, screenWidth, screenHeight)];
     NSBundle *bundle = [NSBundle mainBundle];
     NSString *plistpath = [bundle pathForResource:@"Property List" ofType:@"plist"];
     self.dic = [[NSDictionary alloc]initWithContentsOfFile:plistpath];
     NSArray *templist = [self.dic allKeys];
     self.projectName = [templist sortedArrayUsingSelector:@selector(compare:)];
-    self.TableView =[[UITableView alloc]initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height)];
+    self.TableView =[[UITableView alloc]initWithFrame:CGRectMake(0, 0, self.mainView.bounds.size.width, self.mainView.bounds.size.height)];
     self.TableView.delegate = self;
     self.TableView.dataSource = self;
     self.TableView.tableFooterView = [[UIView alloc]initWithFrame:CGRectZero];
-    [self.view addSubview:self.TableView];
- 
+    [self.mainView addSubview:self.TableView];
+    [self.view addSubview:self.mainView];
+    UIView *leftView = [[UIView alloc]initWithFrame:self.view.bounds];
+    [self.view addSubview:leftView];
     
 }
 
+- (void) setupGesture{
+    UIPanGestureRecognizer *PAN = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(selector)];
+    [self.mainView addGestureRecognizer:PAN];
+    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self  action:@selector(tapGes)];
+    
+    [self.view addGestureRecognizer:tap];
+}
+- (void)tapGes{
+    [UIView animateWithDuration:0.25 animations:^{
+        self.mainView.frame = self.view.bounds;
+    }];
+}
+-(void)pan:(UIPanGestureRecognizer *)pan{
+    CGPoint finger = [pan translationInView:self.mainView];
+    self.mainView.frame = [self framewithoffsetX:finger.x];
+    CGFloat target = 0 ;
+    if (pan.state == UIGestureRecognizerStateEnded) {
+        if (self.mainView.frame.origin.x < screenWidth * 0.5) {
+            target = self.offsetLeft ;
+        }
+        CGFloat offsetX = target - self.mainView.frame.origin.x;
+        [UIView animateWithDuration:0.25 animations:^{
+            self.mainView.frame = [self framewithoffsetX:offsetX];
+        }];
+    }
+    [pan setTranslation:CGPointZero inView:self.mainView];
+    
+}
+
+-(CGRect)framewithoffsetX:(CGFloat)offsetX{
+    CGRect frame = self.mainView.frame;
+    frame.origin.x += offsetX;
+    return frame;
+}
 /*
 -(void)DictionarySetup{
     self.dic = [[NSDictionary alloc]init];

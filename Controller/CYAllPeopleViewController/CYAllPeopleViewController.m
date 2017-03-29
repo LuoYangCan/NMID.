@@ -60,7 +60,8 @@
 }
 
 - (UIColor *)getColorfrom:(NSIndexPath *)IndexPath{
-    switch (IndexPath.row) {
+    int index = IndexPath.row % 6 ;
+    switch (index) {
         case 0:
             return [UIColor orangeColor];
             break;
