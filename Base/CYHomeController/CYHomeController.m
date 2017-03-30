@@ -26,7 +26,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.maxY = 0;
-    self.offsetLeft = screenWidth * 0.45;
+    self.offsetLeft = screenWidth * 0.82;
     [self initVC];
     [self initsegment];
     [self setupGesture];
@@ -44,12 +44,13 @@
 #pragma mark - 初始化vc
 -(void)initVC{
     self.mainView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, screenWidth, screenHeight)];
+    self.mainView.backgroundColor = [UIColor whiteColor];
     self.edgesForExtendedLayout = UIRectEdgeNone;
     self.ALLPVC = [[CYAllPeopleViewController alloc]init];
     self.ProVC = [[CYProjectViewController alloc]init];
     self.currentVC = self.ProVC;
-    UIView *leftView = [[UIView alloc]initWithFrame:self.view.bounds];
-    leftView.backgroundColor = [UIColor blueColor];
+    CYDrawerView *leftView = [[CYDrawerView alloc]initWithFrame:self.view.bounds];
+    leftView.backgroundColor = [UIColor grayColor];
     [self.view addSubview:leftView];
     [self.view addSubview:self.mainView];
     [self.mainView addSubview:self.ProVC.view];
@@ -58,20 +59,23 @@
 #pragma mark - 初始化segmentControl
 - (void)initsegment{
     self.segment = [[UISegmentedControl alloc]initWithItems:@[@"项目组",@"所有人"]];   //设置名字
-    [self.segment setWidth:100 forSegmentAtIndex:0];                            //设置宽度
-    [self.segment setWidth:100 forSegmentAtIndex:1];
+    self.segment.frame = CGRectMake(screenWidth/2-100, 18,200, 33);
+//    [self.segment setWidth:100 forSegmentAtIndex:0];                            //设置宽度
+//    [self.segment setWidth:100 forSegmentAtIndex:1];
     self.segment.selectedSegmentIndex = 0;                              //设置初始位置
     [self.segment addTarget:self action:@selector(segmentdidChange:) forControlEvents:UIControlEventValueChanged];
-    self.navigationItem.titleView = self.segment;
+    [self.mainView addSubview:self.segment];
 }
 #pragma mark -segment改变
 - (void)segmentdidChange:(UISegmentedControl *)seg{
     switch (seg.selectedSegmentIndex) {
         case 0:
             [self segmentDidChangeFromOld:self.currentVC toNew:self.ProVC];
+            [self.ProVC.view bringSubviewToFront:self.segment];
             break;
         case 1:
             [self segmentDidChangeFromOld:self.currentVC toNew:self.ALLPVC];
+            [self.ALLPVC.view bringSubviewToFront:self.segment];
         default:
             break;
     }
@@ -128,10 +132,26 @@
 -(CGRect)framewithoffsetX:(CGFloat)offsetX{
     CGRect frame = self.mainView.frame;
     frame.origin.x += offsetX;
-    if (frame.origin.x >= screenWidth * 0.45) {
-        frame.origin.x = screenWidth *0.45;
+    if (frame.origin.x >= screenWidth * 0.82) {
+        frame.origin.x = screenWidth *0.82;
     }
     return frame;
+}
+
+-(UINavigationBar*)navigationBarContainedWithinSubview:(UIView *)view{
+    UINavigationBar *navibar = nil;
+    for (UIView *subview in [view subviews]) {
+        if ([view isKindOfClass:[UINavigationBar class]]) {
+            navibar = (UINavigationBar *)view;
+            break;
+        }else{
+            navibar = [self navigationBarContainedWithinSubview:subview];
+            if (navibar != nil) {
+                break;
+            }
+        }
+    }
+    return navibar;
 }
 
 /*

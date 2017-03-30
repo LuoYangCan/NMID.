@@ -7,7 +7,11 @@
 //
 
 #import "CYDrawerView.h"
+@interface CYDrawerView ()
 
+
+
+@end
 @implementation CYDrawerView
 
 /*

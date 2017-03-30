@@ -7,4 +7,4 @@
 
 做好了主页的Tableview。
 
-开始做抽屉
+抽屉已完成，目前segmentcontrol有bug

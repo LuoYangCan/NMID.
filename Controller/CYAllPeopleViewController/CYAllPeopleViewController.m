@@ -34,7 +34,7 @@
     self.dic = [[NSDictionary alloc]initWithContentsOfFile:plistpath];
     NSArray *templist = [self.dic allKeys];
     self.projectName = [templist sortedArrayUsingSelector:@selector(compare:)];
-    self.TableView =[[UITableView alloc]initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height)];
+    self.TableView =[[UITableView alloc]initWithFrame:CGRectMake(0, 65, self.view.bounds.size.width, self.view.bounds.size.height)];
     self.TableView.delegate = self;
     self.TableView.dataSource = self;
     self.TableView.tableFooterView = [[UIView alloc]initWithFrame:CGRectZero];
