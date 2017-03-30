@@ -5,24 +5,31 @@
 //  Created by NMID on 2017/3/18.
 //  Copyright © 2017年 NMID. All rights reserved.
 //
-
+#define screenWidth  [UIScreen mainScreen].bounds.size.width
+#define screenHeight [UIScreen mainScreen].bounds.size.height
 #import "CYHomeController.h"
 #import "CYAllPeopleViewController.h"
 #import "CYProjectViewController.h"
-
+#import "CYDrawerView.h"
 @interface CYHomeController ()
 @property(nonatomic,strong) UISegmentedControl *segment; /**<  顶部切换*/
 @property(nonatomic,strong) UIViewController *currentVC; /**<  当前页面*/
 @property(nonatomic,strong) CYAllPeopleViewController *ALLPVC;
 @property(nonatomic,strong) CYProjectViewController *ProVC;
+@property(nonatomic,assign) CGFloat maxY;
+@property(nonatomic,assign) CGFloat offsetLeft;
+@property(nonatomic,strong) UIView *mainView;
 @end
 
 @implementation CYHomeController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.maxY = 0;
+    self.offsetLeft = screenWidth * 0.45;
     [self initVC];
     [self initsegment];
+    [self setupGesture];
     self.navigationController.navigationBarHidden = NO;
     // Do any additional setup after loading the view.
 }
@@ -36,11 +43,16 @@
 }
 #pragma mark - 初始化vc
 -(void)initVC{
+    self.mainView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, screenWidth, screenHeight)];
     self.edgesForExtendedLayout = UIRectEdgeNone;
     self.ALLPVC = [[CYAllPeopleViewController alloc]init];
     self.ProVC = [[CYProjectViewController alloc]init];
     self.currentVC = self.ProVC;
-    [self.view addSubview:self.ProVC.view];
+    UIView *leftView = [[UIView alloc]initWithFrame:self.view.bounds];
+    leftView.backgroundColor = [UIColor blueColor];
+    [self.view addSubview:leftView];
+    [self.view addSubview:self.mainView];
+    [self.mainView addSubview:self.ProVC.view];
     
 }
 #pragma mark - 初始化segmentControl
@@ -51,7 +63,6 @@
     self.segment.selectedSegmentIndex = 0;                              //设置初始位置
     [self.segment addTarget:self action:@selector(segmentdidChange:) forControlEvents:UIControlEventValueChanged];
     self.navigationItem.titleView = self.segment;
-    
 }
 #pragma mark -segment改变
 - (void)segmentdidChange:(UISegmentedControl *)seg{
@@ -80,6 +91,49 @@
         }
     }];
 }
+#pragma mark - 简单抽屉手势
+- (void) setupGesture{
+    UIPanGestureRecognizer *PAN = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(pan:)];
+    [self.mainView addGestureRecognizer:PAN];
+    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self  action:@selector(tapGes)];
+    
+    [self.view addGestureRecognizer:tap];
+}
+- (void)tapGes{
+    [UIView animateWithDuration:0.25 animations:^{
+        self.mainView.frame = self.view.bounds;
+    }];
+}
+-(void)pan:(UIPanGestureRecognizer *)pan{
+    CGPoint finger = [pan translationInView:self.mainView];
+    if (finger.x <=0 ) {
+        finger.x = 0;
+    }
+    self.mainView.frame = [self framewithoffsetX:finger.x];
+    CGFloat target = 0 ;
+    if (pan.state == UIGestureRecognizerStateEnded) {
+        if (self.mainView.frame.origin.x > screenWidth * 0.34) {
+            target = self.offsetLeft ;
+        }
+        CGFloat offsetX = target - self.mainView.frame.origin.x;
+        [UIView animateWithDuration:0.25 animations:^{
+            self.mainView.frame = [self framewithoffsetX:offsetX];
+        }];
+    }
+    [pan setTranslation:CGPointZero inView:self.mainView];
+    
+}
+
+-(CGRect)framewithoffsetX:(CGFloat)offsetX{
+    CGRect frame = self.mainView.frame;
+    frame.origin.x += offsetX;
+    if (frame.origin.x >= screenWidth * 0.45) {
+        frame.origin.x = screenWidth *0.45;
+    }
+    return frame;
+}
+
 /*
 #pragma mark - Navigation
 
