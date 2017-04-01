@@ -1,32 +1,30 @@
+
 //
-//  CYAllPeopleViewController.m
+//  CYAllPeopleView.m
 //  Young Eagles
 //
-//  Created by NMID on 2017/3/18.
+//  Created by NMID on 2017/4/1.
 //  Copyright © 2017年 NMID. All rights reserved.
 //
-
-#import "CYAllPeopleViewController.h"
+#import "CYHelper.h"
+#import "CYAllPeopleView.h"
+#import "CYHelper.h"
 #import "CYTableViewCell.h"
-@interface CYAllPeopleViewController ()<UITableViewDelegate,UITableViewDataSource>
+@interface CYAllPeopleView()<UITableViewDelegate,UITableViewDataSource>
 @property(nonatomic,strong) UITableView *TableView; /**<   列表*/
 @property(nonatomic,strong) NSDictionary *dic;
 @property(nonatomic,strong) NSArray *projectName;
 @property(nonatomic,strong) NSArray *peopleName;
+
 @end
 
-@implementation CYAllPeopleViewController
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    [self setup];
-
-    // Do any additional setup after loading the view.
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+@implementation CYAllPeopleView
+- (instancetype)init{
+    if (self = [super init]) {
+        self.frame = CGRectMake(0, 65, screenWidth, screenHeight-65);
+        [self setup];
+    }
+    return self;
 }
 -(void)setup{
     NSBundle *bundle = [NSBundle mainBundle];
@@ -34,11 +32,11 @@
     self.dic = [[NSDictionary alloc]initWithContentsOfFile:plistpath];
     NSArray *templist = [self.dic allKeys];
     self.projectName = [templist sortedArrayUsingSelector:@selector(compare:)];
-    self.TableView =[[UITableView alloc]initWithFrame:CGRectMake(0, 65, self.view.bounds.size.width, self.view.bounds.size.height)];
+    self.TableView =[[UITableView alloc]initWithFrame:CGRectMake(0, 0, self.bounds.size.width, self.bounds.size.height-65)];
     self.TableView.delegate = self;
     self.TableView.dataSource = self;
     self.TableView.tableFooterView = [[UIView alloc]initWithFrame:CGRectZero];
-    [self.view addSubview:self.TableView];
+    [self addSubview:self.TableView];
     [self getAllPeopleName];
     
 }
@@ -53,39 +51,7 @@
     self.peopleName = [peopl valueForKeyPath:@"@distinctUnionOfObjects.self"] ;
 }
 
--(NSString *)getFirstWordFrom:(NSArray *)StrArray andRow:(NSIndexPath *)indexPath{
-    NSString *allWord = [StrArray objectAtIndex:indexPath.row];
-    NSString *FirstWord = [allWord substringToIndex:1];
-    return FirstWord;
-}
 
-- (UIColor *)getColorfrom:(NSIndexPath *)IndexPath{
-    int index = IndexPath.row % 6 ;
-    switch (index) {
-        case 0:
-            return [UIColor orangeColor];
-            break;
-        case 1:
-            return [UIColor redColor];
-            break;
-        case 2:
-            return [UIColor purpleColor];
-            break;
-        case 3:
-            return [UIColor blueColor];
-            break;
-        case 4:
-            return [UIColor grayColor];
-            break;
-        case 5:
-            return [UIColor greenColor];
-            break;
-            
-        default:
-            return [UIColor orangeColor];
-            break;
-    }
-}
 #pragma mark -UITableViewDelegate & UITableViewDataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 1;
@@ -106,8 +72,8 @@
     CYTableViewCell *cell = [[CYTableViewCell alloc]init];
     cell.selectionStyle = UITableViewRowAnimationNone;
     cell.tLabel.text = self.peopleName[indexPath.row];
-    NSString *firstWord = [self getFirstWordFrom:self.peopleName andRow:indexPath];
-    UIColor *color = [self getColorfrom:indexPath];
+    NSString *firstWord = [CYHelper getFirstWordFrom:self.peopleName andRow:indexPath];
+    UIColor *color = [CYHelper getColorfrom:indexPath];
     cell.leftimage.backgroundColor = color;
     cell.imlabel.text = firstWord;
     //UITableViewCell *cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"CYProjectViewCellIndentifier"];
@@ -117,14 +83,6 @@
     return cell;
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

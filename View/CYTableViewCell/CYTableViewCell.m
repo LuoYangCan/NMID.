@@ -18,7 +18,7 @@
 - (instancetype)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
     if (self) {
-        self.frame = CGRectMake(0, 0, ScreenWidth, 55);
+        self.frame = CGRectMake(0, 0, ScreenWidth, 80);
         _leftimage= [[UIImageView alloc]initWithFrame:CGRectMake(10, 15, 50, 50)];
         UIBezierPath *maskpath =[UIBezierPath bezierPathWithRoundedRect:_leftimage.bounds byRoundingCorners:UIRectCornerAllCorners cornerRadii:_leftimage.bounds.size];
         CAShapeLayer *maskLayer = [[CAShapeLayer alloc]init];
