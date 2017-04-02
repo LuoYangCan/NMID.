@@ -29,12 +29,23 @@
 
 -(void)setup{
     self.view.backgroundColor =[UIColor whiteColor];
-    self.DetailTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 65, self.view.bounds.size.width, self.view.bounds.size.height-65)];
+    self.DetailTableView = [[UITableView alloc]initWithFrame:CGRectMake(10, 15, self.view.bounds.size.width, self.view.bounds.size.height-65)];
     self.DetailTableView.delegate = self;
     self.DetailTableView.dataSource = self;
+    self.DetailTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.view addSubview:self.DetailTableView];
-}
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc]initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:self action:@selector(backHome)];
+    [[UINavigationBar appearance]setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+    [[UINavigationBar appearance]setShadowImage:[UIImage new]];
+   // self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    self.navigationItem.leftBarButtonItem = backButton;
 
+}
+-(void)backHome{
+    [self dismissViewControllerAnimated:YES completion:^{
+        NSLog(@"返回成功");
+    }];
+}
 
 
 - (instancetype) initWithProjectInfo:(NSDictionary *)ProjectMemberArray{
@@ -61,7 +72,7 @@
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 80;
+    return 70;
 }
 // Row display. Implementers should *always* try to reuse cells by setting each cell's reuseIdentifier and querying for available reusable cells with dequeueReusableCellWithIdentifier:
 // Cell gets various attributes set automatically based on table (separators) and data source (accessory views, editing controls)

@@ -18,7 +18,7 @@
 @implementation CYProjectView
 -(instancetype)init{
     if (self = [super init]) {
-        self.frame = CGRectMake(0, 65, screenWidth, screenHeight-65);
+        self.frame = CGRectMake(0, 65, screenWidth, screenHeight);
         [self setupUI];
     }
     return self;
@@ -85,7 +85,8 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     NSString * projectName = self.projectName[indexPath.row];
     NSArray *projectMember = self.dic[projectName];
-    NSDictionary *NotiDic = @{@"1":projectMember};
+    NSDictionary *NotiDic = @{@"1":projectMember,
+                              @"2":projectName};
     NSNotification *notice = [NSNotification notificationWithName:@"pushView" object:nil userInfo:NotiDic];
     [[NSNotificationCenter defaultCenter]postNotification:notice];
     

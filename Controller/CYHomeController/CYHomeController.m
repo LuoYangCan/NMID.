@@ -37,9 +37,13 @@
 }
 - (void)pushViewController:(NSNotification *)sender{
     NSArray *projectMember = [sender.userInfo objectForKey:@"1"];
+    NSString *projectName = [sender.userInfo objectForKey:@"2"];
     CYDetailProjectViewController *detailPVC = [[CYDetailProjectViewController alloc]initWithProjectInfo:projectMember];
-    [self presentViewController:detailPVC animated:YES completion:^{
+    UINavigationController *navic = [[UINavigationController alloc]initWithRootViewController:detailPVC];
+    detailPVC.navigationItem.title = projectName;
+    [self presentViewController:navic animated:YES completion:^{
         NSLog(@"转移成功!\n");
+        NSLog(@"项目名字:%@",projectName);
     }];
 
 }

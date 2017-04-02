@@ -21,7 +21,7 @@
 @implementation CYAllPeopleView
 - (instancetype)init{
     if (self = [super init]) {
-        self.frame = CGRectMake(0, 65, screenWidth, screenHeight-65);
+        self.frame = CGRectMake(0, 65, screenWidth, screenHeight);
         [self setup];
     }
     return self;
