@@ -20,7 +20,7 @@
         UIButton *projName = [[UIButton alloc]initWithFrame:CGRectMake(60, screenHeight / 3 , 120, 40)];
       //  projName = [UIButton buttonWithType:UIButtonTypeCustom];
         [projName setTitle:@"项目人员" forState:UIControlStateNormal];
-        projName.titleLabel.font = [UIFont systemFontOfSize:17];
+        projName.titleLabel.font = [UIFont systemFontOfSize:17.5];
         [projName setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         projName.backgroundColor = [UIColor orangeColor];
         [self addSubview:projName];

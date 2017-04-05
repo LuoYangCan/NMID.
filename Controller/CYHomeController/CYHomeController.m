@@ -19,21 +19,36 @@
 @property(nonatomic,strong) UIView *mainView;
 @property(nonatomic,strong) CYAllPeopleView *ALLV;
 @property(nonatomic,strong) CYProjectView *PV;
+@property (nonatomic,strong) CALayer *imageLayer;
 @end
 
 @implementation CYHomeController
-
+{
+    BOOL flag ;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
     [center addObserver:self selector:@selector(pushViewController:) name:@"pushView" object:nil];
     self.maxY = 0;
     self.offsetLeft = screenWidth * 0.81;
+    [self performSelector:@selector(setup) withObject:nil afterDelay:4];
+
+   // self.navigationController.navigationBarHidden = NO;
+    // Do any additional setup after loading the view.
+}
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    if (flag == NO) {
+        [self showImage];
+        flag = YES;
+    }
+
+}
+- (void)setup{
     [self initVC];
     [self initsegment];
     [self setupGesture];
-   // self.navigationController.navigationBarHidden = NO;
-    // Do any additional setup after loading the view.
 }
 - (void)pushViewController:(NSNotification *)sender{
     NSArray *projectMember = [sender.userInfo objectForKey:@"1"];
@@ -170,6 +185,33 @@
         return NO;
     }
 }
+#pragma mark - 登录界面
+- (void) showImage{
+    UIImage *background = [UIImage imageNamed:@"background"];
+    
+    self.imageLayer = [CALayer layer];
+    self.imageLayer.frame = CGRectMake(0, 0, screenWidth, screenHeight);
+    [self.view.layer addSublayer:self.imageLayer];
+    self.imageLayer.contents = (__bridge id)(background.CGImage);
+    
+    [self performSelector:@selector(layerAnimation) withObject:nil afterDelay:1.0f];
+    
+    
+}
+
+-(void)layerAnimation{
+    UIImage *LaunchImage = [UIImage imageNamed:@"Launch_Image"];
+    
+    CABasicAnimation *contentsAnimation = [CABasicAnimation animationWithKeyPath:@"contents"];
+    contentsAnimation.fromValue = self.imageLayer.contents;
+    contentsAnimation.toValue = (__bridge id)(LaunchImage.CGImage);
+    contentsAnimation.duration = 2;
+    
+    self.imageLayer.contents = (__bridge id)(LaunchImage.CGImage);
+    [self.imageLayer addAnimation:contentsAnimation forKey:nil];
+    [self.imageLayer performSelector:@selector(removeFromSuperlayer) withObject:nil afterDelay:3];
+}
+
 /*
 #pragma mark - Navigation
 
