@@ -65,8 +65,8 @@
     //self.edgesForExtendedLayout = UIRectEdgeNone;
     self.PV = [[CYProjectView alloc]init];
     //self.currentVC = self.ProVC;
-    CYDrawerView *leftView = [[CYDrawerView alloc]initWithFrame:self.view.bounds];
-    leftView.backgroundColor = [UIColor grayColor];
+    CYDrawerView *leftView = [[CYDrawerView alloc]init];
+    leftView.frame = self.view.bounds;
     [self.view addSubview:leftView];
     [self.view addSubview:self.mainView];
     [self.mainView addSubview:self.PV];

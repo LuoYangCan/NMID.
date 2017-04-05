@@ -27,8 +27,9 @@
     NSBundle *bundle = [NSBundle mainBundle];
     NSString *plistpath = [bundle pathForResource:@"Property List" ofType:@"plist"];
     self.dic = [[NSDictionary alloc]initWithContentsOfFile:plistpath];
-    NSArray *templist = [self.dic allKeys];
-    self.projectName = [templist sortedArrayUsingSelector:@selector(compare:)];
+    self.projectName = [self.dic allKeys];
+//    NSArray *templist = [self.dic allKeys];
+//    self.projectName = [templist sortedArrayUsingSelector:@selector(compare:)];
     self.TableView =[[UITableView alloc]initWithFrame:CGRectMake(0, 0, self.bounds.size.width, self.bounds.size.height-65)];
     self.TableView.delegate = self;
     self.TableView.dataSource = self;
