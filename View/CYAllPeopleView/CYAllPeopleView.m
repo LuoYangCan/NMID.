@@ -70,7 +70,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     CYTableViewCell *cell = [[CYTableViewCell alloc]init];
-    cell.selectionStyle = UITableViewRowAnimationNone;
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.tLabel.text = self.peopleName[indexPath.row];
     NSString *firstWord = [CYHelper getFirstWordFrom:self.peopleName andRow:indexPath];
     UIColor *color = [CYHelper getColorfrom:indexPath];

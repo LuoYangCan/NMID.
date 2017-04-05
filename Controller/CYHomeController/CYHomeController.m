@@ -32,7 +32,7 @@
     [center addObserver:self selector:@selector(pushViewController:) name:@"pushView" object:nil];
     self.maxY = 0;
     self.offsetLeft = screenWidth * 0.81;
-    [self performSelector:@selector(setup) withObject:nil afterDelay:4];
+    [self performSelector:@selector(setup) withObject:nil afterDelay:3];
 
    // self.navigationController.navigationBarHidden = NO;
     // Do any additional setup after loading the view.
@@ -67,7 +67,6 @@
 }
 - (void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
-    //self.navigationController.navigationBarHidden = NO; //切到其他画面之后顶部不变
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -77,24 +76,19 @@
 -(void)initVC{
     self.mainView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, screenWidth, screenHeight)];
     self.mainView.backgroundColor = [UIColor whiteColor];
-    //self.edgesForExtendedLayout = UIRectEdgeNone;
     self.PV = [[CYProjectView alloc]init];
-    //self.currentVC = self.ProVC;
     CYDrawerView *leftView = [[CYDrawerView alloc]init];
     leftView.frame = self.view.bounds;
     [self.view addSubview:leftView];
     [self.view addSubview:self.mainView];
     [self.mainView addSubview:self.PV];
-   // [self.mainView addSubview:self.ProVC.view];
     self.ALLV = [[CYAllPeopleView alloc]init];
     
 }
 #pragma mark - 初始化segmentControl
 - (void)initsegment{
     self.segment = [[UISegmentedControl alloc]initWithItems:@[@"项目组",@"所有人"]];   //设置名字
-    self.segment.frame = CGRectMake(screenWidth/2-100, 18,200, 33);
-//    [self.segment setWidth:100 forSegmentAtIndex:0];                            //设置宽度
-//    [self.segment setWidth:100 forSegmentAtIndex:1];
+    self.segment.frame = CGRectMake(screenWidth/2-100, 22,200, 33);
     self.segment.selectedSegmentIndex = 0;                              //设置初始位置
     [self.segment addTarget:self action:@selector(segmentdidChange:) forControlEvents:UIControlEventValueChanged];
     [self.mainView addSubview:self.segment];
@@ -104,35 +98,16 @@
 - (void)segmentdidChange:(UISegmentedControl *)seg{
     switch (seg.selectedSegmentIndex) {
         case 0:
-           // [self segmentDidChangeFromOld:self.currentVC toNew:self.ProVC];
             [self.ALLV removeFromSuperview];
             break;
         case 1:
             self.ALLV.frame = CGRectMake(0, 65, screenWidth, screenHeight);
             [self.mainView addSubview:self.ALLV];
-//            self.ALLPVC.view.frame = CGRectMake(0, 65, screenWidth, screenHeight);
-//            [self.mainView addSubview:self.ALLPVC.view];
-            
-          //  [self segmentDidChangeFromOld:self.currentVC toNew:self.ALLPVC];
         default:
             break;
     }
 }
-//#pragma mark -segment从旧VC到新VC
-//- (void)segmentDidChangeFromOld:(UIViewController *)OldVC toNew:(UIViewController *)NewVC{
-//    [self addChildViewController:NewVC];
-//    [self addChildViewController:OldVC];
-//    [self transitionFromViewController:OldVC toViewController:NewVC duration:0.1 options:UIViewAnimationOptionTransitionCrossDissolve animations:nil completion:^(BOOL finished) {
-//        if (finished) {
-//            [NewVC didMoveToParentViewController:self];
-//            [OldVC willMoveToParentViewController:nil];
-//            [OldVC removeFromParentViewController];
-//            self.currentVC = NewVC;
-//        }else{
-//            self.currentVC = OldVC;
-//        }
-//    }];
-//}
+
 #pragma mark - 简单抽屉手势
 - (void) setupGesture{
     
@@ -209,7 +184,7 @@
     
     self.imageLayer.contents = (__bridge id)(LaunchImage.CGImage);
     [self.imageLayer addAnimation:contentsAnimation forKey:nil];
-    [self.imageLayer performSelector:@selector(removeFromSuperlayer) withObject:nil afterDelay:3];
+    [self.imageLayer performSelector:@selector(removeFromSuperlayer) withObject:nil afterDelay:2.7f];
 }
 
 /*
