@@ -18,7 +18,7 @@
 @implementation CYProjectView
 -(instancetype)init{
     if (self = [super init]) {
-        self.frame = CGRectMake(0, 65, screenWidth, screenHeight);
+        self.frame = CGRectMake(0, 70, screenWidth, screenHeight);
         [self setupUI];
     }
     return self;

@@ -75,7 +75,7 @@
 }
 #pragma mark - 初始化vc
 -(void)initVC{
-    self.LeftBtn = [[UIButton alloc]initWithFrame:CGRectMake(15, 24, 30, 30)];
+    self.LeftBtn = [[UIButton alloc]initWithFrame:CGRectMake(15, 29, 30, 30)];
     [self.LeftBtn setImage:[UIImage imageNamed:@"Menu-40"] forState:UIControlStateNormal];
     [self.LeftBtn addTarget:self action:@selector(showLeftView) forControlEvents:UIControlEventTouchUpInside];
     self.mainView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, screenWidth, screenHeight)];
@@ -93,7 +93,7 @@
 #pragma mark - 初始化segmentControl
 - (void)initsegment{
     self.segment = [[UISegmentedControl alloc]initWithItems:@[@"项目组",@"所有人"]];   //设置名字
-    self.segment.frame = CGRectMake(screenWidth/2-100, 22,200, 33);
+    self.segment.frame = CGRectMake(screenWidth/2-100, 27,200, 33);
     self.segment.selectedSegmentIndex = 0;                              //设置初始位置
     [self.segment addTarget:self action:@selector(segmentdidChange:) forControlEvents:UIControlEventValueChanged];
     [self.mainView addSubview:self.segment];
