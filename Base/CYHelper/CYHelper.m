@@ -12,26 +12,26 @@
     int index = IndexPath.row % 6 ;
     switch (index) {
         case 0:
-            return [UIColor orangeColor];
+            return ROrange;
             break;
         case 1:
-            return [UIColor redColor];
+            return RRed;
             break;
         case 2:
             return [UIColor purpleColor];
             break;
         case 3:
-            return [UIColor blueColor];
+            return RBlue;
             break;
         case 4:
             return [UIColor grayColor];
             break;
         case 5:
-            return [UIColor greenColor];
+            return RGreen;
             break;
             
         default:
-            return [UIColor orangeColor];
+            return ROrange;
             break;
     }
 }

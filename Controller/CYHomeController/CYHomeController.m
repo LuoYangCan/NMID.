@@ -32,7 +32,7 @@
     NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
     [center addObserver:self selector:@selector(pushViewController:) name:@"pushView" object:nil];
     self.maxY = 0;
-    self.offsetLeft = screenWidth * 0.81;
+    self.offsetLeft = LeftOffX;
     [self performSelector:@selector(setup) withObject:nil afterDelay:3];
 
    // self.navigationController.navigationBarHidden = NO;
@@ -163,8 +163,8 @@
 -(CGRect)framewithoffsetX:(CGFloat)offsetX{
     CGRect frame = self.mainView.frame;
     frame.origin.x += offsetX;
-    if (frame.origin.x >= screenWidth * 0.81) {
-        frame.origin.x = screenWidth *0.81;
+    if (frame.origin.x >= LeftOffX) {
+        frame.origin.x = LeftOffX;
     }
     return frame;
 }
