@@ -11,7 +11,6 @@
 		2D0E5C3A1E7D53D000D69F2B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D0E5C391E7D53D000D69F2B /* AppDelegate.m */; };
 		2D0E5C3D1E7D53D000D69F2B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D0E5C3C1E7D53D000D69F2B /* ViewController.m */; };
 		2D0E5C401E7D53D000D69F2B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D0E5C3E1E7D53D000D69F2B /* Main.storyboard */; };
-		2D0E5C421E7D53D000D69F2B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2D0E5C411E7D53D000D69F2B /* Assets.xcassets */; };
 		2D0E5C451E7D53D000D69F2B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D0E5C431E7D53D000D69F2B /* LaunchScreen.storyboard */; };
 		2D0E5C501E7D53D100D69F2B /* Young_EaglesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D0E5C4F1E7D53D100D69F2B /* Young_EaglesTests.m */; };
 		2D0E5C5B1E7D53D100D69F2B /* Young_EaglesUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D0E5C5A1E7D53D100D69F2B /* Young_EaglesUITests.m */; };
@@ -23,6 +22,7 @@
 		2DF80B691E8F3C4D00212E2E /* CYHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DF80B681E8F3C4D00212E2E /* CYHelper.m */; };
 		2DF80B6E1E8F566F00212E2E /* CYAllPeopleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DF80B6D1E8F566F00212E2E /* CYAllPeopleView.m */; };
 		2DF80B711E8F567C00212E2E /* CYProjectView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DF80B701E8F567C00212E2E /* CYProjectView.m */; };
+		68072DE61E9895140080EACF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68072DE51E9895140080EACF /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,7 +50,6 @@
 		2D0E5C3B1E7D53D000D69F2B /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		2D0E5C3C1E7D53D000D69F2B /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		2D0E5C3F1E7D53D000D69F2B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		2D0E5C411E7D53D000D69F2B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2D0E5C441E7D53D000D69F2B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2D0E5C461E7D53D000D69F2B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2D0E5C4B1E7D53D100D69F2B /* Young EaglesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Young EaglesTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -74,6 +73,7 @@
 		2DF80B6D1E8F566F00212E2E /* CYAllPeopleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYAllPeopleView.m; sourceTree = "<group>"; };
 		2DF80B6F1E8F567C00212E2E /* CYProjectView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYProjectView.h; sourceTree = "<group>"; };
 		2DF80B701E8F567C00212E2E /* CYProjectView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYProjectView.m; sourceTree = "<group>"; };
+		68072DE51E9895140080EACF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,8 +132,8 @@
 				2D0E5C391E7D53D000D69F2B /* AppDelegate.m */,
 				2D0E5C3B1E7D53D000D69F2B /* ViewController.h */,
 				2D0E5C3C1E7D53D000D69F2B /* ViewController.m */,
+				68072DE51E9895140080EACF /* Assets.xcassets */,
 				2D0E5C3E1E7D53D000D69F2B /* Main.storyboard */,
-				2D0E5C411E7D53D000D69F2B /* Assets.xcassets */,
 				2D0E5C431E7D53D000D69F2B /* LaunchScreen.storyboard */,
 				2D0E5C461E7D53D000D69F2B /* Info.plist */,
 				2D0E5C351E7D53D000D69F2B /* Supporting Files */,
@@ -374,8 +374,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				2D0E5C451E7D53D000D69F2B /* LaunchScreen.storyboard in Resources */,
-				2D0E5C421E7D53D000D69F2B /* Assets.xcassets in Resources */,
 				2D3F0A6C1E7D793E007642DF /* Property List.plist in Resources */,
+				68072DE61E9895140080EACF /* Assets.xcassets in Resources */,
 				2D0E5C401E7D53D000D69F2B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

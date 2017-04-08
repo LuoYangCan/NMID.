@@ -20,6 +20,7 @@
 @property(nonatomic,strong) CYAllPeopleView *ALLV;
 @property(nonatomic,strong) CYProjectView *PV;
 @property (nonatomic,strong) CALayer *imageLayer;
+@property(nonatomic,strong) UIButton *LeftBtn;
 @end
 
 @implementation CYHomeController
@@ -74,6 +75,9 @@
 }
 #pragma mark - 初始化vc
 -(void)initVC{
+    self.LeftBtn = [[UIButton alloc]initWithFrame:CGRectMake(15, 24, 30, 30)];
+    [self.LeftBtn setImage:[UIImage imageNamed:@"Menu-40"] forState:UIControlStateNormal];
+    [self.LeftBtn addTarget:self action:@selector(showLeftView) forControlEvents:UIControlEventTouchUpInside];
     self.mainView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, screenWidth, screenHeight)];
     self.mainView.backgroundColor = [UIColor whiteColor];
     self.PV = [[CYProjectView alloc]init];
@@ -82,6 +86,7 @@
     [self.view addSubview:leftView];
     [self.view addSubview:self.mainView];
     [self.mainView addSubview:self.PV];
+    [self.mainView addSubview:self.LeftBtn];
     self.ALLV = [[CYAllPeopleView alloc]init];
     
 }
@@ -117,12 +122,23 @@
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self  action:@selector(tapGes)];
     tap.delegate = self;
     
-    [self.view addGestureRecognizer:tap];
+    [self.mainView addGestureRecognizer:tap];
 }
 - (void)tapGes{
     [UIView animateWithDuration:0.25 animations:^{
         self.mainView.frame = self.view.bounds;
     }];
+}
+-(void)showLeftView{
+    if (self.mainView.frame.origin.x == screenWidth *0.81) {
+        [UIView animateWithDuration:0.25 animations:^{
+            self.mainView.frame = self.view.bounds;
+        }];
+    }else{
+    [UIView animateWithDuration:0.25 animations:^{
+        self.mainView.frame = [self framewithoffsetX:self.offsetLeft];
+    }];
+    }
 }
 -(void)pan:(UIPanGestureRecognizer *)pan{
     CGPoint finger = [pan translationInView:self.mainView];
@@ -160,7 +176,7 @@
         return NO;
     }
 }
-#pragma mark - 登录界面
+#pragma mark - 载入界面
 - (void) showImage{
     UIImage *background = [UIImage imageNamed:@"background"];
     
