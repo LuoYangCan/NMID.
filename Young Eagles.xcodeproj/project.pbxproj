@@ -14,6 +14,8 @@
 		2D0E5C451E7D53D000D69F2B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D0E5C431E7D53D000D69F2B /* LaunchScreen.storyboard */; };
 		2D0E5C501E7D53D100D69F2B /* Young_EaglesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D0E5C4F1E7D53D100D69F2B /* Young_EaglesTests.m */; };
 		2D0E5C5B1E7D53D100D69F2B /* Young_EaglesUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D0E5C5A1E7D53D100D69F2B /* Young_EaglesUITests.m */; };
+		2D10283F1E9B3AE6005FC054 /* CYExpertsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D10283E1E9B3AE6005FC054 /* CYExpertsView.m */; };
+		2D1028421E9B3AEF005FC054 /* CYManagerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D1028411E9B3AEF005FC054 /* CYManagerView.m */; };
 		2D3F0A6C1E7D793E007642DF /* Property List.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2D3F0A6B1E7D793E007642DF /* Property List.plist */; };
 		2D43CFA21E8154AE006363BF /* CYTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D43CFA11E8154AE006363BF /* CYTableViewCell.m */; };
 		2DD53D651E8F62DF007B43B2 /* CYHomeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD53D641E8F62DF007B43B2 /* CYHomeController.m */; };
@@ -58,6 +60,10 @@
 		2D0E5C561E7D53D100D69F2B /* Young EaglesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Young EaglesUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D0E5C5A1E7D53D100D69F2B /* Young_EaglesUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Young_EaglesUITests.m; sourceTree = "<group>"; };
 		2D0E5C5C1E7D53D100D69F2B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2D10283D1E9B3AE6005FC054 /* CYExpertsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYExpertsView.h; sourceTree = "<group>"; };
+		2D10283E1E9B3AE6005FC054 /* CYExpertsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYExpertsView.m; sourceTree = "<group>"; };
+		2D1028401E9B3AEF005FC054 /* CYManagerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYManagerView.h; sourceTree = "<group>"; };
+		2D1028411E9B3AEF005FC054 /* CYManagerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYManagerView.m; sourceTree = "<group>"; };
 		2D3F0A6B1E7D793E007642DF /* Property List.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Property List.plist"; sourceTree = "<group>"; };
 		2D43CFA01E8154AE006363BF /* CYTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYTableViewCell.h; sourceTree = "<group>"; };
 		2D43CFA11E8154AE006363BF /* CYTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYTableViewCell.m; sourceTree = "<group>"; };
@@ -180,6 +186,8 @@
 		2D0E5C701E7D590000D69F2B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				2D10283B1E9B3ADA005FC054 /* CYExpertsView */,
+				2D10283C1E9B3ADA005FC054 /* CYManageView */,
 				2DF80B6A1E8F565A00212E2E /* CYAllPeopleView */,
 				2DF80B6B1E8F565A00212E2E /* CYProjectView */,
 				2DF189141E88FEBC003D9D77 /* CYDrawerView */,
@@ -201,6 +209,24 @@
 				2DF80B661E8F3C3900212E2E /* CYHelper */,
 			);
 			path = Base;
+			sourceTree = "<group>";
+		};
+		2D10283B1E9B3ADA005FC054 /* CYExpertsView */ = {
+			isa = PBXGroup;
+			children = (
+				2D10283D1E9B3AE6005FC054 /* CYExpertsView.h */,
+				2D10283E1E9B3AE6005FC054 /* CYExpertsView.m */,
+			);
+			path = CYExpertsView;
+			sourceTree = "<group>";
+		};
+		2D10283C1E9B3ADA005FC054 /* CYManageView */ = {
+			isa = PBXGroup;
+			children = (
+				2D1028401E9B3AEF005FC054 /* CYManagerView.h */,
+				2D1028411E9B3AEF005FC054 /* CYManagerView.m */,
+			);
+			path = CYManageView;
 			sourceTree = "<group>";
 		};
 		2D43CF9F1E815491006363BF /* CYTableViewCell */ = {
@@ -408,6 +434,8 @@
 				2DF80B611E8F34E200212E2E /* CYDetailProjectViewController.m in Sources */,
 				2D0E5C3A1E7D53D000D69F2B /* AppDelegate.m in Sources */,
 				2DF189171E88FECF003D9D77 /* CYDrawerView.m in Sources */,
+				2D10283F1E9B3AE6005FC054 /* CYExpertsView.m in Sources */,
+				2D1028421E9B3AEF005FC054 /* CYManagerView.m in Sources */,
 				2DF80B711E8F567C00212E2E /* CYProjectView.m in Sources */,
 				2DF80B691E8F3C4D00212E2E /* CYHelper.m in Sources */,
 				2D0E5C371E7D53D000D69F2B /* main.m in Sources */,

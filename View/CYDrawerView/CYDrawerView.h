@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface CYDrawerView : UIView
-
+@property (nonatomic,strong) NSString *change;
 @end

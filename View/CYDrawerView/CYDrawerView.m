@@ -9,9 +9,12 @@
 #import "CYDrawerView.h"
 #import "CYHelper.h"
 @implementation CYDrawerView
-
+{
+    BOOL homeFlag;
+}
 - (instancetype)init{
     if (self = [super init]) {
+        homeFlag = YES;
         self.backgroundColor = LeftBlue;
         [self initTopUI];
         [self setupButton];
@@ -38,8 +41,11 @@
 }
 -(void) setupButton{
     UIButton  *projName = [self setButtonwithTitle:@"通讯录" forState:UIControlStateNormal andLocation:(screenHeight / 3) andImage:@"Commercial Development Management-50"];
+    [projName addTarget:self action:@selector(tapFirstBtn) forControlEvents:UIControlEventTouchUpInside];
     UIButton  *experts = [self setButtonwithTitle:@"管理手册" forState:UIControlStateNormal andLocation:(screenHeight / 3 + 45) andImage:@"Literature-64"];
+    [experts addTarget:self action:@selector(tapSecondBtn) forControlEvents:UIControlEventTouchUpInside];
     UIButton  *book = [self setButtonwithTitle:@"专家" forState:UIControlStateNormal andLocation:(screenHeight / 3 + 90) andImage:@"Contacts-50"];
+    [book addTarget:self action:@selector(tapThirdBtn) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:projName];
     [self addSubview:experts];
     [self addSubview:book];
@@ -57,6 +63,35 @@
     image.frame = CGRectMake(-40, 5, 30, 30);
     [Btn addSubview:image];
     return Btn;
+}
+-(void)tapFirstBtn{
+    if (!homeFlag) {
+    self.change = @"0";
+    NSDictionary *NotiDic = @{@"1":@"通讯录",
+                                  @"2":self.change};
+    NSNotification *notice = [NSNotification notificationWithName:@"changeView" object:nil userInfo:NotiDic];
+        [[NSNotificationCenter defaultCenter]postNotification:notice];
+        NSLog(@"点第一个按钮,change值为%@",self.change);
+    }
+
+}
+-(void)tapSecondBtn{
+    self.change =@"1";
+    homeFlag = NO;
+    NSDictionary *NotiDic = @{@"1":@"管理手册",
+                              @"2":self.change};
+    NSNotification *notice = [NSNotification notificationWithName:@"changeView" object:nil userInfo:NotiDic];
+    [[NSNotificationCenter defaultCenter]postNotification:notice];
+    NSLog(@"点第二个按钮,change值为%@",self.change);
+}
+-(void)tapThirdBtn{
+    self.change =@"2";
+    homeFlag = NO;
+    NSDictionary *NotiDic = @{@"1":@"专家",
+                              @"2":self.change};
+    NSNotification *notice = [NSNotification notificationWithName:@"changeView" object:nil userInfo:NotiDic];
+    [[NSNotificationCenter defaultCenter]postNotification:notice];
+    NSLog(@"点第三个按钮,change值为%@",self.change);
 }
 /*
 // Only override drawRect: if you perform custom drawing.

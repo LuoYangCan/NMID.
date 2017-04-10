@@ -11,28 +11,34 @@
 #import "CYAllPeopleView.h"
 #import "CYDetailProjectViewController.h"
 #import "CYProjectView.h"
+#import "CYExpertsView.h"
+#import "CYManagerView.h"
 @interface CYHomeController ()<UIGestureRecognizerDelegate>
 @property(nonatomic,strong) UISegmentedControl *segment; /**<  顶部切换*/
 @property(nonatomic,strong) UIViewController *currentVC; /**<  当前页面*/
-@property(nonatomic,assign) CGFloat maxY;
-@property(nonatomic,assign) CGFloat offsetLeft;
 @property(nonatomic,strong) UIView *mainView;
 @property(nonatomic,strong) CYAllPeopleView *ALLV;
 @property(nonatomic,strong) CYProjectView *PV;
-@property (nonatomic,strong) CALayer *imageLayer;
+@property(nonatomic,strong) CYManagerView *ManaV;
+@property(nonatomic,strong) CYExpertsView *ExpertsV;
+@property(nonatomic,strong) CYDrawerView *leftView;
+@property(nonatomic,strong) CALayer *imageLayer;
 @property(nonatomic,strong) UIButton *LeftBtn;
 @end
 
 @implementation CYHomeController
 {
     BOOL flag ;
+    CGFloat maxY;
+    CGFloat offsetLeft;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
     NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
     [center addObserver:self selector:@selector(pushViewController:) name:@"pushView" object:nil];
-    self.maxY = 0;
-    self.offsetLeft = LeftOffX;
+    [center addObserver:self selector:@selector(changeView:) name:@"changeView" object:nil];
+     maxY = 0;
+    offsetLeft = LeftOffX;
     [self performSelector:@selector(setup) withObject:nil afterDelay:3];
 
    // self.navigationController.navigationBarHidden = NO;
@@ -51,6 +57,18 @@
     [self initsegment];
     [self setupGesture];
 }
+- (void)dealloc{
+    [[NSNotificationCenter defaultCenter]removeObserver:self name:@"pushView" object:nil];
+    [[NSNotificationCenter defaultCenter]removeObserver:self name:@"changeView" object:nil];
+}
+- (void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+}
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+#pragma mark -通知
 - (void)pushViewController:(NSNotification *)sender{
     NSArray *projectMember = [sender.userInfo objectForKey:@"1"];
     NSString *projectName = [sender.userInfo objectForKey:@"2"];
@@ -63,16 +81,35 @@
     }];
 
 }
-- (void)dealloc{
-    [[NSNotificationCenter defaultCenter]removeObserver:self name:@"pushView" object:nil];
+-(void)changeView:(NSNotification *)sender{
+    NSString *re = [sender.userInfo objectForKey:@"2"];
+    NSLog(@"收到的回复是%@",re);
+    switch ([re intValue]) {
+        case 0:
+            [self.ExpertsV removeFromSuperview];
+            [self.ManaV removeFromSuperview];
+            break;
+        case 1:
+            [self.ManaV removeFromSuperview];
+            [self.ExpertsV removeFromSuperview];
+            self.ManaV = [[CYManagerView alloc]init];
+            self.ManaV.frame = self.mainView.bounds;
+            [self.mainView addSubview:self.ManaV];
+            [self.mainView bringSubviewToFront:self.ManaV];
+            break;
+        case 2:
+            [self.ExpertsV removeFromSuperview];
+            [self.ManaV removeFromSuperview];
+            self.ExpertsV = [[CYExpertsView alloc]init];
+            self.ExpertsV.frame = self.mainView.bounds;
+            [self.mainView addSubview:self.ExpertsV];
+            [self.mainView bringSubviewToFront:self.ExpertsV];
+            break;
+        default:
+            break;
+    }
 }
-- (void)viewWillDisappear:(BOOL)animated{
-    [super viewWillDisappear:animated];
-}
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
+
 #pragma mark - 初始化vc
 -(void)initVC{
     self.LeftBtn = [[UIButton alloc]initWithFrame:CGRectMake(15, 29, 30, 30)];
@@ -81,9 +118,9 @@
     self.mainView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, screenWidth, screenHeight)];
     self.mainView.backgroundColor = [UIColor whiteColor];
     self.PV = [[CYProjectView alloc]init];
-    CYDrawerView *leftView = [[CYDrawerView alloc]init];
-    leftView.frame = self.view.bounds;
-    [self.view addSubview:leftView];
+    self.leftView = [[CYDrawerView alloc]init];
+    self.leftView.frame = self.view.bounds;
+    [self.view addSubview:self.leftView];
     [self.view addSubview:self.mainView];
     [self.mainView addSubview:self.PV];
     [self.mainView addSubview:self.LeftBtn];
@@ -136,7 +173,7 @@
         }];
     }else{
     [UIView animateWithDuration:0.25 animations:^{
-        self.mainView.frame = [self framewithoffsetX:self.offsetLeft];
+        self.mainView.frame = [self framewithoffsetX:offsetLeft];
     }];
     }
 }
@@ -149,7 +186,7 @@
     CGFloat target = 0 ;
     if (pan.state == UIGestureRecognizerStateEnded) {
         if (self.mainView.frame.origin.x > screenWidth * 0.34) {
-            target = self.offsetLeft ;
+            target = offsetLeft ;
         }
         CGFloat offsetX = target - self.mainView.frame.origin.x;
         [UIView animateWithDuration:0.25 animations:^{
