@@ -75,39 +75,102 @@
     CYDetailProjectViewController *detailPVC = [[CYDetailProjectViewController alloc]initWithProjectInfo:projectMember];
     UINavigationController *navic = [[UINavigationController alloc]initWithRootViewController:detailPVC];
     detailPVC.navigationItem.title = projectName;
-    [self presentViewController:navic animated:YES completion:^{
-        NSLog(@"转移成功!\n");
-        NSLog(@"项目名字:%@",projectName);
-    }];
+    [self presentViewController:navic animated:YES completion:nil];
 
 }
 -(void)changeView:(NSNotification *)sender{
     NSString *re = [sender.userInfo objectForKey:@"2"];
-    NSLog(@"收到的回复是%@",re);
     switch ([re intValue]) {
         case 0:
-            [self.ExpertsV removeFromSuperview];
-            [self.ManaV removeFromSuperview];
+            [self movetoHomeView];
             break;
         case 1:
-            [self.ManaV removeFromSuperview];
-            [self.ExpertsV removeFromSuperview];
-            self.ManaV = [[CYManagerView alloc]init];
-            self.ManaV.frame = self.mainView.bounds;
-            [self.mainView addSubview:self.ManaV];
-            [self.mainView bringSubviewToFront:self.ManaV];
+            [self showManaV];
             break;
         case 2:
-            [self.ExpertsV removeFromSuperview];
-            [self.ManaV removeFromSuperview];
-            self.ExpertsV = [[CYExpertsView alloc]init];
-            self.ExpertsV.frame = self.mainView.bounds;
-            [self.mainView addSubview:self.ExpertsV];
-            [self.mainView bringSubviewToFront:self.ExpertsV];
+            [self showExpertsV];
             break;
         default:
             break;
     }
+}
+#pragma mark - 切换页面
+-(void)movetoHomeView{
+    [UIView animateWithDuration:0.25 animations:^{
+        self.mainView.frame = self.view.bounds;
+    }];
+    if (self.ExpertsV) {
+        [UIView animateWithDuration:0.2  animations:^{
+            self.ExpertsV.frame = [self framemove];
+        }completion:^(BOOL finished) {
+            [self.ExpertsV removeFromSuperview];
+            self.ExpertsV = nil;
+        }];
+        
+    }else if(self.ManaV){
+        [UIView animateWithDuration:0.2  animations:^{
+            self.ManaV.frame = [self framemove];
+        }completion:^(BOOL finished) {
+            [self.ManaV removeFromSuperview];
+            self.ManaV = nil;
+        }];
+    }
+}
+
+-(void)showManaV{
+    if (!self.ManaV) {
+        [UIView animateWithDuration:0.25 animations:^{
+            self.mainView.frame = self.view.bounds;
+        }];
+        self.ManaV = [[CYManagerView alloc]init];
+        self.ManaV.frame = CGRectMake(screenWidth, 0, screenWidth, screenHeight);
+        [self.mainView addSubview:self.ManaV];
+        if (self.ExpertsV) {
+                [UIView animateWithDuration:0.2 animations:^{
+                self.ManaV.frame = self.mainView.bounds;
+            }completion:^(BOOL finished) {
+                [self.ExpertsV removeFromSuperview];
+                self.ExpertsV = nil;
+            }];
+            
+        }else if (!self.ExpertsV){
+            [UIView animateWithDuration:0.2  animations:^{
+                self.ManaV.frame = self.mainView.bounds;
+            }];
+        }
+
+    }
+    
+}
+-(void)showExpertsV{
+    if (!self.ExpertsV) {
+        [UIView animateWithDuration:0.25 animations:^{
+            self.mainView.frame = self.view.bounds;
+        }];
+        self.ExpertsV = [[CYExpertsView alloc]init];
+        self.ExpertsV.frame = CGRectMake(screenWidth, 0, screenWidth, screenHeight);
+        [self.mainView addSubview:self.ExpertsV];
+        if (self.ManaV) {
+            [UIView animateWithDuration:0.2  animations:^{
+                self.ExpertsV.frame = self.mainView.bounds;
+            } completion:^(BOOL finished) {
+                [self.ManaV removeFromSuperview];
+                self.ManaV = nil;
+            }];
+            
+        }else if (!self.ManaV){
+            [UIView animateWithDuration:0.2  animations:^{
+                self.ExpertsV.frame = self.mainView.bounds;
+            }];
+        }
+
+    }
+}
+
+-(CGRect)framemove{
+    CGRect frame = self.mainView.frame;
+    frame.origin.x += screenWidth;
+    return frame;
 }
 
 #pragma mark - 初始化vc

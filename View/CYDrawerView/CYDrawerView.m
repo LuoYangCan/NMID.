@@ -40,11 +40,11 @@
     [TopView addSubview:word];
 }
 -(void) setupButton{
-    UIButton  *projName = [self setButtonwithTitle:@"通讯录" forState:UIControlStateNormal andLocation:(screenHeight / 3) andImage:@"Commercial Development Management-50"];
+    UIButton  *projName = [self setButtonwithTitle:@"        通讯录" forState:UIControlStateNormal andLocation:(screenHeight / 3) andImage:@"Commercial Development Management-50"];
     [projName addTarget:self action:@selector(tapFirstBtn) forControlEvents:UIControlEventTouchUpInside];
-    UIButton  *experts = [self setButtonwithTitle:@"管理手册" forState:UIControlStateNormal andLocation:(screenHeight / 3 + 45) andImage:@"Literature-64"];
+    UIButton  *experts = [self setButtonwithTitle:@"        管理手册" forState:UIControlStateNormal andLocation:(screenHeight / 3 + 45) andImage:@"Literature-64"];
     [experts addTarget:self action:@selector(tapSecondBtn) forControlEvents:UIControlEventTouchUpInside];
-    UIButton  *book = [self setButtonwithTitle:@"专家" forState:UIControlStateNormal andLocation:(screenHeight / 3 + 90) andImage:@"Contacts-50"];
+    UIButton  *book = [self setButtonwithTitle:@"        专家" forState:UIControlStateNormal andLocation:(screenHeight / 3 + 90) andImage:@"Contacts-50"];
     [book addTarget:self action:@selector(tapThirdBtn) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:projName];
     [self addSubview:experts];
@@ -53,14 +53,14 @@
 }
 
 - (UIButton *)setButtonwithTitle:(NSString *)Title forState:(UIControlState *)UIControlState andLocation:(CGFloat )y andImage:(NSString *)ImageName{
-    UIButton *Btn = [[UIButton alloc]initWithFrame:CGRectMake(60, y, 150, 40)];
+    UIButton *Btn = [[UIButton alloc]initWithFrame:CGRectMake(20, y, LeftOffX -50, 40)];
     [Btn setTitle:Title forState:UIControlStateNormal];
     Btn.titleLabel.font = [UIFont systemFontOfSize:18];
     Btn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
    // Btn.titleLabel.textAlignment = NSTextAlignmentLeft;
     [Btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     UIImageView *image = [[UIImageView alloc]initWithImage:[UIImage imageNamed:ImageName]];
-    image.frame = CGRectMake(-40, 5, 30, 30);
+    image.frame = CGRectMake(0, 4, 30, 30);
     [Btn addSubview:image];
     return Btn;
 }
@@ -71,7 +71,6 @@
                                   @"2":self.change};
     NSNotification *notice = [NSNotification notificationWithName:@"changeView" object:nil userInfo:NotiDic];
         [[NSNotificationCenter defaultCenter]postNotification:notice];
-        NSLog(@"点第一个按钮,change值为%@",self.change);
     }
 
 }
@@ -82,7 +81,6 @@
                               @"2":self.change};
     NSNotification *notice = [NSNotification notificationWithName:@"changeView" object:nil userInfo:NotiDic];
     [[NSNotificationCenter defaultCenter]postNotification:notice];
-    NSLog(@"点第二个按钮,change值为%@",self.change);
 }
 -(void)tapThirdBtn{
     self.change =@"2";
@@ -91,7 +89,6 @@
                               @"2":self.change};
     NSNotification *notice = [NSNotification notificationWithName:@"changeView" object:nil userInfo:NotiDic];
     [[NSNotificationCenter defaultCenter]postNotification:notice];
-    NSLog(@"点第三个按钮,change值为%@",self.change);
 }
 /*
 // Only override drawRect: if you perform custom drawing.

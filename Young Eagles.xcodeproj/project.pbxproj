@@ -18,10 +18,10 @@
 		2D1028421E9B3AEF005FC054 /* CYManagerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D1028411E9B3AEF005FC054 /* CYManagerView.m */; };
 		2D3F0A6C1E7D793E007642DF /* Property List.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2D3F0A6B1E7D793E007642DF /* Property List.plist */; };
 		2D43CFA21E8154AE006363BF /* CYTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D43CFA11E8154AE006363BF /* CYTableViewCell.m */; };
+		2D5CE6BC1EA4ADAA00BE763A /* CYHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D5CE6BB1EA4ADAA00BE763A /* CYHelper.m */; };
 		2DD53D651E8F62DF007B43B2 /* CYHomeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD53D641E8F62DF007B43B2 /* CYHomeController.m */; };
 		2DF189171E88FECF003D9D77 /* CYDrawerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DF189161E88FECF003D9D77 /* CYDrawerView.m */; };
 		2DF80B611E8F34E200212E2E /* CYDetailProjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DF80B601E8F34E200212E2E /* CYDetailProjectViewController.m */; };
-		2DF80B691E8F3C4D00212E2E /* CYHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DF80B681E8F3C4D00212E2E /* CYHelper.m */; };
 		2DF80B6E1E8F566F00212E2E /* CYAllPeopleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DF80B6D1E8F566F00212E2E /* CYAllPeopleView.m */; };
 		2DF80B711E8F567C00212E2E /* CYProjectView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DF80B701E8F567C00212E2E /* CYProjectView.m */; };
 		68072DE61E9895140080EACF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68072DE51E9895140080EACF /* Assets.xcassets */; };
@@ -67,14 +67,14 @@
 		2D3F0A6B1E7D793E007642DF /* Property List.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Property List.plist"; sourceTree = "<group>"; };
 		2D43CFA01E8154AE006363BF /* CYTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYTableViewCell.h; sourceTree = "<group>"; };
 		2D43CFA11E8154AE006363BF /* CYTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYTableViewCell.m; sourceTree = "<group>"; };
+		2D5CE6BA1EA4ADAA00BE763A /* CYHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYHelper.h; sourceTree = "<group>"; };
+		2D5CE6BB1EA4ADAA00BE763A /* CYHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYHelper.m; sourceTree = "<group>"; };
 		2DD53D631E8F62DF007B43B2 /* CYHomeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYHomeController.h; sourceTree = "<group>"; };
 		2DD53D641E8F62DF007B43B2 /* CYHomeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYHomeController.m; sourceTree = "<group>"; };
 		2DF189151E88FECF003D9D77 /* CYDrawerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYDrawerView.h; sourceTree = "<group>"; };
 		2DF189161E88FECF003D9D77 /* CYDrawerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYDrawerView.m; sourceTree = "<group>"; };
 		2DF80B5F1E8F34E200212E2E /* CYDetailProjectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYDetailProjectViewController.h; sourceTree = "<group>"; };
 		2DF80B601E8F34E200212E2E /* CYDetailProjectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYDetailProjectViewController.m; sourceTree = "<group>"; };
-		2DF80B671E8F3C4D00212E2E /* CYHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYHelper.h; sourceTree = "<group>"; };
-		2DF80B681E8F3C4D00212E2E /* CYHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYHelper.m; sourceTree = "<group>"; };
 		2DF80B6C1E8F566F00212E2E /* CYAllPeopleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYAllPeopleView.h; sourceTree = "<group>"; };
 		2DF80B6D1E8F566F00212E2E /* CYAllPeopleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYAllPeopleView.m; sourceTree = "<group>"; };
 		2DF80B6F1E8F567C00212E2E /* CYProjectView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYProjectView.h; sourceTree = "<group>"; };
@@ -110,7 +110,7 @@
 		2D0E5C291E7D53D000D69F2B = {
 			isa = PBXGroup;
 			children = (
-				2D0E5C761E7D5AE100D69F2B /* Base */,
+				2D5CE6B81EA4ADAA00BE763A /* Base */,
 				2D0E5C711E7D590000D69F2B /* Model */,
 				2D0E5C701E7D590000D69F2B /* View */,
 				2D0E5C6F1E7D590000D69F2B /* Controller */,
@@ -203,14 +203,6 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		2D0E5C761E7D5AE100D69F2B /* Base */ = {
-			isa = PBXGroup;
-			children = (
-				2DF80B661E8F3C3900212E2E /* CYHelper */,
-			);
-			path = Base;
-			sourceTree = "<group>";
-		};
 		2D10283B1E9B3ADA005FC054 /* CYExpertsView */ = {
 			isa = PBXGroup;
 			children = (
@@ -238,6 +230,23 @@
 			path = CYTableViewCell;
 			sourceTree = "<group>";
 		};
+		2D5CE6B81EA4ADAA00BE763A /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				2D5CE6B91EA4ADAA00BE763A /* CYHelper */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		2D5CE6B91EA4ADAA00BE763A /* CYHelper */ = {
+			isa = PBXGroup;
+			children = (
+				2D5CE6BA1EA4ADAA00BE763A /* CYHelper.h */,
+				2D5CE6BB1EA4ADAA00BE763A /* CYHelper.m */,
+			);
+			path = CYHelper;
+			sourceTree = "<group>";
+		};
 		2DD53D621E8F62DF007B43B2 /* CYHomeController */ = {
 			isa = PBXGroup;
 			children = (
@@ -263,15 +272,6 @@
 				2DF80B601E8F34E200212E2E /* CYDetailProjectViewController.m */,
 			);
 			path = CYDetailProjectViewController;
-			sourceTree = "<group>";
-		};
-		2DF80B661E8F3C3900212E2E /* CYHelper */ = {
-			isa = PBXGroup;
-			children = (
-				2DF80B671E8F3C4D00212E2E /* CYHelper.h */,
-				2DF80B681E8F3C4D00212E2E /* CYHelper.m */,
-			);
-			path = CYHelper;
 			sourceTree = "<group>";
 		};
 		2DF80B6A1E8F565A00212E2E /* CYAllPeopleView */ = {
@@ -429,6 +429,7 @@
 			files = (
 				2DD53D651E8F62DF007B43B2 /* CYHomeController.m in Sources */,
 				2D43CFA21E8154AE006363BF /* CYTableViewCell.m in Sources */,
+				2D5CE6BC1EA4ADAA00BE763A /* CYHelper.m in Sources */,
 				2DF80B6E1E8F566F00212E2E /* CYAllPeopleView.m in Sources */,
 				2D0E5C3D1E7D53D000D69F2B /* ViewController.m in Sources */,
 				2DF80B611E8F34E200212E2E /* CYDetailProjectViewController.m in Sources */,
@@ -437,7 +438,6 @@
 				2D10283F1E9B3AE6005FC054 /* CYExpertsView.m in Sources */,
 				2D1028421E9B3AEF005FC054 /* CYManagerView.m in Sources */,
 				2DF80B711E8F567C00212E2E /* CYProjectView.m in Sources */,
-				2DF80B691E8F3C4D00212E2E /* CYHelper.m in Sources */,
 				2D0E5C371E7D53D000D69F2B /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
