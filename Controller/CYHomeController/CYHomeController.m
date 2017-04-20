@@ -118,10 +118,10 @@
 }
 
 -(void)showManaV{
+    [UIView animateWithDuration:0.25 animations:^{
+        self.mainView.frame = self.view.bounds;
+    }];
     if (!self.ManaV) {
-        [UIView animateWithDuration:0.25 animations:^{
-            self.mainView.frame = self.view.bounds;
-        }];
         self.ManaV = [[CYManagerView alloc]init];
         self.ManaV.frame = CGRectMake(screenWidth, 0, screenWidth, screenHeight);
         [self.mainView addSubview:self.ManaV];
@@ -143,10 +143,10 @@
     
 }
 -(void)showExpertsV{
+    [UIView animateWithDuration:0.25 animations:^{
+        self.mainView.frame = self.view.bounds;
+    }];
     if (!self.ExpertsV) {
-        [UIView animateWithDuration:0.25 animations:^{
-            self.mainView.frame = self.view.bounds;
-        }];
         self.ExpertsV = [[CYExpertsView alloc]init];
         self.ExpertsV.frame = CGRectMake(screenWidth, 0, screenWidth, screenHeight);
         [self.mainView addSubview:self.ExpertsV];
@@ -187,8 +187,6 @@
     [self.view addSubview:self.mainView];
     [self.mainView addSubview:self.PV];
     [self.mainView addSubview:self.LeftBtn];
-    self.ALLV = [[CYAllPeopleView alloc]init];
-    
 }
 #pragma mark - 初始化segmentControl
 - (void)initsegment{
@@ -242,7 +240,7 @@
 }
 -(void)pan:(UIPanGestureRecognizer *)pan{
     CGPoint finger = [pan translationInView:self.mainView];
-    if (finger.x <=0 ) {
+    if (finger.x <=0&&self.mainView.frame.origin.x == 0) {
         finger.x = 0;
     }
     self.mainView.frame = [self framewithoffsetX:finger.x];
@@ -265,6 +263,8 @@
     frame.origin.x += offsetX;
     if (frame.origin.x >= LeftOffX) {
         frame.origin.x = LeftOffX;
+    }else if (frame.origin.x <= 0){
+        frame.origin.x = 0;
     }
     return frame;
 }

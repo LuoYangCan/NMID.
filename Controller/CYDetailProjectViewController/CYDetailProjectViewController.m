@@ -42,9 +42,7 @@
 
 }
 -(void)backHome{
-    [self dismissViewControllerAnimated:YES completion:^{
-        NSLog(@"返回成功");
-    }];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 
