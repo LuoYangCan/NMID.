@@ -13,6 +13,7 @@
 #import "CYProjectView.h"
 #import "CYExpertsView.h"
 #import "CYManagerView.h"
+#import "CYLoginViewController.h"
 @interface CYHomeController ()<UIGestureRecognizerDelegate>
 @property(nonatomic,strong) UISegmentedControl *segment; /**<  顶部切换*/
 @property(nonatomic,strong) UIViewController *currentVC; /**<  当前页面*/
@@ -39,19 +40,21 @@
     [center addObserver:self selector:@selector(changeView:) name:@"changeView" object:nil];
      maxY = 0;
     offsetLeft = LeftOffX;
-    [self performSelector:@selector(setup) withObject:nil afterDelay:3];
+    [self performSelector:@selector(setup) withObject:nil afterDelay:3.5];
 
    // self.navigationController.navigationBarHidden = NO;
     // Do any additional setup after loading the view.
 }
-- (void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
     if (flag == NO) {
         [self showImage];
+        //[self performSelector:@selector(initLogin) withObject:nil afterDelay:3];
         flag = YES;
     }
 
 }
+
 - (void)setup{
     [self initVC];
     [self initsegment];
@@ -67,6 +70,11 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+#pragma mark -登录界面
+-(void)initLogin{
+    CYLoginViewController *LoginVC = [[CYLoginViewController alloc]init];
+    [self presentViewController:LoginVC animated:nil completion:nil];
 }
 #pragma mark -通知
 - (void)pushViewController:(NSNotification *)sender{
@@ -181,12 +189,14 @@
     self.mainView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, screenWidth, screenHeight)];
     self.mainView.backgroundColor = [UIColor whiteColor];
     self.PV = [[CYProjectView alloc]init];
+    self.ALLV = [[CYAllPeopleView alloc]init];
     self.leftView = [[CYDrawerView alloc]init];
     self.leftView.frame = self.view.bounds;
     [self.view addSubview:self.leftView];
     [self.view addSubview:self.mainView];
     [self.mainView addSubview:self.PV];
     [self.mainView addSubview:self.LeftBtn];
+
 }
 #pragma mark - 初始化segmentControl
 - (void)initsegment{
@@ -204,7 +214,6 @@
             [self.ALLV removeFromSuperview];
             break;
         case 1:
-            self.ALLV.frame = CGRectMake(0, 65, screenWidth, screenHeight);
             [self.mainView addSubview:self.ALLV];
         default:
             break;

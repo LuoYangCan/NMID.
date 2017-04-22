@@ -16,15 +16,16 @@
 		2D0E5C5B1E7D53D100D69F2B /* Young_EaglesUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D0E5C5A1E7D53D100D69F2B /* Young_EaglesUITests.m */; };
 		2D10283F1E9B3AE6005FC054 /* CYExpertsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D10283E1E9B3AE6005FC054 /* CYExpertsView.m */; };
 		2D1028421E9B3AEF005FC054 /* CYManagerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D1028411E9B3AEF005FC054 /* CYManagerView.m */; };
+		2D3001191EAAF5A20073C105 /* CYLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D3001181EAAF5A20073C105 /* CYLoginViewController.m */; };
 		2D3F0A6C1E7D793E007642DF /* Property List.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2D3F0A6B1E7D793E007642DF /* Property List.plist */; };
 		2D43CFA21E8154AE006363BF /* CYTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D43CFA11E8154AE006363BF /* CYTableViewCell.m */; };
 		2D5CE6BC1EA4ADAA00BE763A /* CYHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D5CE6BB1EA4ADAA00BE763A /* CYHelper.m */; };
 		2DD53D651E8F62DF007B43B2 /* CYHomeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD53D641E8F62DF007B43B2 /* CYHomeController.m */; };
+		2DE177D31EAAFB0D0049B41A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2DE177D21EAAFB0D0049B41A /* Assets.xcassets */; };
 		2DF189171E88FECF003D9D77 /* CYDrawerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DF189161E88FECF003D9D77 /* CYDrawerView.m */; };
 		2DF80B611E8F34E200212E2E /* CYDetailProjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DF80B601E8F34E200212E2E /* CYDetailProjectViewController.m */; };
 		2DF80B6E1E8F566F00212E2E /* CYAllPeopleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DF80B6D1E8F566F00212E2E /* CYAllPeopleView.m */; };
 		2DF80B711E8F567C00212E2E /* CYProjectView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DF80B701E8F567C00212E2E /* CYProjectView.m */; };
-		68072DE61E9895140080EACF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68072DE51E9895140080EACF /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +65,8 @@
 		2D10283E1E9B3AE6005FC054 /* CYExpertsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYExpertsView.m; sourceTree = "<group>"; };
 		2D1028401E9B3AEF005FC054 /* CYManagerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYManagerView.h; sourceTree = "<group>"; };
 		2D1028411E9B3AEF005FC054 /* CYManagerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYManagerView.m; sourceTree = "<group>"; };
+		2D3001171EAAF5A20073C105 /* CYLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYLoginViewController.h; sourceTree = "<group>"; };
+		2D3001181EAAF5A20073C105 /* CYLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYLoginViewController.m; sourceTree = "<group>"; };
 		2D3F0A6B1E7D793E007642DF /* Property List.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Property List.plist"; sourceTree = "<group>"; };
 		2D43CFA01E8154AE006363BF /* CYTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYTableViewCell.h; sourceTree = "<group>"; };
 		2D43CFA11E8154AE006363BF /* CYTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYTableViewCell.m; sourceTree = "<group>"; };
@@ -71,6 +74,7 @@
 		2D5CE6BB1EA4ADAA00BE763A /* CYHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYHelper.m; sourceTree = "<group>"; };
 		2DD53D631E8F62DF007B43B2 /* CYHomeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYHomeController.h; sourceTree = "<group>"; };
 		2DD53D641E8F62DF007B43B2 /* CYHomeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYHomeController.m; sourceTree = "<group>"; };
+		2DE177D21EAAFB0D0049B41A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2DF189151E88FECF003D9D77 /* CYDrawerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYDrawerView.h; sourceTree = "<group>"; };
 		2DF189161E88FECF003D9D77 /* CYDrawerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYDrawerView.m; sourceTree = "<group>"; };
 		2DF80B5F1E8F34E200212E2E /* CYDetailProjectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYDetailProjectViewController.h; sourceTree = "<group>"; };
@@ -79,7 +83,6 @@
 		2DF80B6D1E8F566F00212E2E /* CYAllPeopleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYAllPeopleView.m; sourceTree = "<group>"; };
 		2DF80B6F1E8F567C00212E2E /* CYProjectView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYProjectView.h; sourceTree = "<group>"; };
 		2DF80B701E8F567C00212E2E /* CYProjectView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYProjectView.m; sourceTree = "<group>"; };
-		68072DE51E9895140080EACF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,7 +141,7 @@
 				2D0E5C391E7D53D000D69F2B /* AppDelegate.m */,
 				2D0E5C3B1E7D53D000D69F2B /* ViewController.h */,
 				2D0E5C3C1E7D53D000D69F2B /* ViewController.m */,
-				68072DE51E9895140080EACF /* Assets.xcassets */,
+				2DE177D21EAAFB0D0049B41A /* Assets.xcassets */,
 				2D0E5C3E1E7D53D000D69F2B /* Main.storyboard */,
 				2D0E5C431E7D53D000D69F2B /* LaunchScreen.storyboard */,
 				2D0E5C461E7D53D000D69F2B /* Info.plist */,
@@ -177,6 +180,7 @@
 		2D0E5C6F1E7D590000D69F2B /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				2D3001161EAAF58E0073C105 /* CYLoginViewController */,
 				2DD53D621E8F62DF007B43B2 /* CYHomeController */,
 				2DF80B5E1E8F34C400212E2E /* CYDetailProjectViewController */,
 			);
@@ -219,6 +223,15 @@
 				2D1028411E9B3AEF005FC054 /* CYManagerView.m */,
 			);
 			path = CYManageView;
+			sourceTree = "<group>";
+		};
+		2D3001161EAAF58E0073C105 /* CYLoginViewController */ = {
+			isa = PBXGroup;
+			children = (
+				2D3001171EAAF5A20073C105 /* CYLoginViewController.h */,
+				2D3001181EAAF5A20073C105 /* CYLoginViewController.m */,
+			);
+			path = CYLoginViewController;
 			sourceTree = "<group>";
 		};
 		2D43CF9F1E815491006363BF /* CYTableViewCell */ = {
@@ -401,7 +414,7 @@
 			files = (
 				2D0E5C451E7D53D000D69F2B /* LaunchScreen.storyboard in Resources */,
 				2D3F0A6C1E7D793E007642DF /* Property List.plist in Resources */,
-				68072DE61E9895140080EACF /* Assets.xcassets in Resources */,
+				2DE177D31EAAFB0D0049B41A /* Assets.xcassets in Resources */,
 				2D0E5C401E7D53D000D69F2B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -429,6 +442,7 @@
 			files = (
 				2DD53D651E8F62DF007B43B2 /* CYHomeController.m in Sources */,
 				2D43CFA21E8154AE006363BF /* CYTableViewCell.m in Sources */,
+				2D3001191EAAF5A20073C105 /* CYLoginViewController.m in Sources */,
 				2D5CE6BC1EA4ADAA00BE763A /* CYHelper.m in Sources */,
 				2DF80B6E1E8F566F00212E2E /* CYAllPeopleView.m in Sources */,
 				2D0E5C3D1E7D53D000D69F2B /* ViewController.m in Sources */,
