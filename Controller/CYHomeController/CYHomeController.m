@@ -49,7 +49,7 @@
     [super viewDidAppear:animated];
     if (flag == NO) {
         [self showImage];
-        //[self performSelector:@selector(initLogin) withObject:nil afterDelay:3];
+        [self performSelector:@selector(initLogin) withObject:nil afterDelay:3];
         flag = YES;
     }
 

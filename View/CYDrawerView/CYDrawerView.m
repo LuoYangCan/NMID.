@@ -23,6 +23,7 @@
 }
 -(void)initTopUI{
     UIView *TopView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, LeftOffX, screenHeight / 3 -20)];
+    TopView.backgroundColor = GrayWhite;
     UILabel *mail = [[UILabel alloc]initWithFrame:CGRectMake(30, 150, LeftOffX, 40)];
     UILabel *word = [[UILabel alloc]initWithFrame:CGRectMake(130, 40, LeftOffX - 130, 120)];
     word.font = [UIFont fontWithName:@"Helvetica-Bold" size:17.f];
@@ -30,7 +31,6 @@
     mail.font = [UIFont fontWithName:@"Helvetica-Bold" size:18.f];
     [mail setText:@"Nexuslink@nexuslink.cn"];
     [word setText:@"重邮\n\n移动互联网研究中心"];
-    TopView.backgroundColor = [UIColor whiteColor];
     UIImageView *IconImage = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"base"]];
     IconImage.frame = CGRectMake(30, 60, 80, 80);
     
@@ -57,7 +57,6 @@
     [Btn setTitle:Title forState:UIControlStateNormal];
     Btn.titleLabel.font = [UIFont systemFontOfSize:18];
     Btn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
-   // Btn.titleLabel.textAlignment = NSTextAlignmentLeft;
     [Btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     UIImageView *image = [[UIImageView alloc]initWithImage:[UIImage imageNamed:ImageName]];
     image.frame = CGRectMake(0, 4, 30, 30);

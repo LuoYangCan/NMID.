@@ -6,6 +6,7 @@
 //  Copyright © 2017年 NMID. All rights reserved.
 //
 
+#import <AVFoundation/AVFoundation.h>
 #import "CYLoginViewController.h"
 #import "CYHelper.h"
 @interface CYLoginViewController ()
@@ -71,7 +72,24 @@
 }
 
 -(void)initBottom{
+    UIButton *LoginBtn = [[UIButton alloc]initWithFrame:CGRectMake(screenWidth /2 -75, 487, 150, 50)];
+    UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:LoginBtn.bounds byRoundingCorners:UIRectCornerAllCorners cornerRadii:LoginBtn.bounds.size];
+    CAShapeLayer *masklayer = [[CAShapeLayer alloc]init];
+    masklayer.frame = LoginBtn.bounds;
     
+    masklayer.path = maskPath.CGPath;
+    LoginBtn.layer.mask = masklayer;
+    
+    
+    [LoginBtn setTitle:@"登陆" forState:UIControlStateNormal];
+    LoginBtn.backgroundColor = [UIColor greenColor];
+    [LoginBtn addTarget:self action:@selector(LoginBtnAction) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:LoginBtn];
+    
+}
+
+-(void)LoginBtnAction{
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 /*
 #pragma mark - Navigation
