@@ -23,7 +23,7 @@
 }
 
 -(void)initTop{
-    self.topScro = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, screenWidth, screenHeight)];
+    self.topScro = [[UIScrollView alloc]initWithFrame:CGRectMake(-1, 0, screenWidth + 1, screenHeight)];
     self.topScro.backgroundColor = RBlue;
     [self addSubview:self.topScro];
     UILabel *title = [[UILabel alloc]initWithFrame:CGRectMake(screenWidth /2 -35.5, 25, 80, 25)];

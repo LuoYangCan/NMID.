@@ -11,6 +11,8 @@
 #import "CYHelper.h"
 @interface CYLoginViewController ()
 @property (nonatomic,strong) UIImageView *image;
+@property (nonatomic,strong) UITextField *logintext;
+@property (nonatomic,strong) UITextField *Passwordtext;
 @end
 
 @implementation CYLoginViewController
@@ -28,8 +30,10 @@
 
 -(void)setup{
     [self initTop];
-    [self initMid];
-    [self initBottom];
+}
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    [_logintext resignFirstResponder];
+    [_Passwordtext resignFirstResponder];
 }
 
 -(void)initTop{
@@ -41,31 +45,34 @@
 -(void)Loginanimate{
     [UIView animateWithDuration:0.3 animations:^{
         _image.frame = CGRectMake(screenWidth / 2 -90 ,50, 180, 180);
+    } completion:^(BOOL finished) {
+        [self initMid];
+        [self initBottom];
     }];
 
 }
 
 -(void)initMid{
-    UITextField *logintext = [[UITextField alloc]initWithFrame:CGRectMake(screenWidth / 3 - 45,320, 200, 27)];
+    _logintext = [[UITextField alloc]initWithFrame:CGRectMake(screenWidth / 3 - 45,320, 200, 27)];
     UIImageView *loginImage = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"User-50"]];
     loginImage.frame = CGRectMake(-35,-5, 30, 30);
-    logintext.placeholder = @"  请输入用户名";
-    logintext.font = [UIFont systemFontOfSize:17];
-    logintext.leftView = loginImage;
-    logintext.leftViewMode = UITextFieldViewModeAlways;
-    [self.view addSubview:logintext];
+    _logintext.placeholder = @"  请输入用户名";
+    _logintext.font = [UIFont systemFontOfSize:17];
+    _logintext.leftView = loginImage;
+    _logintext.leftViewMode = UITextFieldViewModeAlways;
+    [self.view addSubview:_logintext];
     UIView *line1 = [[UIView alloc]initWithFrame:CGRectMake(screenWidth / 3 -15, 347, 170, 1)];
     line1.backgroundColor = LineGray;
     [self.view addSubview:line1];
     
-    UITextField *Passwordtext = [[UITextField alloc]initWithFrame:CGRectMake(screenWidth/3 - 45, 370, 200, 27)];
+    _Passwordtext = [[UITextField alloc]initWithFrame:CGRectMake(screenWidth/3 - 45, 370, 200, 27)];
     UIImageView *PasswordImage = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"Lock-50"]];
     PasswordImage.frame = CGRectMake(-35,-5, 30, 30);
-    Passwordtext.placeholder = @"  请输入密码";
-    Passwordtext.font =[UIFont systemFontOfSize:17];
-    Passwordtext.leftView = PasswordImage;
-    Passwordtext.leftViewMode = UITextFieldViewModeAlways;
-    [self.view addSubview:Passwordtext];
+    _Passwordtext.placeholder = @"  请输入密码";
+    _Passwordtext.font =[UIFont systemFontOfSize:17];
+    _Passwordtext.leftView = PasswordImage;
+    _Passwordtext.leftViewMode = UITextFieldViewModeAlways;
+    [self.view addSubview:_Passwordtext];
     UIView *line2= [[UIView alloc]initWithFrame:CGRectMake(screenWidth /3 -15 , 397, 170, 1)];
     line2.backgroundColor = LineGray;
     [self.view addSubview:line2];
@@ -82,7 +89,7 @@
     
     
     [LoginBtn setTitle:@"登陆" forState:UIControlStateNormal];
-    LoginBtn.backgroundColor = [UIColor greenColor];
+    LoginBtn.backgroundColor = LeftBlue;
     [LoginBtn addTarget:self action:@selector(LoginBtnAction) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:LoginBtn];
     

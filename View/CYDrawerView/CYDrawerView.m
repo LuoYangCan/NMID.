@@ -23,7 +23,7 @@
 }
 -(void)initTopUI{
     UIView *TopView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, LeftOffX, screenHeight / 3 -20)];
-    TopView.backgroundColor = GrayWhite;
+    TopView.backgroundColor = [UIColor whiteColor];
     UILabel *mail = [[UILabel alloc]initWithFrame:CGRectMake(30, 150, LeftOffX, 40)];
     UILabel *word = [[UILabel alloc]initWithFrame:CGRectMake(130, 40, LeftOffX - 130, 120)];
     word.font = [UIFont fontWithName:@"Helvetica-Bold" size:17.f];

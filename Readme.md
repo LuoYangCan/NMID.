@@ -71,3 +71,11 @@
 增加了登录界面以及动画效果
 
 顺便进一步优化代码，将HomeVC单独拿出来作Controller从而让主页的View和Controller隔开。
+
+
+
+2017.4.25
+
+修复了绝大部分bug
+
+准备重构代码，加上Navigation Bar

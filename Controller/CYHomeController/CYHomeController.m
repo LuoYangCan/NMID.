@@ -41,7 +41,6 @@
      maxY = 0;
     offsetLeft = LeftOffX;
     [self performSelector:@selector(setup) withObject:nil afterDelay:3.5];
-
    // self.navigationController.navigationBarHidden = NO;
     // Do any additional setup after loading the view.
 }
@@ -188,6 +187,10 @@
     [self.LeftBtn addTarget:self action:@selector(showLeftView) forControlEvents:UIControlEventTouchUpInside];
     self.mainView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, screenWidth, screenHeight)];
     self.mainView.backgroundColor = [UIColor whiteColor];
+    self.mainView.layer.shadowColor = [UIColor blackColor].CGColor;
+    self.mainView.layer.shadowOpacity = 0.8f;
+    self.mainView.layer.shadowRadius = 4.f;
+    self.mainView.layer.shadowOffset = CGSizeMake(0, 0);
     self.PV = [[CYProjectView alloc]init];
     self.ALLV = [[CYAllPeopleView alloc]init];
     self.leftView = [[CYDrawerView alloc]init];
@@ -288,7 +291,6 @@
 #pragma mark - 载入界面
 - (void) showImage{
     UIImage *background = [UIImage imageNamed:@"background"];
-    
     self.imageLayer = [CALayer layer];
     self.imageLayer.frame = CGRectMake(0, 0, screenWidth, screenHeight);
     [self.view.layer addSublayer:self.imageLayer];
@@ -301,12 +303,10 @@
 
 -(void)layerAnimation{
     UIImage *LaunchImage = [UIImage imageNamed:@"Launch_Image"];
-    
     CABasicAnimation *contentsAnimation = [CABasicAnimation animationWithKeyPath:@"contents"];
     contentsAnimation.fromValue = self.imageLayer.contents;
     contentsAnimation.toValue = (__bridge id)(LaunchImage.CGImage);
     contentsAnimation.duration = 2;
-    
     self.imageLayer.contents = (__bridge id)(LaunchImage.CGImage);
     [self.imageLayer addAnimation:contentsAnimation forKey:nil];
     [self.imageLayer performSelector:@selector(removeFromSuperlayer) withObject:nil afterDelay:2.7f];
