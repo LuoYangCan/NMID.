@@ -9,6 +9,7 @@
 #import <AVFoundation/AVFoundation.h>
 #import "CYLoginViewController.h"
 #import "CYHelper.h"
+#import "CYHomeController.h"
 @interface CYLoginViewController ()
 @property (nonatomic,strong) UIImageView *image;
 @property (nonatomic,strong) UITextField *logintext;
@@ -96,7 +97,9 @@
 }
 
 -(void)LoginBtnAction{
-    [self dismissViewControllerAnimated:YES completion:nil];
+    CYHomeController *home = [[CYHomeController alloc]init];
+    [self presentViewController:home animated:NO completion:nil];
+   
 }
 /*
 #pragma mark - Navigation

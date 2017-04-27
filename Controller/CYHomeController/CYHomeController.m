@@ -13,10 +13,11 @@
 #import "CYProjectView.h"
 #import "CYExpertsView.h"
 #import "CYManagerView.h"
+#import "CYHomeView.h"
 #import "CYLoginViewController.h"
+#import "CYContactsView.h"
 @interface CYHomeController ()<UIGestureRecognizerDelegate>
 @property(nonatomic,strong) UISegmentedControl *segment; /**<  顶部切换*/
-@property(nonatomic,strong) UIViewController *currentVC; /**<  当前页面*/
 @property(nonatomic,strong) UIView *mainView;
 @property(nonatomic,strong) CYAllPeopleView *ALLV;
 @property(nonatomic,strong) CYProjectView *PV;
@@ -25,6 +26,8 @@
 @property(nonatomic,strong) CYDrawerView *leftView;
 @property(nonatomic,strong) CALayer *imageLayer;
 @property(nonatomic,strong) UIButton *LeftBtn;
+@property(nonatomic,strong) CYHomeView *HomeView;
+@property(nonatomic,strong) CYContactsView *ContactView;
 @end
 
 @implementation CYHomeController
@@ -37,26 +40,17 @@
     [super viewDidLoad];
     NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
     [center addObserver:self selector:@selector(pushViewController:) name:@"pushView" object:nil];
-    [center addObserver:self selector:@selector(changeView:) name:@"changeView" object:nil];
+  //  [center addObserver:self selector:@selector(changeView:) name:@"changeView" object:nil];
      maxY = 0;
     offsetLeft = LeftOffX;
-    [self performSelector:@selector(setup) withObject:nil afterDelay:3.5];
-   // self.navigationController.navigationBarHidden = NO;
-    // Do any additional setup after loading the view.
-}
--(void)viewDidAppear:(BOOL)animated{
-    [super viewDidAppear:animated];
-    if (flag == NO) {
-        [self showImage];
-        [self performSelector:@selector(initLogin) withObject:nil afterDelay:3];
-        flag = YES;
-    }
+    [self setup];
 
+    // Do any additional setup after loading the view.
 }
 
 - (void)setup{
     [self initVC];
-    [self initsegment];
+  //  [self initsegment];
     [self setupGesture];
 }
 - (void)dealloc{
@@ -70,11 +64,7 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-#pragma mark -登录界面
--(void)initLogin{
-    CYLoginViewController *LoginVC = [[CYLoginViewController alloc]init];
-    [self presentViewController:LoginVC animated:nil completion:nil];
-}
+
 #pragma mark -通知
 - (void)pushViewController:(NSNotification *)sender{
     NSArray *projectMember = [sender.userInfo objectForKey:@"1"];
@@ -85,70 +75,74 @@
     [self presentViewController:navic animated:YES completion:nil];
 
 }
--(void)changeView:(NSNotification *)sender{
-    NSString *re = [sender.userInfo objectForKey:@"2"];
-    switch ([re intValue]) {
-        case 0:
-            [self movetoHomeView];
-            break;
-        case 1:
-            [self showManaV];
-            break;
-        case 2:
-            [self showExpertsV];
-            break;
-        default:
-            break;
-    }
-}
+//-(void)changeView:(NSNotification *)sender{
+//    NSString *re = [sender.userInfo objectForKey:@"2"];
+//    switch ([re intValue]) {
+//        case 0:
+//            [self movetoHomeView];
+//            break;
+//        case 1:
+//            [self showManaV];
+//            break;
+//        case 2:
+//            [self showExpertsV];
+//            break;
+//        default:
+//            break;
+//    }
+//}
 #pragma mark - 切换页面
--(void)movetoHomeView{
-    [UIView animateWithDuration:0.25 animations:^{
-        self.mainView.frame = self.view.bounds;
-    }];
-    if (self.ExpertsV) {
-        [UIView animateWithDuration:0.2  animations:^{
-            self.ExpertsV.frame = [self framemove];
-        }completion:^(BOOL finished) {
-            [self.ExpertsV removeFromSuperview];
-            self.ExpertsV = nil;
-        }];
-        
-    }else if(self.ManaV){
-        [UIView animateWithDuration:0.2  animations:^{
-            self.ManaV.frame = [self framemove];
-        }completion:^(BOOL finished) {
-            [self.ManaV removeFromSuperview];
-            self.ManaV = nil;
-        }];
-    }
-}
-
--(void)showManaV{
-    [UIView animateWithDuration:0.25 animations:^{
-        self.mainView.frame = self.view.bounds;
-    }];
-    if (!self.ManaV) {
-        self.ManaV = [[CYManagerView alloc]init];
-        self.ManaV.frame = CGRectMake(screenWidth, 0, screenWidth, screenHeight);
-        [self.mainView addSubview:self.ManaV];
-        if (self.ExpertsV) {
-                [UIView animateWithDuration:0.2 animations:^{
-                self.ManaV.frame = self.mainView.bounds;
-            }completion:^(BOOL finished) {
-                [self.ExpertsV removeFromSuperview];
-                self.ExpertsV = nil;
-            }];
-            
-        }else if (!self.ExpertsV){
-            [UIView animateWithDuration:0.2  animations:^{
-                self.ManaV.frame = self.mainView.bounds;
-            }];
-        }
-
-    }
-    
-}
+//-(void)movetoHomeView{
+//    [UIView animateWithDuration:0.25 animations:^{
+//        self.mainView.frame = self.view.bounds;
+//    }];
+//    if (!self.PV &&!self.ExpertsV &&!self.ManaV) {
+//        [UIView animateWithDuration:0.2 animations:^{
+//            self.PV.frame = self.mainView.frame;
+//        }];
+//    }else if(self.ExpertsV) {
+//        [UIView animateWithDuration:0.2  animations:^{
+//            self.ExpertsV.frame = [self framemove];
+//        }completion:^(BOOL finished) {
+//            [self.ExpertsV removeFromSuperview];
+//            self.ExpertsV = nil;
+//        }];
+//        
+//    }else if(self.ManaV){
+//        [UIView animateWithDuration:0.2  animations:^{
+//            self.ManaV.frame = [self framemove];
+//        }completion:^(BOOL finished) {
+//            [self.ManaV removeFromSuperview];
+//            self.ManaV = nil;
+//        }];
+//    }
+//}
+//
+//-(void)showManaV{
+//    [UIView animateWithDuration:0.25 animations:^{
+//        self.mainView.frame = self.view.bounds;
+//    }];
+//    if (!self.ManaV) {
+//        self.ManaV = [[CYManagerView alloc]init];
+//        self.ManaV.frame = CGRectMake(screenWidth, 0, screenWidth, screenHeight);
+//        [self.mainView addSubview:self.ManaV];
+//        if (self.ExpertsV) {
+//                [UIView animateWithDuration:0.2 animations:^{
+//                self.ManaV.frame = self.mainView.bounds;
+//            }completion:^(BOOL finished) {
+//                [self.ExpertsV removeFromSuperview];
+//                self.ExpertsV = nil;
+//            }];
+//            
+//        }else if (!self.ExpertsV){
+//            [UIView animateWithDuration:0.2  animations:^{
+//                self.ManaV.frame = self.mainView.bounds;
+//            }];
+//        }
+//
+//    }
+//    
+//}
 -(void)showExpertsV{
     [UIView animateWithDuration:0.25 animations:^{
         self.mainView.frame = self.view.bounds;
@@ -191,37 +185,36 @@
     self.mainView.layer.shadowOpacity = 0.8f;
     self.mainView.layer.shadowRadius = 4.f;
     self.mainView.layer.shadowOffset = CGSizeMake(0, 0);
-    self.PV = [[CYProjectView alloc]init];
-    self.ALLV = [[CYAllPeopleView alloc]init];
     self.leftView = [[CYDrawerView alloc]init];
     self.leftView.frame = self.view.bounds;
+    self.mainView.backgroundColor = [UIColor whiteColor];
+    self.HomeView = [[CYHomeView alloc]init];
+    self.HomeView.frame = CGRectMake(0, 0, screenWidth, screenHeight);
     [self.view addSubview:self.leftView];
     [self.view addSubview:self.mainView];
-    [self.mainView addSubview:self.PV];
-    [self.mainView addSubview:self.LeftBtn];
+    [self.mainView addSubview:self.HomeView];
 
 }
 #pragma mark - 初始化segmentControl
-- (void)initsegment{
-    self.segment = [[UISegmentedControl alloc]initWithItems:@[@"项目组",@"所有人"]];   //设置名字
-    self.segment.frame = CGRectMake(screenWidth/2-100, 27,200, 33);
-    self.segment.selectedSegmentIndex = 0;                              //设置初始位置
-    [self.segment addTarget:self action:@selector(segmentdidChange:) forControlEvents:UIControlEventValueChanged];
-    [self.mainView addSubview:self.segment];
-    
-}
+//- (void)initsegment{
+//    self.segment = [[UISegmentedControl alloc]initWithItems:@[@"项目组",@"所有人"]];   //设置名字
+//    self.segment.frame = CGRectMake(screenWidth/2-100, 27,200, 33);
+//    self.segment.selectedSegmentIndex = 0;                              //设置初始位置
+//    [self.segment addTarget:self action:@selector(segmentdidChange:) forControlEvents:UIControlEventValueChanged];
+//    [self.mainView addSubview:self.segment];
+//   }
 #pragma mark -segment改变
-- (void)segmentdidChange:(UISegmentedControl *)seg{
-    switch (seg.selectedSegmentIndex) {
-        case 0:
-            [self.ALLV removeFromSuperview];
-            break;
-        case 1:
-            [self.mainView addSubview:self.ALLV];
-        default:
-            break;
-    }
-}
+//- (void)segmentdidChange:(UISegmentedControl *)seg{
+//    switch (seg.selectedSegmentIndex) {
+//        case 0:
+//            [self.ALLV removeFromSuperview];
+//            break;
+//        case 1:
+//            [self.mainView addSubview:self.ALLV];
+//        default:
+//            break;
+//    }
+//}
 
 #pragma mark - 简单抽屉手势
 - (void) setupGesture{
@@ -288,29 +281,7 @@
         return NO;
     }
 }
-#pragma mark - 载入界面
-- (void) showImage{
-    UIImage *background = [UIImage imageNamed:@"background"];
-    self.imageLayer = [CALayer layer];
-    self.imageLayer.frame = CGRectMake(0, 0, screenWidth, screenHeight);
-    [self.view.layer addSublayer:self.imageLayer];
-    self.imageLayer.contents = (__bridge id)(background.CGImage);
-    
-    [self performSelector:@selector(layerAnimation) withObject:nil afterDelay:1.0f];
-    
-    
-}
 
--(void)layerAnimation{
-    UIImage *LaunchImage = [UIImage imageNamed:@"Launch_Image"];
-    CABasicAnimation *contentsAnimation = [CABasicAnimation animationWithKeyPath:@"contents"];
-    contentsAnimation.fromValue = self.imageLayer.contents;
-    contentsAnimation.toValue = (__bridge id)(LaunchImage.CGImage);
-    contentsAnimation.duration = 2;
-    self.imageLayer.contents = (__bridge id)(LaunchImage.CGImage);
-    [self.imageLayer addAnimation:contentsAnimation forKey:nil];
-    [self.imageLayer performSelector:@selector(removeFromSuperlayer) withObject:nil afterDelay:2.7f];
-}
 
 /*
 #pragma mark - Navigation

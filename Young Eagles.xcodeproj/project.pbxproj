@@ -26,6 +26,9 @@
 		2DF80B611E8F34E200212E2E /* CYDetailProjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DF80B601E8F34E200212E2E /* CYDetailProjectViewController.m */; };
 		2DF80B6E1E8F566F00212E2E /* CYAllPeopleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DF80B6D1E8F566F00212E2E /* CYAllPeopleView.m */; };
 		2DF80B711E8F567C00212E2E /* CYProjectView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DF80B701E8F567C00212E2E /* CYProjectView.m */; };
+		685471481EB21D9D007A4EA5 /* CYHomeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 685471471EB21D9D007A4EA5 /* CYHomeView.m */; };
+		68C01B4A1EB0B72300BF57C7 /* CYStart.m in Sources */ = {isa = PBXBuildFile; fileRef = 68C01B491EB0B72300BF57C7 /* CYStart.m */; };
+		68C01B4E1EB0C17300BF57C7 /* CYContactsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 68C01B4D1EB0C17300BF57C7 /* CYContactsView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +86,12 @@
 		2DF80B6D1E8F566F00212E2E /* CYAllPeopleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYAllPeopleView.m; sourceTree = "<group>"; };
 		2DF80B6F1E8F567C00212E2E /* CYProjectView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYProjectView.h; sourceTree = "<group>"; };
 		2DF80B701E8F567C00212E2E /* CYProjectView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYProjectView.m; sourceTree = "<group>"; };
+		685471461EB21D9D007A4EA5 /* CYHomeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYHomeView.h; sourceTree = "<group>"; };
+		685471471EB21D9D007A4EA5 /* CYHomeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYHomeView.m; sourceTree = "<group>"; };
+		68C01B481EB0B72300BF57C7 /* CYStart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYStart.h; sourceTree = "<group>"; };
+		68C01B491EB0B72300BF57C7 /* CYStart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYStart.m; sourceTree = "<group>"; };
+		68C01B4C1EB0C17300BF57C7 /* CYContactsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYContactsView.h; sourceTree = "<group>"; };
+		68C01B4D1EB0C17300BF57C7 /* CYContactsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYContactsView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,6 +199,8 @@
 		2D0E5C701E7D590000D69F2B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				685471451EB21D8B007A4EA5 /* CYHomeView */,
+				68C01B4B1EB0C15C00BF57C7 /* CYContactsView */,
 				2D10283B1E9B3ADA005FC054 /* CYExpertsView */,
 				2D10283C1E9B3ADA005FC054 /* CYManageView */,
 				2DF80B6A1E8F565A00212E2E /* CYAllPeopleView */,
@@ -246,6 +257,7 @@
 		2D5CE6B81EA4ADAA00BE763A /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				68C01B471EB0B6FA00BF57C7 /* CYStart */,
 				2D5CE6B91EA4ADAA00BE763A /* CYHelper */,
 			);
 			path = Base;
@@ -303,6 +315,33 @@
 				2DF80B701E8F567C00212E2E /* CYProjectView.m */,
 			);
 			path = CYProjectView;
+			sourceTree = "<group>";
+		};
+		685471451EB21D8B007A4EA5 /* CYHomeView */ = {
+			isa = PBXGroup;
+			children = (
+				685471461EB21D9D007A4EA5 /* CYHomeView.h */,
+				685471471EB21D9D007A4EA5 /* CYHomeView.m */,
+			);
+			path = CYHomeView;
+			sourceTree = "<group>";
+		};
+		68C01B471EB0B6FA00BF57C7 /* CYStart */ = {
+			isa = PBXGroup;
+			children = (
+				68C01B481EB0B72300BF57C7 /* CYStart.h */,
+				68C01B491EB0B72300BF57C7 /* CYStart.m */,
+			);
+			path = CYStart;
+			sourceTree = "<group>";
+		};
+		68C01B4B1EB0C15C00BF57C7 /* CYContactsView */ = {
+			isa = PBXGroup;
+			children = (
+				68C01B4C1EB0C17300BF57C7 /* CYContactsView.h */,
+				68C01B4D1EB0C17300BF57C7 /* CYContactsView.m */,
+			);
+			path = CYContactsView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -447,11 +486,14 @@
 				2DF80B6E1E8F566F00212E2E /* CYAllPeopleView.m in Sources */,
 				2D0E5C3D1E7D53D000D69F2B /* ViewController.m in Sources */,
 				2DF80B611E8F34E200212E2E /* CYDetailProjectViewController.m in Sources */,
+				685471481EB21D9D007A4EA5 /* CYHomeView.m in Sources */,
 				2D0E5C3A1E7D53D000D69F2B /* AppDelegate.m in Sources */,
 				2DF189171E88FECF003D9D77 /* CYDrawerView.m in Sources */,
 				2D10283F1E9B3AE6005FC054 /* CYExpertsView.m in Sources */,
 				2D1028421E9B3AEF005FC054 /* CYManagerView.m in Sources */,
 				2DF80B711E8F567C00212E2E /* CYProjectView.m in Sources */,
+				68C01B4A1EB0B72300BF57C7 /* CYStart.m in Sources */,
+				68C01B4E1EB0C17300BF57C7 /* CYContactsView.m in Sources */,
 				2D0E5C371E7D53D000D69F2B /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

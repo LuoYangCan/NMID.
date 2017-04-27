@@ -5,7 +5,7 @@
 //  Created by NMID on 2017/3/18.
 //  Copyright © 2017年 NMID. All rights reserved.
 //
-
+#import "CYStart.h"
 #import "AppDelegate.h"
 #import "CYHomeController.h"
 @interface AppDelegate ()
@@ -19,8 +19,9 @@
     // Override point for customization after application launch.
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];
+    CYStart *start = [[CYStart alloc]init];
     CYHomeController *HomeController = [[CYHomeController alloc]init];
-    self.window.rootViewController = HomeController;
+    self.window.rootViewController = start;
     [self.window makeKeyAndVisible];
     return YES;
 }
