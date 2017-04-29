@@ -27,15 +27,7 @@
 }
 
 -(void)showLeftView{
-    if (self.frame.origin.x == screenWidth *0.81) {
-        [UIView animateWithDuration:0.25 animations:^{
-           self.frame = self.bounds;
-        }];
-    }else{
-        [UIView animateWithDuration:0.25 animations:^{
-            self.frame = [self framewithoffsetX:LeftOffX];
-        }];
-    }
+    [[NSNotificationCenter defaultCenter]postNotificationName:@"showLeft" object:nil];
 }
 
 -(CGRect)framewithoffsetX:(CGFloat)offsetX{

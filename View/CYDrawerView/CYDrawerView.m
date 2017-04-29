@@ -64,18 +64,15 @@
     return Btn;
 }
 -(void)tapFirstBtn{
-    if (!homeFlag) {
     self.change = @"0";
     NSDictionary *NotiDic = @{@"1":@"通讯录",
                                   @"2":self.change};
     NSNotification *notice = [NSNotification notificationWithName:@"changeView" object:nil userInfo:NotiDic];
         [[NSNotificationCenter defaultCenter]postNotification:notice];
-    }
-
+    
 }
 -(void)tapSecondBtn{
     self.change =@"1";
-    homeFlag = NO;
     NSDictionary *NotiDic = @{@"1":@"管理手册",
                               @"2":self.change};
     NSNotification *notice = [NSNotification notificationWithName:@"changeView" object:nil userInfo:NotiDic];
@@ -83,7 +80,6 @@
 }
 -(void)tapThirdBtn{
     self.change =@"2";
-    homeFlag = NO;
     NSDictionary *NotiDic = @{@"1":@"专家",
                               @"2":self.change};
     NSNotification *notice = [NSNotification notificationWithName:@"changeView" object:nil userInfo:NotiDic];

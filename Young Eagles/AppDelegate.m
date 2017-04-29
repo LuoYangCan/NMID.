@@ -20,7 +20,6 @@
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];
     CYStart *start = [[CYStart alloc]init];
-    CYHomeController *HomeController = [[CYHomeController alloc]init];
     self.window.rootViewController = start;
     [self.window makeKeyAndVisible];
     return YES;

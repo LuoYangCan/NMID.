@@ -98,6 +98,7 @@
 
 -(void)LoginBtnAction{
     CYHomeController *home = [[CYHomeController alloc]init];
+  //  UINavigationController *navi = [[UINavigationController alloc]initWithRootViewController:home];
     [self presentViewController:home animated:NO completion:nil];
    
 }
