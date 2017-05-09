@@ -21,7 +21,7 @@
 @implementation CYAllPeopleView
 - (instancetype)init{
     if (self = [super init]) {
-        self.frame = NormalSize;
+        self.frame = wholeScreen;
         [self setup];
     }
     return self;
@@ -32,7 +32,7 @@
     self.dic = [[NSDictionary alloc]initWithContentsOfFile:plistpath];
     NSArray *templist = [self.dic allKeys];
     self.projectName = [templist sortedArrayUsingSelector:@selector(compare:)];
-    self.TableView =[[UITableView alloc]initWithFrame:CGRectMake(0, 0, self.bounds.size.width, self.bounds.size.height-65)];
+    self.TableView =[[UITableView alloc]initWithFrame:CGRectMake(0, 0, self.bounds.size.width, self.bounds.size.height)];
     self.TableView.delegate = self;
     self.TableView.dataSource = self;
     self.TableView.tableFooterView = [[UIView alloc]initWithFrame:CGRectZero];

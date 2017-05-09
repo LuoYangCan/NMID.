@@ -29,7 +29,7 @@
 
 -(void)initUI{
     self.frame = NormalSize;
-    self.backgroundColor = [UIColor grayColor];
+    self.backgroundColor = [UIColor whiteColor];
     _HomeTable = [[UITableView alloc]initWithFrame:wholeScreen style:UITableViewStylePlain];
     _HomeTable.delegate = self;
     _HomeTable.dataSource = self;

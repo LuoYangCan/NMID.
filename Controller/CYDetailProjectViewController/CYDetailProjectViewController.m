@@ -29,22 +29,13 @@
 
 -(void)setup{
     self.view.backgroundColor =[UIColor whiteColor];
-    self.DetailTableView = [[UITableView alloc]initWithFrame:CGRectMake(10, 15, self.view.bounds.size.width, self.view.bounds.size.height-65)];
+    self.DetailTableView = [[UITableView alloc]initWithFrame:CGRectMake(10, 0, self.view.bounds.size.width, self.view.bounds.size.height-65)];
     self.DetailTableView.delegate = self;
     self.DetailTableView.dataSource = self;
     self.DetailTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.view addSubview:self.DetailTableView];
-    UIBarButtonItem *backButton = [[UIBarButtonItem alloc]initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:self action:@selector(backHome)];
-    [[UINavigationBar appearance]setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
-    [[UINavigationBar appearance]setShadowImage:[UIImage new]];
-   // self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
-    self.navigationItem.leftBarButtonItem = backButton;
 
 }
--(void)backHome{
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
-
 
 - (instancetype) initWithProjectInfo:(NSDictionary *)ProjectMemberArray{
     if (self = [super init]) {

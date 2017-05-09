@@ -1,27 +1,35 @@
 //
-//  CYDrawerView.m
+//  CYDrawViewController.m
 //  Young Eagles
 //
-//  Created by NMID on 2017/3/27.
+//  Created by 孤岛 on 2017/5/9.
 //  Copyright © 2017年 NMID. All rights reserved.
 //
 
-#import "CYDrawerView.h"
+#import "CYDrawViewController.h"
 #import "CYHelper.h"
-@implementation CYDrawerView
-{
-    BOOL homeFlag;
+@interface CYDrawViewController ()
+
+@end
+
+@implementation CYDrawViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    [self setup];
+    // Do any additional setup after loading the view.
 }
-- (instancetype)init{
-    if (self = [super init]) {
-        homeFlag = YES;
-        self.backgroundColor = LeftBlue;
-        [self initTopUI];
-        [self setupButton];
-            }
-    return self;
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+-(void)setup{
+    [self initTopUI];
+    [self setupButton];
 }
 -(void)initTopUI{
+    self.view.backgroundColor = LeftBlue;
     UIView *TopView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, LeftOffX, screenHeight / 3 -20)];
     TopView.backgroundColor = [UIColor whiteColor];
     UILabel *mail = [[UILabel alloc]initWithFrame:CGRectMake(30, 150, LeftOffX, 40)];
@@ -34,7 +42,7 @@
     UIImageView *IconImage = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"base"]];
     IconImage.frame = CGRectMake(30, 60, 80, 80);
     
-    [self addSubview:TopView];
+    [self.view addSubview:TopView];
     [TopView addSubview:mail];
     [TopView addSubview:IconImage];
     [TopView addSubview:word];
@@ -46,10 +54,10 @@
     [experts addTarget:self action:@selector(tapSecondBtn) forControlEvents:UIControlEventTouchUpInside];
     UIButton  *book = [self setButtonwithTitle:@"        专家" forState:UIControlStateNormal andLocation:(screenHeight / 3 + 90) andImage:@"Contacts-50"];
     [book addTarget:self action:@selector(tapThirdBtn) forControlEvents:UIControlEventTouchUpInside];
-    [self addSubview:projName];
-    [self addSubview:experts];
-    [self addSubview:book];
-
+    [self.view addSubview:projName];
+    [self.view addSubview:experts];
+    [self.view addSubview:book];
+    
 }
 
 - (UIButton *)setButtonwithTitle:(NSString *)Title forState:(UIControlState *)UIControlState andLocation:(CGFloat )y andImage:(NSString *)ImageName{
@@ -66,10 +74,10 @@
 -(void)tapFirstBtn{
     self.change = @"0";
     NSDictionary *NotiDic = @{@"1":@"通讯录",
-                                  @"2":self.change};
+                              @"2":self.change};
     NSNotification *notice = [NSNotification notificationWithName:@"changeView" object:nil userInfo:NotiDic];
-        [[NSNotificationCenter defaultCenter]postNotification:notice];
-    
+    [[NSNotificationCenter defaultCenter]postNotification:notice];
+    NSLog(@"点击");
 }
 -(void)tapSecondBtn{
     self.change =@"1";
@@ -77,6 +85,7 @@
                               @"2":self.change};
     NSNotification *notice = [NSNotification notificationWithName:@"changeView" object:nil userInfo:NotiDic];
     [[NSNotificationCenter defaultCenter]postNotification:notice];
+    NSLog(@"点击");
 }
 -(void)tapThirdBtn{
     self.change =@"2";
@@ -84,12 +93,16 @@
                               @"2":self.change};
     NSNotification *notice = [NSNotification notificationWithName:@"changeView" object:nil userInfo:NotiDic];
     [[NSNotificationCenter defaultCenter]postNotification:notice];
+    NSLog(@"点击");
 }
+
 /*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
 }
 */
 

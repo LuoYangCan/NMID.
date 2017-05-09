@@ -25,14 +25,15 @@
 
 -(void)initLogin{
     CYLoginViewController *LoginVC = [[CYLoginViewController alloc]init];
+    LoginVC.view.backgroundColor = [UIColor whiteColor];
     [self presentViewController:LoginVC animated:nil completion:nil];
 }
 
--(void)gotoHomeView{
-    CYHomeController *home = [[CYHomeController alloc]init];
-    [self presentViewController:home animated:NO completion:nil];
-    
-}
+//-(void)gotoHomeView{
+//    CYHomeController *home = [[CYHomeController alloc]init];
+//    [self presentViewController:home animated:NO completion:nil];
+//    
+//}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
