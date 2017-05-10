@@ -39,17 +39,21 @@
 }
 -(void)dealloc{
     [[NSNotificationCenter defaultCenter]removeObserver:self name:@"recycle" object:nil];
+    [[NSNotificationCenter defaultCenter]removeObserver:self name:@"Panoff" object:nil];
+    [[NSNotificationCenter defaultCenter]removeObserver:self name:@"Panon" object:nil];
 }
 -(void)initNotification{
     NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
     [center addObserver:self selector:@selector(recycleDrawer) name:@"recycle" object:nil];
-    [center addObserver:self selector:@selector(getPanFlag) name:@"FLAG" object:nil];
+    [center addObserver:self selector:@selector(Panoff) name:@"Panoff" object:nil];
+    [center addObserver:self selector:@selector(Panon) name:@"Panon" object:nil];
 }
--(void)getPanFlag{
-    [_Tabbar.view removeGestureRecognizer:_PAN];
+-(void)Panoff{
     [_Tabbar.view removeGestureRecognizer:_PAN];
 }
-
+-(void)Panon{
+    [_Tabbar.view addGestureRecognizer:_PAN];
+}
 -(void)initTabbar{
     _Tabbar = [[CYBaseTabbarController alloc]init];
     _Tabbar.view.backgroundColor = [UIColor whiteColor];

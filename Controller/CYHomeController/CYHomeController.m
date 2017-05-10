@@ -27,6 +27,7 @@
 @property(nonatomic,strong) CYHomeView *HomeView;
 @property(nonatomic,strong) CYContactViewController *ContactView;
 @property(nonatomic,strong) UITabBarController *HomeTabbar;
+@property(nonatomic,assign) int Childcount;
 @end
 
 @implementation CYHomeController
@@ -37,7 +38,7 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self initNotification];
+    self.Childcount = 1;
      maxY = 0;
     offsetLeft = LeftOffX;
     [self setup];
@@ -46,28 +47,51 @@
 
 - (void)setup{
     [self initVC];
+    [self initNotification];
+    [self initKVO];
   //  [self setupGesture];
 }
 - (void)dealloc{
     [[NSNotificationCenter defaultCenter]removeObserver:self name:@"pushView" object:nil];
     [[NSNotificationCenter defaultCenter]removeObserver:self name:@"changeView" object:nil];
    // [[NSNotificationCenter defaultCenter]removeObserver:self name:@"showLeft" object:nil];
+    [self removeObserver:self forKeyPath:@"Childcount" context:nil];
 }
-- (void)viewWillDisappear:(BOOL)animated{
-    [super viewWillDisappear:animated];
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    self.Childcount = 1;
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - kvo
+-(void)initKVO{
+    [self addObserver:self forKeyPath:@"Childcount" options:NSKeyValueObservingOptionOld|NSKeyValueObservingOptionNew context:nil];
+}
+-(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context{
+    if ([keyPath isEqualToString:@"Childcount"]) {
+        NSString *str =[change valueForKey:@"new"];
+        if ([str intValue] == 2) {
+            NSNotification *notice = [NSNotification notificationWithName:@"Panoff" object:nil];
+            [[NSNotificationCenter defaultCenter]postNotification:notice];
+        }else{
+            NSNotification *notice = [NSNotification notificationWithName:@"Panon" object:nil];
+            [[NSNotificationCenter defaultCenter]postNotification:notice];
+
+    }
+}
+}
 #pragma mark -通知
 -(void)initNotification{
     NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
     [center addObserver:self selector:@selector(changeView:) name:@"changeView" object:nil];
     [center addObserver:self selector:@selector(pushViewController:) name:@"pushView" object:nil];
   //  [center addObserver:self selector:@selector(showLeftView) name:@"showLeft" object:nil];
+
 }
+
 - (void)pushViewController:(NSNotification *)sender{
     NSArray *projectMember = [sender.userInfo objectForKey:@"1"];
     NSString *projectName = [sender.userInfo objectForKey:@"2"];
@@ -79,8 +103,6 @@
 }
 
 -(void)changeView:(NSNotification *)sender{
-    NSNotification *notice = [NSNotification notificationWithName:@"FLAG" object:nil];
-    [[NSNotificationCenter defaultCenter]postNotification:notice];
     NSString *re = [sender.userInfo objectForKey:@"2"];
     switch ([re intValue]) {
         case 0:
@@ -102,6 +124,8 @@
     _ContactView = [[CYContactViewController alloc]init];
     NSNotification *notice = [NSNotification notificationWithName:@"recycle" object:nil];
     [[NSNotificationCenter defaultCenter]postNotification:notice];
+        self.Childcount += 1;
+    NSLog(@"%d",_Childcount );
     [self.navigationController pushViewController:_ContactView animated:YES];
 }
 
@@ -109,12 +133,14 @@
     _ManaV = [[CYManagerViewController alloc]init];
     NSNotification *notice = [NSNotification notificationWithName:@"recycle" object:nil];
     [[NSNotificationCenter defaultCenter]postNotification:notice];
+        self.Childcount += 1;
     [self.navigationController pushViewController:_ManaV animated:YES];
 }
 -(void)showExpertsV{
     _ExpertsV = [[CYExpertsViewController alloc]init];
     NSNotification *notice = [NSNotification notificationWithName:@"recycle" object:nil];
     [[NSNotificationCenter defaultCenter]postNotification:notice];
+        self.Childcount += 1;
     [self.navigationController pushViewController:_ExpertsV animated:YES];
 }
 
