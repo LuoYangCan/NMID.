@@ -8,6 +8,7 @@
 #import "CYHelper.h"
 #import "CYBaseTabbarController.h"
 #import "CYHomeController.h"
+#import "CYProjectDViewController.h"
 @interface CYBaseTabbarController ()<UIGestureRecognizerDelegate>
 @property (strong,nonatomic) NSArray * itemArray;
 
@@ -45,7 +46,7 @@
                           @"viewcontroller_class":NSStringFromClass([CYHomeController class])
                             },
                         @{@"name":@"项目",
-                          @"viewcontroller_class":NSStringFromClass([ViewController class])
+                          @"viewcontroller_class":NSStringFromClass([CYProjectDViewController class])
                             }
                         ];
     return [array copy];

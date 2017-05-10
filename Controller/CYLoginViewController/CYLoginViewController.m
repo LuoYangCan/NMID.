@@ -85,21 +85,27 @@
     UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:LoginBtn.bounds byRoundingCorners:UIRectCornerAllCorners cornerRadii:LoginBtn.bounds.size];
     CAShapeLayer *masklayer = [[CAShapeLayer alloc]init];
     masklayer.frame = LoginBtn.bounds;
-    
     masklayer.path = maskPath.CGPath;
     LoginBtn.layer.mask = masklayer;
     
-    
+    UIButton *Visitor = [[UIButton alloc]initWithFrame:CGRectMake(screenWidth /2 + 50, 544, 80, 30)];
+    [Visitor setTitle:@"游客访问" forState:UIControlStateNormal];
     [LoginBtn setTitle:@"登陆" forState:UIControlStateNormal];
+    Visitor.titleLabel.font = [UIFont systemFontOfSize:14];
+    [Visitor setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
     LoginBtn.backgroundColor = LeftBlue;
+    [Visitor addTarget:self action:@selector(VisitorLogin) forControlEvents:UIControlEventTouchUpInside];
     [LoginBtn addTarget:self action:@selector(LoginBtnAction) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:LoginBtn];
+    [self.view addSubview:Visitor];
     
 }
-
--(void)LoginBtnAction{
+-(void)VisitorLogin{
     CYBaseController *base = [[CYBaseController alloc]init];
     [self presentViewController:base animated:YES completion:nil];
+}
+-(void)LoginBtnAction{
+
    
 }
 /*
