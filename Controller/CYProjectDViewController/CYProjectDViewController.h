@@ -2,12 +2,12 @@
 //  CYProjectDViewController.h
 //  Young Eagles
 //
-//  Created by 孤岛 on 2017/5/10.
+//  Created by 孤岛 on 2017/5/23.
 //  Copyright © 2017年 NMID. All rights reserved.
 //
 
-#import "ViewController.h"
+#import <UIKit/UIKit.h>
 
-@interface CYProjectDViewController : ViewController
+@interface CYProjectDViewController : UIViewController
 
 @end

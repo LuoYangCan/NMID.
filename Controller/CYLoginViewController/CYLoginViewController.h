@@ -2,12 +2,12 @@
 //  CYLoginViewController.h
 //  Young Eagles
 //
-//  Created by NMID on 2017/4/22.
+//  Created by 孤岛 on 2017/5/23.
 //  Copyright © 2017年 NMID. All rights reserved.
 //
 
-#import "ViewController.h"
+#import <UIKit/UIKit.h>
 
-@interface CYLoginViewController : ViewController
+@interface CYLoginViewController : UIViewController
 
 @end

@@ -21,4 +21,14 @@
     // Configure the view for the selected state
 }
 
+
+- (instancetype)initWithFrame:(CGRect)frame{
+       self =  [super initWithFrame:frame];
+    
+    
+    return self;
+}
+
+
+
 @end

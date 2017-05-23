@@ -39,7 +39,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.Childcount = 1;
-     maxY = 0;
+    maxY = 0;
     offsetLeft = LeftOffX;
     [self setup];
     // Do any additional setup after loading the view.
@@ -47,18 +47,19 @@
 
 - (void)setup{
     [self initVC];
-    [self initNotification];
-    [self initKVO];
-  //  [self setupGesture];
+    //  [self setupGesture];
 }
-- (void)dealloc{
+- (void)viewDidDisappear:(BOOL)animated{
+    [super viewDidDisappear:animated];
     [[NSNotificationCenter defaultCenter]removeObserver:self name:@"pushView" object:nil];
     [[NSNotificationCenter defaultCenter]removeObserver:self name:@"changeView" object:nil];
-   // [[NSNotificationCenter defaultCenter]removeObserver:self name:@"showLeft" object:nil];
     [self removeObserver:self forKeyPath:@"Childcount" context:nil];
+    
 }
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    [self initNotification];
+    [self initKVO];
     self.Childcount = 1;
 }
 - (void)didReceiveMemoryWarning {
@@ -79,17 +80,15 @@
         }else{
             NSNotification *notice = [NSNotification notificationWithName:@"Panon" object:nil];
             [[NSNotificationCenter defaultCenter]postNotification:notice];
-
+            
+        }
     }
-}
 }
 #pragma mark -通知
 -(void)initNotification{
     NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
     [center addObserver:self selector:@selector(changeView:) name:@"changeView" object:nil];
     [center addObserver:self selector:@selector(pushViewController:) name:@"pushView" object:nil];
-  //  [center addObserver:self selector:@selector(showLeftView) name:@"showLeft" object:nil];
-
 }
 
 - (void)pushViewController:(NSNotification *)sender{
@@ -99,7 +98,7 @@
     detailPVC.title = projectName;
     [self.navigationController pushViewController:detailPVC animated:YES];
     
-
+    
 }
 
 -(void)changeView:(NSNotification *)sender{
@@ -124,24 +123,30 @@
     _ContactView = [[CYContactViewController alloc]init];
     NSNotification *notice = [NSNotification notificationWithName:@"recycle" object:nil];
     [[NSNotificationCenter defaultCenter]postNotification:notice];
-        self.Childcount += 1;
+    self.Childcount += 1;
     NSLog(@"%d",_Childcount );
+    self.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:_ContactView animated:YES];
+    self.hidesBottomBarWhenPushed = NO;
 }
 
 -(void)showManaV{
     _ManaV = [[CYManagerViewController alloc]init];
     NSNotification *notice = [NSNotification notificationWithName:@"recycle" object:nil];
     [[NSNotificationCenter defaultCenter]postNotification:notice];
-        self.Childcount += 1;
+    self.Childcount += 1;
+    self.hidesBottomBarWhenPushed =YES;
     [self.navigationController pushViewController:_ManaV animated:YES];
+    self.hidesBottomBarWhenPushed = NO;
 }
 -(void)showExpertsV{
     _ExpertsV = [[CYExpertsViewController alloc]init];
     NSNotification *notice = [NSNotification notificationWithName:@"recycle" object:nil];
     [[NSNotificationCenter defaultCenter]postNotification:notice];
-        self.Childcount += 1;
+    self.Childcount += 1;
+    self.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:_ExpertsV animated:YES];
+    self.hidesBottomBarWhenPushed = NO;
 }
 
 -(CGRect)framemove{
@@ -153,9 +158,9 @@
 #pragma mark - 初始化vc
 -(void)initVC{
     //顶部左侧按钮
-//    self.LeftBtn = [[UIButton alloc]initWithFrame:CGRectMake(15, 29, 30, 30)];
-//    [self.LeftBtn setImage:[UIImage imageNamed:@"Menu-40"] forState:UIControlStateNormal];
-//    [self.LeftBtn addTarget:self action:@selector(showLeftView) forControlEvents:UIControlEventTouchUpInside];
+    //    self.LeftBtn = [[UIButton alloc]initWithFrame:CGRectMake(15, 29, 30, 30)];
+    //    [self.LeftBtn setImage:[UIImage imageNamed:@"Menu-40"] forState:UIControlStateNormal];
+    //    [self.LeftBtn addTarget:self action:@selector(showLeftView) forControlEvents:UIControlEventTouchUpInside];
     //主界面初始化
     self.mainView = [[UIView alloc]initWithFrame:wholeScreen];
     self.mainView.backgroundColor = [UIColor whiteColor];
@@ -168,18 +173,18 @@
     self.HomeView = [[CYHomeView alloc]init];
     [self.view addSubview:self.mainView];
     [self.mainView addSubview:self.HomeView];
-
+    
 }
 
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end

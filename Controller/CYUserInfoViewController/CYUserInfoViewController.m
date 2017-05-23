@@ -1,28 +1,32 @@
 //
-//  CYProjectDViewController.m
+//  CYUserInfoViewController.m
 //  Young Eagles
 //
-//  Created by 孤岛 on 2017/5/23.
+//  Created by 孤岛 on 2017/5/15.
 //  Copyright © 2017年 NMID. All rights reserved.
 //
 
-#import "CYProjectDViewController.h"
-#import "CYDiscussViewController.h"
-#import "CYExpertsViewController.h"
+#import "CYUserInfoViewController.h"
+#import "CYHelper.h"
 #import "CYContactViewController.h"
+#import "CYExpertsViewController.h"
 #import "CYManagerViewController.h"
 #import "CYDetailProjectViewController.h"
-@interface CYProjectDViewController ()
+@interface CYUserInfoViewController ()
+@property(nonatomic,strong)UIImage *HeadImage;
+@property(nonatomic,strong)UILabel *Username;
+@property(nonatomic,strong)UILabel *UserProject;
 @property(nonatomic,assign) int Childcount;
 @property(nonatomic,strong) CYContactViewController *ContactView;
 @property(nonatomic,strong) CYManagerViewController *ManaV;
 @property(nonatomic,strong) CYExpertsViewController *ExpertsV;
 @end
 
-@implementation CYProjectDViewController
+@implementation CYUserInfoViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self initUI];
     // Do any additional setup after loading the view.
 }
 
@@ -30,6 +34,8 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self initKVO];
@@ -41,6 +47,36 @@
     [[NSNotificationCenter defaultCenter]removeObserver:self name:@"pushView" object:nil];
     [[NSNotificationCenter defaultCenter]removeObserver:self name:@"changeView" object:nil];
     [self removeObserver:self forKeyPath:@"Childcount" context:nil];
+
+}
+
+-(void)initUI{
+    self.view.backgroundColor = kBackgroundGray;
+    UIView *Top = [[UIView alloc]initWithFrame:CGRectMake(0, 80, screenWidth, 100)];
+    Top.backgroundColor = [UIColor whiteColor];
+    [self.view addSubview:Top];
+    
+    _HeadImage = [UIImage imageNamed:@"Commercial Development Management-50"];
+    UIImageView *HeadIcon = [[UIImageView alloc]initWithImage:_HeadImage];
+    HeadIcon.backgroundColor = [UIColor cyanColor];
+    HeadIcon.frame = CGRectMake(30, 15, 70, 70);
+    UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:HeadIcon.bounds byRoundingCorners:UIRectCornerAllCorners cornerRadii:HeadIcon.bounds.size];
+    CAShapeLayer *masklayer = [[CAShapeLayer alloc]init];
+    masklayer.frame = HeadIcon.bounds;
+    masklayer.path = maskPath.CGPath;
+    HeadIcon.layer.mask = masklayer;
+    [Top addSubview:HeadIcon];
+    
+    _Username = [[UILabel alloc]initWithFrame:CGRectMake(screenWidth /2-68, 15, 120, 25)];
+    _Username.text = @"Reus97";
+    _Username.font = [UIFont fontWithName:@"Helvetica-bold" size:17];
+    [Top addSubview:_Username];
+    
+    _UserProject = [[UILabel alloc]initWithFrame:CGRectMake(screenWidth/2-68, 40, 200, 30)];
+    _UserProject.font =[UIFont fontWithName:@"Helvetica" size:14];
+    _UserProject.text = @"智能互联机场导航小车";
+    [Top addSubview:_UserProject];
+    
     
 }
 #pragma mark - kvo
@@ -124,7 +160,6 @@
     [self.navigationController pushViewController:_ExpertsV animated:YES];
     self.hidesBottomBarWhenPushed = NO;
 }
-
 
 
 

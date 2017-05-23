@@ -14,21 +14,24 @@
 		2D0E5C451E7D53D000D69F2B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D0E5C431E7D53D000D69F2B /* LaunchScreen.storyboard */; };
 		2D0E5C501E7D53D100D69F2B /* Young_EaglesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D0E5C4F1E7D53D100D69F2B /* Young_EaglesTests.m */; };
 		2D0E5C5B1E7D53D100D69F2B /* Young_EaglesUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D0E5C5A1E7D53D100D69F2B /* Young_EaglesUITests.m */; };
-		2D3001191EAAF5A20073C105 /* CYLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D3001181EAAF5A20073C105 /* CYLoginViewController.m */; };
 		2D3F0A6C1E7D793E007642DF /* Property List.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2D3F0A6B1E7D793E007642DF /* Property List.plist */; };
 		2D43CFA21E8154AE006363BF /* CYTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D43CFA11E8154AE006363BF /* CYTableViewCell.m */; };
 		2D5CE6BC1EA4ADAA00BE763A /* CYHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D5CE6BB1EA4ADAA00BE763A /* CYHelper.m */; };
-		2DD53D651E8F62DF007B43B2 /* CYHomeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD53D641E8F62DF007B43B2 /* CYHomeController.m */; };
 		2DE177D31EAAFB0D0049B41A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2DE177D21EAAFB0D0049B41A /* Assets.xcassets */; };
 		2DF80B611E8F34E200212E2E /* CYDetailProjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DF80B601E8F34E200212E2E /* CYDetailProjectViewController.m */; };
 		2DF80B6E1E8F566F00212E2E /* CYAllPeopleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DF80B6D1E8F566F00212E2E /* CYAllPeopleView.m */; };
 		2DF80B711E8F567C00212E2E /* CYProjectView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DF80B701E8F567C00212E2E /* CYProjectView.m */; };
-		685201861EC1E5A100E03DCF /* CYDrawViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 685201851EC1E5A100E03DCF /* CYDrawViewController.m */; };
-		685201901EC1EF9000E03DCF /* CYContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6852018F1EC1EF9000E03DCF /* CYContactViewController.m */; };
-		685201951EC2018D00E03DCF /* CYExpertsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 685201941EC2018D00E03DCF /* CYExpertsViewController.m */; };
-		685201981EC2019800E03DCF /* CYManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 685201971EC2019800E03DCF /* CYManagerViewController.m */; };
+		684622951ED3F34D00D33C7A /* CYHomeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 684622941ED3F34D00D33C7A /* CYHomeController.m */; };
+		684622981ED3F37C00D33C7A /* CYLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 684622971ED3F37C00D33C7A /* CYLoginViewController.m */; };
+		6846229B1ED3F3C400D33C7A /* CYDrawViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6846229A1ED3F3C400D33C7A /* CYDrawViewController.m */; };
+		6846229E1ED3F3E300D33C7A /* CYContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6846229D1ED3F3E300D33C7A /* CYContactViewController.m */; };
+		684622A11ED3F3FA00D33C7A /* CYManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 684622A01ED3F3FA00D33C7A /* CYManagerViewController.m */; };
+		684622A41ED3F40F00D33C7A /* CYExpertsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 684622A31ED3F40F00D33C7A /* CYExpertsViewController.m */; };
+		684622A71ED3F42300D33C7A /* CYProjectDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 684622A61ED3F42300D33C7A /* CYProjectDViewController.m */; };
 		6852019A1EC2158D00E03DCF /* CYBaseTabbarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 685201991EC2158D00E03DCF /* CYBaseTabbarController.m */; };
-		6852019E1EC366E200E03DCF /* CYProjectDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6852019D1EC366E200E03DCF /* CYProjectDViewController.m */; };
+		685367741EC9FB4200D70C73 /* CYDiscussViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 685367731EC9FB4200D70C73 /* CYDiscussViewController.m */; };
+		685367771EC9FB5300D70C73 /* CYUserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 685367761EC9FB5300D70C73 /* CYUserInfoViewController.m */; };
+		6853677B1ECA023400D70C73 /* UIColor+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 6853677A1ECA023400D70C73 /* UIColor+Addition.m */; };
 		685471481EB21D9D007A4EA5 /* CYHomeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 685471471EB21D9D007A4EA5 /* CYHomeView.m */; };
 		6854714C1EB446E1007A4EA5 /* CYHomeTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6854714B1EB446E1007A4EA5 /* CYHomeTableCell.m */; };
 		68C01B4A1EB0B72300BF57C7 /* CYStart.m in Sources */ = {isa = PBXBuildFile; fileRef = 68C01B491EB0B72300BF57C7 /* CYStart.m */; };
@@ -68,15 +71,11 @@
 		2D0E5C561E7D53D100D69F2B /* Young EaglesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Young EaglesUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D0E5C5A1E7D53D100D69F2B /* Young_EaglesUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Young_EaglesUITests.m; sourceTree = "<group>"; };
 		2D0E5C5C1E7D53D100D69F2B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2D3001171EAAF5A20073C105 /* CYLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYLoginViewController.h; sourceTree = "<group>"; };
-		2D3001181EAAF5A20073C105 /* CYLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYLoginViewController.m; sourceTree = "<group>"; };
 		2D3F0A6B1E7D793E007642DF /* Property List.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Property List.plist"; sourceTree = "<group>"; };
 		2D43CFA01E8154AE006363BF /* CYTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYTableViewCell.h; sourceTree = "<group>"; };
 		2D43CFA11E8154AE006363BF /* CYTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYTableViewCell.m; sourceTree = "<group>"; };
 		2D5CE6BA1EA4ADAA00BE763A /* CYHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYHelper.h; sourceTree = "<group>"; };
 		2D5CE6BB1EA4ADAA00BE763A /* CYHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYHelper.m; sourceTree = "<group>"; };
-		2DD53D631E8F62DF007B43B2 /* CYHomeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYHomeController.h; sourceTree = "<group>"; };
-		2DD53D641E8F62DF007B43B2 /* CYHomeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYHomeController.m; sourceTree = "<group>"; };
 		2DE177D21EAAFB0D0049B41A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2DF80B5F1E8F34E200212E2E /* CYDetailProjectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYDetailProjectViewController.h; sourceTree = "<group>"; };
 		2DF80B601E8F34E200212E2E /* CYDetailProjectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYDetailProjectViewController.m; sourceTree = "<group>"; };
@@ -84,17 +83,27 @@
 		2DF80B6D1E8F566F00212E2E /* CYAllPeopleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYAllPeopleView.m; sourceTree = "<group>"; };
 		2DF80B6F1E8F567C00212E2E /* CYProjectView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYProjectView.h; sourceTree = "<group>"; };
 		2DF80B701E8F567C00212E2E /* CYProjectView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYProjectView.m; sourceTree = "<group>"; };
-		685201841EC1E5A100E03DCF /* CYDrawViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYDrawViewController.h; sourceTree = "<group>"; };
-		685201851EC1E5A100E03DCF /* CYDrawViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYDrawViewController.m; sourceTree = "<group>"; };
-		6852018C1EC1EB6A00E03DCF /* CYContactViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYContactViewController.h; sourceTree = "<group>"; };
-		6852018F1EC1EF9000E03DCF /* CYContactViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYContactViewController.m; sourceTree = "<group>"; };
-		685201931EC2018D00E03DCF /* CYExpertsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYExpertsViewController.h; sourceTree = "<group>"; };
-		685201941EC2018D00E03DCF /* CYExpertsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYExpertsViewController.m; sourceTree = "<group>"; };
-		685201961EC2019800E03DCF /* CYManagerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYManagerViewController.h; sourceTree = "<group>"; };
-		685201971EC2019800E03DCF /* CYManagerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYManagerViewController.m; sourceTree = "<group>"; };
+		684622931ED3F34D00D33C7A /* CYHomeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYHomeController.h; sourceTree = "<group>"; };
+		684622941ED3F34D00D33C7A /* CYHomeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYHomeController.m; sourceTree = "<group>"; };
+		684622961ED3F37C00D33C7A /* CYLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYLoginViewController.h; sourceTree = "<group>"; };
+		684622971ED3F37C00D33C7A /* CYLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYLoginViewController.m; sourceTree = "<group>"; };
+		684622991ED3F3C400D33C7A /* CYDrawViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYDrawViewController.h; sourceTree = "<group>"; };
+		6846229A1ED3F3C400D33C7A /* CYDrawViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYDrawViewController.m; sourceTree = "<group>"; };
+		6846229C1ED3F3E300D33C7A /* CYContactViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYContactViewController.h; sourceTree = "<group>"; };
+		6846229D1ED3F3E300D33C7A /* CYContactViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYContactViewController.m; sourceTree = "<group>"; };
+		6846229F1ED3F3FA00D33C7A /* CYManagerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYManagerViewController.h; sourceTree = "<group>"; };
+		684622A01ED3F3FA00D33C7A /* CYManagerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYManagerViewController.m; sourceTree = "<group>"; };
+		684622A21ED3F40F00D33C7A /* CYExpertsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYExpertsViewController.h; sourceTree = "<group>"; };
+		684622A31ED3F40F00D33C7A /* CYExpertsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYExpertsViewController.m; sourceTree = "<group>"; };
+		684622A51ED3F42300D33C7A /* CYProjectDViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYProjectDViewController.h; sourceTree = "<group>"; };
+		684622A61ED3F42300D33C7A /* CYProjectDViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYProjectDViewController.m; sourceTree = "<group>"; };
 		685201991EC2158D00E03DCF /* CYBaseTabbarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYBaseTabbarController.m; sourceTree = "<group>"; };
-		6852019C1EC366E200E03DCF /* CYProjectDViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYProjectDViewController.h; sourceTree = "<group>"; };
-		6852019D1EC366E200E03DCF /* CYProjectDViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYProjectDViewController.m; sourceTree = "<group>"; };
+		685367721EC9FB4200D70C73 /* CYDiscussViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYDiscussViewController.h; sourceTree = "<group>"; };
+		685367731EC9FB4200D70C73 /* CYDiscussViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYDiscussViewController.m; sourceTree = "<group>"; };
+		685367751EC9FB5300D70C73 /* CYUserInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYUserInfoViewController.h; sourceTree = "<group>"; };
+		685367761EC9FB5300D70C73 /* CYUserInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYUserInfoViewController.m; sourceTree = "<group>"; };
+		685367791ECA023400D70C73 /* UIColor+Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Addition.h"; sourceTree = "<group>"; };
+		6853677A1ECA023400D70C73 /* UIColor+Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Addition.m"; sourceTree = "<group>"; };
 		685471461EB21D9D007A4EA5 /* CYHomeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYHomeView.h; sourceTree = "<group>"; };
 		685471471EB21D9D007A4EA5 /* CYHomeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYHomeView.m; sourceTree = "<group>"; };
 		6854714A1EB446E1007A4EA5 /* CYHomeTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYHomeTableCell.h; sourceTree = "<group>"; };
@@ -168,6 +177,8 @@
 				2D0E5C461E7D53D000D69F2B /* Info.plist */,
 				2D0E5C351E7D53D000D69F2B /* Supporting Files */,
 				2D3F0A6B1E7D793E007642DF /* Property List.plist */,
+				685367791ECA023400D70C73 /* UIColor+Addition.h */,
+				6853677A1ECA023400D70C73 /* UIColor+Addition.m */,
 			);
 			path = "Young Eagles";
 			sourceTree = "<group>";
@@ -201,6 +212,8 @@
 		2D0E5C6F1E7D590000D69F2B /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				685367701EC9FA7400D70C73 /* CYDiscussViewController */,
+				685367711EC9FA7400D70C73 /* CYUserInfoViewController */,
 				6852019B1EC366D100E03DCF /* CYProjectDViewController */,
 				685201911EC1FCCB00E03DCF /* CYExpertsViewController */,
 				685201921EC1FCCB00E03DCF /* CYManagerViewController */,
@@ -235,8 +248,8 @@
 		2D3001161EAAF58E0073C105 /* CYLoginViewController */ = {
 			isa = PBXGroup;
 			children = (
-				2D3001171EAAF5A20073C105 /* CYLoginViewController.h */,
-				2D3001181EAAF5A20073C105 /* CYLoginViewController.m */,
+				684622961ED3F37C00D33C7A /* CYLoginViewController.h */,
+				684622971ED3F37C00D33C7A /* CYLoginViewController.m */,
 			);
 			path = CYLoginViewController;
 			sourceTree = "<group>";
@@ -273,8 +286,8 @@
 		2DD53D621E8F62DF007B43B2 /* CYHomeController */ = {
 			isa = PBXGroup;
 			children = (
-				2DD53D631E8F62DF007B43B2 /* CYHomeController.h */,
-				2DD53D641E8F62DF007B43B2 /* CYHomeController.m */,
+				684622931ED3F34D00D33C7A /* CYHomeController.h */,
+				684622941ED3F34D00D33C7A /* CYHomeController.m */,
 			);
 			path = CYHomeController;
 			sourceTree = "<group>";
@@ -309,8 +322,8 @@
 		685201831EC1E59600E03DCF /* CYDrawViewController */ = {
 			isa = PBXGroup;
 			children = (
-				685201841EC1E5A100E03DCF /* CYDrawViewController.h */,
-				685201851EC1E5A100E03DCF /* CYDrawViewController.m */,
+				684622991ED3F3C400D33C7A /* CYDrawViewController.h */,
+				6846229A1ED3F3C400D33C7A /* CYDrawViewController.m */,
 			);
 			path = CYDrawViewController;
 			sourceTree = "<group>";
@@ -318,8 +331,8 @@
 		6852018B1EC1EB5A00E03DCF /* CYContactViewController */ = {
 			isa = PBXGroup;
 			children = (
-				6852018C1EC1EB6A00E03DCF /* CYContactViewController.h */,
-				6852018F1EC1EF9000E03DCF /* CYContactViewController.m */,
+				6846229C1ED3F3E300D33C7A /* CYContactViewController.h */,
+				6846229D1ED3F3E300D33C7A /* CYContactViewController.m */,
 			);
 			path = CYContactViewController;
 			sourceTree = "<group>";
@@ -327,8 +340,8 @@
 		685201911EC1FCCB00E03DCF /* CYExpertsViewController */ = {
 			isa = PBXGroup;
 			children = (
-				685201931EC2018D00E03DCF /* CYExpertsViewController.h */,
-				685201941EC2018D00E03DCF /* CYExpertsViewController.m */,
+				684622A21ED3F40F00D33C7A /* CYExpertsViewController.h */,
+				684622A31ED3F40F00D33C7A /* CYExpertsViewController.m */,
 			);
 			path = CYExpertsViewController;
 			sourceTree = "<group>";
@@ -336,8 +349,8 @@
 		685201921EC1FCCB00E03DCF /* CYManagerViewController */ = {
 			isa = PBXGroup;
 			children = (
-				685201961EC2019800E03DCF /* CYManagerViewController.h */,
-				685201971EC2019800E03DCF /* CYManagerViewController.m */,
+				6846229F1ED3F3FA00D33C7A /* CYManagerViewController.h */,
+				684622A01ED3F3FA00D33C7A /* CYManagerViewController.m */,
 			);
 			path = CYManagerViewController;
 			sourceTree = "<group>";
@@ -345,10 +358,28 @@
 		6852019B1EC366D100E03DCF /* CYProjectDViewController */ = {
 			isa = PBXGroup;
 			children = (
-				6852019C1EC366E200E03DCF /* CYProjectDViewController.h */,
-				6852019D1EC366E200E03DCF /* CYProjectDViewController.m */,
+				684622A51ED3F42300D33C7A /* CYProjectDViewController.h */,
+				684622A61ED3F42300D33C7A /* CYProjectDViewController.m */,
 			);
 			path = CYProjectDViewController;
+			sourceTree = "<group>";
+		};
+		685367701EC9FA7400D70C73 /* CYDiscussViewController */ = {
+			isa = PBXGroup;
+			children = (
+				685367721EC9FB4200D70C73 /* CYDiscussViewController.h */,
+				685367731EC9FB4200D70C73 /* CYDiscussViewController.m */,
+			);
+			path = CYDiscussViewController;
+			sourceTree = "<group>";
+		};
+		685367711EC9FA7400D70C73 /* CYUserInfoViewController */ = {
+			isa = PBXGroup;
+			children = (
+				685367751EC9FB5300D70C73 /* CYUserInfoViewController.h */,
+				685367761EC9FB5300D70C73 /* CYUserInfoViewController.m */,
+			);
+			path = CYUserInfoViewController;
 			sourceTree = "<group>";
 		};
 		685471451EB21D8B007A4EA5 /* CYHomeView */ = {
@@ -531,26 +562,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2DD53D651E8F62DF007B43B2 /* CYHomeController.m in Sources */,
 				2D43CFA21E8154AE006363BF /* CYTableViewCell.m in Sources */,
+				685367741EC9FB4200D70C73 /* CYDiscussViewController.m in Sources */,
+				6846229B1ED3F3C400D33C7A /* CYDrawViewController.m in Sources */,
 				6852019A1EC2158D00E03DCF /* CYBaseTabbarController.m in Sources */,
-				685201861EC1E5A100E03DCF /* CYDrawViewController.m in Sources */,
-				685201981EC2019800E03DCF /* CYManagerViewController.m in Sources */,
-				2D3001191EAAF5A20073C105 /* CYLoginViewController.m in Sources */,
+				6853677B1ECA023400D70C73 /* UIColor+Addition.m in Sources */,
+				684622A11ED3F3FA00D33C7A /* CYManagerViewController.m in Sources */,
+				684622951ED3F34D00D33C7A /* CYHomeController.m in Sources */,
 				2D5CE6BC1EA4ADAA00BE763A /* CYHelper.m in Sources */,
 				2DF80B6E1E8F566F00212E2E /* CYAllPeopleView.m in Sources */,
+				684622A41ED3F40F00D33C7A /* CYExpertsViewController.m in Sources */,
 				2D0E5C3D1E7D53D000D69F2B /* ViewController.m in Sources */,
 				2DF80B611E8F34E200212E2E /* CYDetailProjectViewController.m in Sources */,
 				685471481EB21D9D007A4EA5 /* CYHomeView.m in Sources */,
 				2D0E5C3A1E7D53D000D69F2B /* AppDelegate.m in Sources */,
 				2DF80B711E8F567C00212E2E /* CYProjectView.m in Sources */,
+				684622981ED3F37C00D33C7A /* CYLoginViewController.m in Sources */,
+				684622A71ED3F42300D33C7A /* CYProjectDViewController.m in Sources */,
 				68C01B4A1EB0B72300BF57C7 /* CYStart.m in Sources */,
 				68D71C481EC019E000E773C6 /* CYBaseController.m in Sources */,
-				685201951EC2018D00E03DCF /* CYExpertsViewController.m in Sources */,
+				685367771EC9FB5300D70C73 /* CYUserInfoViewController.m in Sources */,
 				2D0E5C371E7D53D000D69F2B /* main.m in Sources */,
 				6854714C1EB446E1007A4EA5 /* CYHomeTableCell.m in Sources */,
-				685201901EC1EF9000E03DCF /* CYContactViewController.m in Sources */,
-				6852019E1EC366E200E03DCF /* CYProjectDViewController.m in Sources */,
+				6846229E1ED3F3E300D33C7A /* CYContactViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

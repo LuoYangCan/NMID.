@@ -1,25 +1,24 @@
 //
-//  CYProjectDViewController.m
+//  CYDiscussViewController.m
 //  Young Eagles
 //
-//  Created by 孤岛 on 2017/5/23.
+//  Created by 孤岛 on 2017/5/15.
 //  Copyright © 2017年 NMID. All rights reserved.
 //
 
-#import "CYProjectDViewController.h"
 #import "CYDiscussViewController.h"
 #import "CYExpertsViewController.h"
 #import "CYContactViewController.h"
 #import "CYManagerViewController.h"
 #import "CYDetailProjectViewController.h"
-@interface CYProjectDViewController ()
+@interface CYDiscussViewController ()
 @property(nonatomic,assign) int Childcount;
 @property(nonatomic,strong) CYContactViewController *ContactView;
 @property(nonatomic,strong) CYManagerViewController *ManaV;
 @property(nonatomic,strong) CYExpertsViewController *ExpertsV;
 @end
 
-@implementation CYProjectDViewController
+@implementation CYDiscussViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -124,8 +123,6 @@
     [self.navigationController pushViewController:_ExpertsV animated:YES];
     self.hidesBottomBarWhenPushed = NO;
 }
-
-
 
 
 

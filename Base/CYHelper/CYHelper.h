@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import "UIColor+Addition.h"
 @interface CYHelper : NSObject
 +(UIColor *)getColorfrom:(NSIndexPath *)IndexPath;           //从几个背景色中选一个
 +(NSString *)getFirstWordFrom:(NSArray *)StrArray andRow:(NSIndexPath *)indexPath;//取名字的第一个字
@@ -50,3 +51,8 @@
 
 
 #define comeSize CGRectMake(screenWidth ,0 ,screenWidth, screenHeight)
+
+
+
+#define kBackgroundGray [UIColor colorWithRGBHex:0xf7f7f7]
+

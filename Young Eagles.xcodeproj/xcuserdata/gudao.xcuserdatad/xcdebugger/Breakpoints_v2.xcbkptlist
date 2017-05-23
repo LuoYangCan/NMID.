@@ -10,13 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Controller/CYHomeController/CYHomeController.m"
-            timestampString = "516082181.501384"
+            timestampString = "517207169.159413"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "96"
-            endingLineNumber = "96"
-            landmarkName = "-pushViewController:"
-            landmarkType = "7">
+            startingLineNumber = "248"
+            endingLineNumber = "248">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -26,13 +24,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Controller/CYHomeController/CYHomeController.m"
-            timestampString = "516082181.501384"
+            timestampString = "517207169.159413"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "97"
-            endingLineNumber = "97"
-            landmarkName = "-pushViewController:"
-            landmarkType = "7">
+            startingLineNumber = "249"
+            endingLineNumber = "249">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -42,13 +38,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Controller/CYHomeController/CYHomeController.m"
-            timestampString = "516082181.501384"
+            timestampString = "517207169.159413"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "102"
-            endingLineNumber = "102"
-            landmarkName = "-pushViewController:"
-            landmarkType = "7">
+            startingLineNumber = "254"
+            endingLineNumber = "254">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -58,13 +52,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Controller/CYHomeController/CYHomeController.m"
-            timestampString = "516082181.501384"
+            timestampString = "517207169.159413"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "107"
-            endingLineNumber = "107"
-            landmarkName = "-changeView:"
-            landmarkType = "7">
+            startingLineNumber = "259"
+            endingLineNumber = "259">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -74,13 +66,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Controller/CYHomeController/CYHomeController.m"
-            timestampString = "516082181.501384"
+            timestampString = "517207169.159413"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "160"
-            endingLineNumber = "160"
-            landmarkName = "-initVC"
-            landmarkType = "7">
+            startingLineNumber = "318"
+            endingLineNumber = "318">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -90,13 +80,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Controller/CYHomeController/CYHomeController.m"
-            timestampString = "516082181.501384"
+            timestampString = "517207169.159413"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "169"
-            endingLineNumber = "169"
-            landmarkName = "-initVC"
-            landmarkType = "7">
+            startingLineNumber = "327"
+            endingLineNumber = "327">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -106,13 +94,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Controller/CYHomeController/CYHomeController.m"
-            timestampString = "516082181.501384"
+            timestampString = "517207169.159413"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "108"
-            endingLineNumber = "108"
-            landmarkName = "-changeView:"
-            landmarkType = "7">
+            startingLineNumber = "260"
+            endingLineNumber = "260">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -138,13 +124,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Controller/CYHomeController/CYHomeController.m"
-            timestampString = "516082181.501384"
+            timestampString = "517207169.159413"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "71"
-            endingLineNumber = "71"
-            landmarkName = "-initKVO"
-            landmarkType = "7">
+            startingLineNumber = "225"
+            endingLineNumber = "225">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -154,13 +138,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Controller/CYHomeController/CYHomeController.m"
-            timestampString = "516082181.501384"
+            timestampString = "517207169.159413"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "72"
-            endingLineNumber = "72"
-            landmarkName = "-initKVO"
-            landmarkType = "7">
+            startingLineNumber = "226"
+            endingLineNumber = "226">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -170,13 +152,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Controller/CYHomeController/CYHomeController.m"
-            timestampString = "516082181.501384"
+            timestampString = "517207169.159413"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "67"
-            endingLineNumber = "67"
-            landmarkName = "-didReceiveMemoryWarning"
-            landmarkType = "7">
+            startingLineNumber = "221"
+            endingLineNumber = "221">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -186,13 +166,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Controller/CYHomeController/CYHomeController.m"
-            timestampString = "516082181.501384"
+            timestampString = "517207169.159413"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "68"
-            endingLineNumber = "68"
-            landmarkName = "@implementation CYHomeController"
-            landmarkType = "3">
+            startingLineNumber = "222"
+            endingLineNumber = "222">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -202,13 +180,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Controller/CYHomeController/CYHomeController.m"
-            timestampString = "516082181.501384"
+            timestampString = "517207169.159413"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "73"
-            endingLineNumber = "73"
-            landmarkName = "-observeValueForKeyPath:ofObject:change:context:"
-            landmarkType = "7">
+            startingLineNumber = "227"
+            endingLineNumber = "227">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -218,13 +194,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Controller/CYHomeController/CYHomeController.m"
-            timestampString = "516082181.501384"
+            timestampString = "517207169.159413"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "76"
-            endingLineNumber = "76"
-            landmarkName = "-observeValueForKeyPath:ofObject:change:context:"
-            landmarkType = "7">
+            startingLineNumber = "230"
+            endingLineNumber = "230">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -234,13 +208,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Controller/CYHomeController/CYHomeController.m"
-            timestampString = "516082181.501384"
+            timestampString = "517207169.159413"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "129"
-            endingLineNumber = "129"
-            landmarkName = "-movetoHomeView"
-            landmarkType = "7">
+            startingLineNumber = "282"
+            endingLineNumber = "282">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -250,13 +222,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Controller/CYHomeController/CYHomeController.m"
-            timestampString = "516082181.501384"
+            timestampString = "517207169.159413"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "77"
-            endingLineNumber = "77"
-            landmarkName = "-observeValueForKeyPath:ofObject:change:context:"
-            landmarkType = "7">
+            startingLineNumber = "231"
+            endingLineNumber = "231">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -266,13 +236,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Controller/CYHomeController/CYHomeController.m"
-            timestampString = "516082181.501384"
+            timestampString = "517207169.159413"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "80"
-            endingLineNumber = "80"
-            landmarkName = "-observeValueForKeyPath:ofObject:change:context:"
-            landmarkType = "7">
+            startingLineNumber = "234"
+            endingLineNumber = "234">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

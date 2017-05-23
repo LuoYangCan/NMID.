@@ -9,7 +9,7 @@
 #import "CYDrawViewController.h"
 #import "CYHelper.h"
 @interface CYDrawViewController ()
-
+@property (nonatomic,strong) NSString *change;
 @end
 
 @implementation CYDrawViewController
@@ -77,7 +77,7 @@
                               @"2":self.change};
     NSNotification *notice = [NSNotification notificationWithName:@"changeView" object:nil userInfo:NotiDic];
     [[NSNotificationCenter defaultCenter]postNotification:notice];
-    NSLog(@"点击");
+    
 }
 -(void)tapSecondBtn{
     self.change =@"1";
@@ -85,7 +85,7 @@
                               @"2":self.change};
     NSNotification *notice = [NSNotification notificationWithName:@"changeView" object:nil userInfo:NotiDic];
     [[NSNotificationCenter defaultCenter]postNotification:notice];
-    NSLog(@"点击");
+    
 }
 -(void)tapThirdBtn{
     self.change =@"2";
@@ -93,17 +93,17 @@
                               @"2":self.change};
     NSNotification *notice = [NSNotification notificationWithName:@"changeView" object:nil userInfo:NotiDic];
     [[NSNotificationCenter defaultCenter]postNotification:notice];
-    NSLog(@"点击");
+    
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end
