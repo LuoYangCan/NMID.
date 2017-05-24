@@ -5,6 +5,7 @@
 //  Created by NMID on 2017/3/18.
 //  Copyright © 2017年 NMID. All rights reserved.
 //
+#import "CYHomeView.h"
 #import "CYHelper.h"
 #import "CYHomeController.h"
 #import "CYAllPeopleView.h"
@@ -38,7 +39,6 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.Childcount = 1;
     maxY = 0;
     offsetLeft = LeftOffX;
     [self setup];
@@ -47,11 +47,10 @@
 
 - (void)setup{
     [self initVC];
-    //  [self setupGesture];
+    [self initUI];
 }
 - (void)viewDidDisappear:(BOOL)animated{
     [super viewDidDisappear:animated];
-    [[NSNotificationCenter defaultCenter]removeObserver:self name:@"pushView" object:nil];
     [[NSNotificationCenter defaultCenter]removeObserver:self name:@"changeView" object:nil];
     [self removeObserver:self forKeyPath:@"Childcount" context:nil];
     
@@ -65,6 +64,12 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - 主页
+-(void)initUI{
+    CYHomeView *home = [[CYHomeView alloc]init];
+    [self.view addSubview:home];
 }
 
 #pragma mark - kvo
@@ -88,18 +93,9 @@
 -(void)initNotification{
     NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
     [center addObserver:self selector:@selector(changeView:) name:@"changeView" object:nil];
-    [center addObserver:self selector:@selector(pushViewController:) name:@"pushView" object:nil];
 }
 
-- (void)pushViewController:(NSNotification *)sender{
-    NSArray *projectMember = [sender.userInfo objectForKey:@"1"];
-    NSString *projectName = [sender.userInfo objectForKey:@"2"];
-    CYDetailProjectViewController *detailPVC = [[CYDetailProjectViewController alloc]initWithProjectInfo:projectMember];
-    detailPVC.title = projectName;
-    [self.navigationController pushViewController:detailPVC animated:YES];
-    
-    
-}
+
 
 -(void)changeView:(NSNotification *)sender{
     NSString *re = [sender.userInfo objectForKey:@"2"];

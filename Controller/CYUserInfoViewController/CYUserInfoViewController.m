@@ -44,7 +44,6 @@
 }
 - (void)viewDidDisappear:(BOOL)animated{
     [super viewDidDisappear:animated];
-    [[NSNotificationCenter defaultCenter]removeObserver:self name:@"pushView" object:nil];
     [[NSNotificationCenter defaultCenter]removeObserver:self name:@"changeView" object:nil];
     [self removeObserver:self forKeyPath:@"Childcount" context:nil];
 
@@ -58,7 +57,6 @@
     
     _HeadImage = [UIImage imageNamed:@"Commercial Development Management-50"];
     UIImageView *HeadIcon = [[UIImageView alloc]initWithImage:_HeadImage];
-    HeadIcon.backgroundColor = [UIColor cyanColor];
     HeadIcon.frame = CGRectMake(30, 15, 70, 70);
     UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:HeadIcon.bounds byRoundingCorners:UIRectCornerAllCorners cornerRadii:HeadIcon.bounds.size];
     CAShapeLayer *masklayer = [[CAShapeLayer alloc]init];
@@ -100,18 +98,9 @@
 -(void)initNotification{
     NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
     [center addObserver:self selector:@selector(changeView:) name:@"changeView" object:nil];
-    [center addObserver:self selector:@selector(pushViewController:) name:@"pushView" object:nil];
 }
 
-- (void)pushViewController:(NSNotification *)sender{
-    NSArray *projectMember = [sender.userInfo objectForKey:@"1"];
-    NSString *projectName = [sender.userInfo objectForKey:@"2"];
-    CYDetailProjectViewController *detailPVC = [[CYDetailProjectViewController alloc]initWithProjectInfo:projectMember];
-    detailPVC.title = projectName;
-    [self.navigationController pushViewController:detailPVC animated:YES];
-    
-    
-}
+
 
 -(void)changeView:(NSNotification *)sender{
     NSString *re = [sender.userInfo objectForKey:@"2"];

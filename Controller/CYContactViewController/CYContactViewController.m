@@ -9,7 +9,7 @@
 #import "CYProjectView.h"
 #import "CYAllPeopleView.h"
 #import "CYContactViewController.h"
-
+#import "CYDetailProjectViewController.h"
 @interface CYContactViewController ()
 @property(nonatomic,strong) CYProjectView *PV;
 @property(nonatomic,strong) CYAllPeopleView *ALLV;
@@ -31,6 +31,7 @@
 
 -(void)setup{
     [self initUI];
+    [self initNotification];
     [self initsegment];
 }
 -(void)initUI{
@@ -44,7 +45,21 @@
     [self.view addSubview:self.PV];
 }
 
+-(void)initNotification{
+    NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+    [center addObserver:self selector:@selector(pushViewController:) name:@"pushView" object:nil];
+}
 
+- (void)pushViewController:(NSNotification *)sender{
+    NSArray *projectMember = [sender.userInfo objectForKey:@"1"];
+    NSString *projectName = [sender.userInfo objectForKey:@"2"];
+    CYDetailProjectViewController *detailPVC = [[CYDetailProjectViewController alloc]initWithProjectInfo:projectMember];
+    detailPVC.title = projectName;
+    self.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:detailPVC animated:YES];
+    
+    
+}
 #pragma mark - 初始化segmentControl
 - (void)initsegment{
     self.segment = [[UISegmentedControl alloc]initWithItems:@[@"项目组",@"所有人"]];   //设置名字

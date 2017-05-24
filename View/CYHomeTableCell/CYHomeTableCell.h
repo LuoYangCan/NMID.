@@ -9,7 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface CYHomeTableCell : UITableViewCell
-@property(nonatomic,strong)UILabel * titleLabel;
-@property(nonatomic,strong)UILabel * contentLabel;
-@property(nonatomic,strong)UIImage *Icon;
+-(void)setDataWith:(NSDictionary *)dataDic;
 @end

@@ -33,6 +33,12 @@
     _HomeTable = [[UITableView alloc]initWithFrame:wholeScreen style:UITableViewStylePlain];
     _HomeTable.delegate = self;
     _HomeTable.dataSource = self;
+    [self addSubview:_HomeTable];
+}
+
+#pragma mark - UITableViewDelegate&&UITableViewDataSource
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 180;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -43,7 +49,12 @@
 // Cell gets various attributes set automatically based on table (separators) and data source (accessory views, editing controls)
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     CYHomeTableCell *cell = [[CYHomeTableCell alloc]init];
-    
+    NSDictionary *dic = @{@"name":@"Reus",
+                          @"title":@"关于雏鹰计划App",
+                          @"headIcon":@"Contacts-50",
+                          @"content":@"这是一个四行显示的内容，应该有很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长的文字"
+                          };
+    [cell setDataWith:dic];
     
     return cell;
 }
