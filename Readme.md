@@ -10,4 +10,5 @@
 
 ## 效果展示
 
-![雏鹰计划](/Users/gudao/Developer/NMID./雏鹰计划.gif)
+![image](https://github.com/LuoYangCan/NMID./blob/master/%E9%9B%8F%E9%B9%B0%E8%AE%A1%E5%88%92.gif)   
+
