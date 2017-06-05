@@ -76,6 +76,16 @@
     [Top addSubview:_UserProject];
     
     
+    
+    
+    UIView *loginout = [[UIView alloc]initWithFrame:CGRectMake( 0, screenHeight - 130, screenWidth, 80)];
+    loginout.backgroundColor = [UIColor whiteColor];
+    [self.view addSubview:loginout];
+    UILabel *Logout = [[UILabel alloc]initWithFrame:CGRectMake(screenWidth / 2 -20, 20, 40, 30)];
+    Logout.text = @"注销";
+    Logout.textColor = [UIColor redColor];
+    [loginout addSubview:Logout];
+    
 }
 #pragma mark - kvo
 -(void)initKVO{
