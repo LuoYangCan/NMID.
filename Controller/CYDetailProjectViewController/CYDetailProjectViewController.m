@@ -5,7 +5,7 @@
 //  Created by NMID on 2017/4/1.
 //  Copyright © 2017年 NMID. All rights reserved.
 //
-
+#import "CYPersonView.h"
 #import "CYDetailProjectViewController.h"
 #import "CYTableViewCell.h"
 #import "CYHelper.h"
@@ -73,5 +73,10 @@
     cell.leftimage.backgroundColor = [CYHelper getColorfrom:indexPath];
     cell.imlabel.text = [CYHelper getFirstWordFrom:self.ProjectMember andRow:indexPath];
     return cell;
+}
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    CYPersonView *pView = [[CYPersonView alloc]initwithPersonInfoDic:nil];
+    pView.navigationItem.title = @"罗阳灿";
+    [self.navigationController pushViewController:pView animated:YES];
 }
 @end

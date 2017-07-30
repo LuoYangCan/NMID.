@@ -5,7 +5,7 @@
 //  Created by NMID on 2017/3/18.
 //  Copyright © 2017年 NMID. All rights reserved.
 //
-
+#import "CYPersonView.h"
 #import "CYHelper.h"
 #import "CYStart.h"
 #import "AppDelegate.h"
@@ -23,6 +23,8 @@
     self.window.backgroundColor = [UIColor whiteColor];
     CYStart *start = [[CYStart alloc]init];
     self.window.rootViewController = start;
+//    CYPersonView *Person = [[CYPersonView alloc]initwithPersonInfoDic:nil];;
+//    self.window.rootViewController = Person;
     [self.window makeKeyAndVisible];
     return YES;
 }

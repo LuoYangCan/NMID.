@@ -10,8 +10,27 @@
 #import <UIKit/UIKit.h>
 #import "UIColor+Addition.h"
 @interface CYHelper : NSObject
-+(UIColor *)getColorfrom:(NSIndexPath *)IndexPath;           //从几个背景色中选一个
-+(NSString *)getFirstWordFrom:(NSArray *)StrArray andRow:(NSIndexPath *)indexPath;//取名字的第一个字
+
+ //从几个背景色中选一个
++(UIColor *)getColorfrom:(NSIndexPath *)IndexPath;
+
+
+
+
+//取名字的第一个字
++(NSString *)getFirstWordFrom:(NSArray *)StrArray andRow:(NSIndexPath *)indexPath;
+
+
+
+
+//RGB颜色
++(UIColor *)colorwithRGB:(CGFloat)R andG:(CGFloat)G andB:(CGFloat)B andalpha:(CGFloat)alpha;
+
+
+
+
+//拿到原型的ImageView
++(UIImageView *)getCycleImageViewwithx:(CGFloat)x y:(CGFloat)y width:(CGFloat)width height:(CGFloat)height;
 @end
 
 #define screenWidth  [UIScreen mainScreen].bounds.size.width

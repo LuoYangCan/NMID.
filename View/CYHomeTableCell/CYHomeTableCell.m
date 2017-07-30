@@ -43,13 +43,14 @@
     _titleLabel.textColor = [UIColor grayColor];
     [self addSubview:_titleLabel];
     
-    _Icon = [[UIImageView alloc]init];
-    _Icon.frame = CGRectMake(15, 10, 20, 20);
-    UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:_Icon.bounds byRoundingCorners:UIRectCornerAllCorners cornerRadii:_Icon.bounds.size];
-    CAShapeLayer *masklayer = [[CAShapeLayer alloc]init];
-    masklayer.frame = _Icon.bounds;
-    masklayer.path = maskPath.CGPath;
-    _Icon.layer.mask = masklayer;
+    _Icon = [CYHelper getCycleImageViewwithx:15 y:10 width:20 height:20];
+   // _Icon = [[UIImageView alloc]init];
+//    _Icon.frame = CGRectMake(15, 10, 20, 20);
+//    UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:_Icon.bounds byRoundingCorners:UIRectCornerAllCorners cornerRadii:_Icon.bounds.size];
+//    CAShapeLayer *masklayer = [[CAShapeLayer alloc]init];
+//    masklayer.frame = _Icon.bounds;
+//    masklayer.path = maskPath.CGPath;
+//    _Icon.layer.mask = masklayer;
     [self addSubview:_Icon];
     
     

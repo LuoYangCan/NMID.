@@ -41,4 +41,20 @@
     NSString *FirstWord = [allWord substringToIndex:1];
     return FirstWord;
 }
+
+
++(UIColor *)colorwithRGB:(CGFloat)R andG:(CGFloat)G andB:(CGFloat)B andalpha:(CGFloat)alpha{
+    UIColor *color = [UIColor colorWithRed:R/255.0 green:G/255.0 blue:B/255.0 alpha:alpha];
+    return color;
+}
+
++(UIImageView *)getCycleImageViewwithx:(CGFloat)x y:(CGFloat)y width:(CGFloat)width height:(CGFloat)height{
+    UIImageView *Image = [[UIImageView alloc]initWithFrame:CGRectMake(x, y, width, height)];
+    UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:Image.bounds byRoundingCorners:UIRectCornerAllCorners cornerRadii:Image.bounds.size];
+    CAShapeLayer *masklayer = [[CAShapeLayer alloc]init];
+    masklayer.frame = Image.bounds;
+    masklayer.path = maskPath.CGPath;
+    Image.layer.mask = masklayer;
+    return Image;
+}
 @end
