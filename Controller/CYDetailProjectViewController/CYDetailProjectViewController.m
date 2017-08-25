@@ -76,7 +76,6 @@
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     CYPersonView *pView = [[CYPersonView alloc]initwithPersonInfoDic:nil];
-    pView.navigationItem.title = @"罗阳灿";
-    [self.navigationController pushViewController:pView animated:YES];
+    [self presentViewController:pView animated:YES completion:nil];
 }
 @end
