@@ -100,7 +100,6 @@
     NSNotification *notice = [NSNotification notificationWithName:@"recycle" object:nil];
     [[NSNotificationCenter defaultCenter]postNotification:notice];
     self.Childcount += 1;
-    NSLog(@"%d",_Childcount );
     self.hidesBottomBarWhenPushed =YES;
     [self.navigationController pushViewController:_ContactView animated:YES];
     self.hidesBottomBarWhenPushed = NO;
