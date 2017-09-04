@@ -7,19 +7,43 @@
 //
 
 #import "CYNetwork.h"
+#import <AFNetworking.h>
+#import "CYHelper.h"
 
+static NSString * const  baseURL = @"http://47.93.231.115:8080/api/eyas";
 @implementation CYNetwork
-static AFHTTPSessionManager *mgr = nil;
+static CYNetwork * _sharedNetwork = nil;
 
-+(AFHTTPSessionManager *)sharedManager{
++(CYNetwork *)sharedManager{
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        mgr = [[AFHTTPSessionManager alloc]initWithBaseURL:[NSURL URLWithString:baseURL]];
+        _sharedNetwork = [[CYNetwork alloc]init];
     });
-    return mgr;
+    return _sharedNetwork;
+    
 }
 
+-(void)post_RequestwithData:(NSString *)data Completion:(void (^)(NSError *, id , NSURLSessionTask * ))Completionblock{
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    [manager POST:[NSString stringWithFormat:@"%@%@",baseURL,data] parameters:nil progress:^(NSProgress * _Nonnull uploadProgress) {
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        if (Completionblock) {
+            Completionblock(nil, responseObject, task);
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        if (Completionblock) {
+            Completionblock(error, nil, task);
+        }
+    }];
+    
+    
+}
 
+-(void)RequestwithData:(NSDictionary *)data andURLParameters:(NSString *)parameters Completion:(void (^)(NSError *, id , NSURLSessionTask * ))Completionblock{
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    
+    
+}
 
 
 @end

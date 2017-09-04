@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <AFNetworking.h>
-static NSString * const  baseURL = @"47.93.231.115:8080/api/eyas";
+
 @interface CYNetwork : NSObject
 
 
@@ -17,14 +17,15 @@ static NSString * const  baseURL = @"47.93.231.115:8080/api/eyas";
 
  @return Mgr
  */
-+ (AFHTTPSessionManager *)sharedManager;
++ (CYNetwork *)sharedManager;
 
 
 
+/**
+ 直接添加后缀请求
 
-
-
-
-
-
+ @param data 数据
+ @param Completionblock 成功block
+ */
+-(void)post_RequestwithData:(NSString *)data Completion:(void (^)(NSError *, id , NSURLSessionTask * ))Completionblock;
 @end

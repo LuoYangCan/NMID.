@@ -14,13 +14,19 @@ PODS:
   - AFNetworking/Serialization (3.1.0)
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
+  - MBProgressHUD (1.0.0)
+  - MJRefresh (3.1.12)
 
 DEPENDENCIES:
   - AFNetworking
+  - MBProgressHUD
+  - MJRefresh
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
+  MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
+  MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
 
-PODFILE CHECKSUM: 2b8327a7b817ad17f3b0e5a5eda381639e4a732c
+PODFILE CHECKSUM: 661402b82725ce0ec7610b398738d8a7ca431e7c
 
 COCOAPODS: 1.2.1

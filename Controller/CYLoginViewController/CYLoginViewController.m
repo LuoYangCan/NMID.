@@ -11,6 +11,9 @@
 #import "CYHelper.h"
 #import "CYHomeController.h"
 #import "CYBaseController.h"
+#import "CYNetwork.h"
+#import "CYProgressHUD.h"
+
 @interface CYLoginViewController ()
 @property (nonatomic,strong) UIImageView *image;
 @property (nonatomic,strong) UITextField *logintext;
@@ -71,6 +74,7 @@
     UIImageView *PasswordImage = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"Lock-50"]];
     PasswordImage.frame = CGRectMake(-35,-5, 30, 30);
     _Passwordtext.placeholder = @"  请输入密码";
+    _Passwordtext.secureTextEntry = YES;
     _Passwordtext.font =[UIFont systemFontOfSize:17];
     _Passwordtext.leftView = PasswordImage;
     _Passwordtext.leftViewMode = UITextFieldViewModeAlways;
@@ -105,8 +109,28 @@
     [self presentViewController:base animated:YES completion:nil];
 }
 -(void)LoginBtnAction{
-    
-    
+    if ([_logintext.text isEqualToString:@""] || [_Passwordtext.text isEqualToString:@""]) {
+        [[CYProgressHUD sharedHUD]showText:@"请输入用户名或密码" inView:self.view HideAfterDelay:1.0f];
+        return;
+    }
+    [[CYProgressHUD sharedHUD]rotateWithText:@"正在登陆" inView:self.view];
+    NSString * LoginStr = [NSString stringWithFormat:@"tel=%@&pwd=%@",_logintext.text,_Passwordtext.text];
+    @weakify(self);
+    [[CYNetwork sharedManager]post_RequestwithData:LoginStr Completion:^(NSError * error, id response, NSURLSessionTask * task) {
+        @strongify(self);
+        if (error) {
+            [[CYProgressHUD sharedHUD]hideAfterDelay:0];
+            [[CYProgressHUD sharedHUD]showText:[NSString stringWithFormat:@"%@",error.localizedDescription ] inView:self.view HideAfterDelay:1.0f];
+        }
+        if (![response[@"status"] boolValue] && [response[@"code"] longValue] == 500) {
+            [[CYProgressHUD sharedHUD]hideAfterDelay:0];
+            [[CYProgressHUD sharedHUD]showText:@"用户名或密码错误" inView:self.view HideAfterDelay:1.0f];
+        }else if ([response[@"status"] boolValue]){
+            CYBaseController *base = [[CYBaseController alloc]init];
+            [self presentViewController:base animated:YES completion:nil];
+        }
+        
+    }];
 }
 /*
  #pragma mark - Navigation

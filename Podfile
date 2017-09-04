@@ -3,4 +3,6 @@
 
 target '雏鹰计划' do
 pod 'AFNetworking'
+pod ‘MBProgressHUD’
+pod ‘MJRefresh’
 end
