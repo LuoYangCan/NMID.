@@ -41,6 +41,18 @@ static CYNetwork * _sharedNetwork = nil;
 
 -(void)RequestwithData:(NSDictionary *)data andURLParameters:(NSString *)parameters Completion:(void (^)(NSError *, id , NSURLSessionTask * ))Completionblock{
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    NSData *Requestdata = [NSJSONSerialization dataWithJSONObject:data options:0 error:nil];
+    NSString *RequestStr = [[NSString alloc]initWithData:Requestdata encoding:NSUTF8StringEncoding];
+    [manager POST:[NSString stringWithFormat:@"%@%@",baseURL,parameters] parameters:RequestStr progress:^(NSProgress * _Nonnull uploadProgress) {
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        if (Completionblock) {
+            Completionblock(nil,responseObject,task);
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        if (Completionblock) {
+            Completionblock(error, nil, task);
+        }
+    }];
     
     
 }

@@ -28,4 +28,17 @@
  @param Completionblock 成功block
  */
 -(void)post_RequestwithData:(NSString *)data Completion:(void (^)(NSError *, id , NSURLSessionTask * ))Completionblock;
+
+
+
+
+
+
+
+/**
+ 请求数据
+*/
+-(void)RequestwithData:(NSDictionary *)data andURLParameters:(NSString *)parameters Completion:(void (^)(NSError *, id , NSURLSessionTask * ))Completionblock;
+
+
 @end

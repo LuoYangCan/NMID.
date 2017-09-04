@@ -37,6 +37,7 @@
 		6854714C1EB446E1007A4EA5 /* CYHomeTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6854714B1EB446E1007A4EA5 /* CYHomeTableCell.m */; };
 		688A7A7F1F59B66700BC7498 /* CYNetwork.m in Sources */ = {isa = PBXBuildFile; fileRef = 688A7A7E1F59B66700BC7498 /* CYNetwork.m */; };
 		688A7A8D1F5D473900BC7498 /* CYProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 688A7A8C1F5D473900BC7498 /* CYProgressHUD.m */; };
+		688A7A911F5DA0E600BC7498 /* CYRegisterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 688A7A901F5DA0E600BC7498 /* CYRegisterView.m */; };
 		68C01B4A1EB0B72300BF57C7 /* CYStart.m in Sources */ = {isa = PBXBuildFile; fileRef = 68C01B491EB0B72300BF57C7 /* CYStart.m */; };
 		68D71C481EC019E000E773C6 /* CYBaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68D71C471EC019E000E773C6 /* CYBaseController.m */; };
 		C71F52466F176C20B93C39CE /* libPods-雏鹰计划.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A0FBD86E8F93B11DBC402B7A /* libPods-雏鹰计划.a */; };
@@ -118,6 +119,8 @@
 		688A7A7E1F59B66700BC7498 /* CYNetwork.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYNetwork.m; sourceTree = "<group>"; };
 		688A7A8B1F5D473900BC7498 /* CYProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYProgressHUD.h; sourceTree = "<group>"; };
 		688A7A8C1F5D473900BC7498 /* CYProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYProgressHUD.m; sourceTree = "<group>"; };
+		688A7A8F1F5DA0E600BC7498 /* CYRegisterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYRegisterView.h; sourceTree = "<group>"; };
+		688A7A901F5DA0E600BC7498 /* CYRegisterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYRegisterView.m; sourceTree = "<group>"; };
 		68B14CE31EB972CD001C9537 /* CYBaseTabbarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYBaseTabbarController.h; sourceTree = "<group>"; };
 		68C01B481EB0B72300BF57C7 /* CYStart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYStart.h; sourceTree = "<group>"; };
 		68C01B491EB0B72300BF57C7 /* CYStart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYStart.m; sourceTree = "<group>"; };
@@ -245,6 +248,7 @@
 		2D0E5C701E7D590000D69F2B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				688A7A8E1F5DA0CF00BC7498 /* CYRegisterView */,
 				6811E2471F17BDA000C3CF5A /* CYPersonView */,
 				685471491EB446C2007A4EA5 /* CYHomeTableCell */,
 				685471451EB21D8B007A4EA5 /* CYHomeView */,
@@ -444,6 +448,15 @@
 				688A7A8C1F5D473900BC7498 /* CYProgressHUD.m */,
 			);
 			path = CYProgressHUD;
+			sourceTree = "<group>";
+		};
+		688A7A8E1F5DA0CF00BC7498 /* CYRegisterView */ = {
+			isa = PBXGroup;
+			children = (
+				688A7A8F1F5DA0E600BC7498 /* CYRegisterView.h */,
+				688A7A901F5DA0E600BC7498 /* CYRegisterView.m */,
+			);
+			path = CYRegisterView;
 			sourceTree = "<group>";
 		};
 		68B14CE21EB972B0001C9537 /* CYBaseTabbarController */ = {
@@ -686,6 +699,7 @@
 				6811E24A1F17BDB700C3CF5A /* CYPersonView.m in Sources */,
 				688A7A8D1F5D473900BC7498 /* CYProgressHUD.m in Sources */,
 				688A7A7F1F59B66700BC7498 /* CYNetwork.m in Sources */,
+				688A7A911F5DA0E600BC7498 /* CYRegisterView.m in Sources */,
 				2D5CE6BC1EA4ADAA00BE763A /* CYHelper.m in Sources */,
 				2DF80B6E1E8F566F00212E2E /* CYAllPeopleView.m in Sources */,
 				684622A41ED3F40F00D33C7A /* CYExpertsViewController.m in Sources */,

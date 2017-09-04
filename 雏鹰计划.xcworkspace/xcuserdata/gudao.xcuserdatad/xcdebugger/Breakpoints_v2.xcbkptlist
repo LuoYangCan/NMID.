@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Controller/CYLoginViewController/CYLoginViewController.m"
-            timestampString = "526210198.695006"
+            timestampString = "526233644.203709"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "119"
-            endingLineNumber = "119"
+            startingLineNumber = "136"
+            endingLineNumber = "136"
             landmarkName = "-LoginBtnAction"
             landmarkType = "7">
          </BreakpointContent>

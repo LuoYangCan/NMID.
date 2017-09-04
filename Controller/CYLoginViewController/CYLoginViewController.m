@@ -13,8 +13,9 @@
 #import "CYBaseController.h"
 #import "CYNetwork.h"
 #import "CYProgressHUD.h"
+#import "CYRegisterView.h"
 
-@interface CYLoginViewController ()
+@interface CYLoginViewController ()<UITextFieldDelegate>
 @property (nonatomic,strong) UIImageView *image;
 @property (nonatomic,strong) UITextField *logintext;
 @property (nonatomic,strong) UITextField *Passwordtext;
@@ -60,6 +61,7 @@
 -(void)initMid{
     _logintext = [[UITextField alloc]initWithFrame:CGRectMake(screenWidth / 3 - 45,320, 200, 27)];
     UIImageView *loginImage = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"User-50"]];
+    _logintext.delegate = self;
     loginImage.frame = CGRectMake(-35,-5, 30, 30);
     _logintext.placeholder = @"  请输入用户名";
     _logintext.font = [UIFont systemFontOfSize:17];
@@ -73,6 +75,7 @@
     _Passwordtext = [[UITextField alloc]initWithFrame:CGRectMake(screenWidth/3 - 45, 370, 200, 27)];
     UIImageView *PasswordImage = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"Lock-50"]];
     PasswordImage.frame = CGRectMake(-35,-5, 30, 30);
+    _Passwordtext.delegate = self;
     _Passwordtext.placeholder = @"  请输入密码";
     _Passwordtext.secureTextEntry = YES;
     _Passwordtext.font =[UIFont systemFontOfSize:17];
@@ -100,13 +103,27 @@
     LoginBtn.backgroundColor = LeftBlue;
     [Visitor addTarget:self action:@selector(VisitorLogin) forControlEvents:UIControlEventTouchUpInside];
     [LoginBtn addTarget:self action:@selector(LoginBtnAction) forControlEvents:UIControlEventTouchUpInside];
+    
+    
+    UIButton *regis = [[UIButton alloc]initWithFrame:CGRectMake(screenWidth /2 - 120, 544, 50, 30)];
+    [regis setTitle:@"注册" forState:UIControlStateNormal];
+    regis.titleLabel.font = [UIFont systemFontOfSize:14];
+    [regis setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+    [regis addTarget:self action:@selector(regis) forControlEvents:UIControlEventTouchUpInside];
+    
+    
     [self.view addSubview:LoginBtn];
     [self.view addSubview:Visitor];
+    [self.view addSubview:regis];
     
 }
 -(void)VisitorLogin{
     CYBaseController *base = [[CYBaseController alloc]init];
     [self presentViewController:base animated:YES completion:nil];
+}
+-(void)regis{
+    CYRegisterView *regis = [[CYRegisterView alloc]init];
+    [self presentViewController:regis animated:YES completion:nil];
 }
 -(void)LoginBtnAction{
     if ([_logintext.text isEqualToString:@""] || [_Passwordtext.text isEqualToString:@""]) {
@@ -121,6 +138,7 @@
         if (error) {
             [[CYProgressHUD sharedHUD]hideAfterDelay:0];
             [[CYProgressHUD sharedHUD]showText:[NSString stringWithFormat:@"%@",error.localizedDescription ] inView:self.view HideAfterDelay:1.0f];
+            return ;
         }
         if (![response[@"status"] boolValue] && [response[@"code"] longValue] == 500) {
             [[CYProgressHUD sharedHUD]hideAfterDelay:0];
@@ -141,5 +159,10 @@
  // Pass the selected object to the new view controller.
  }
  */
-
+#pragma mark - UITextFiledDelegate
+- (BOOL)textFieldShouldReturn:(UITextField *)textField{
+    [_logintext resignFirstResponder];
+    [_Passwordtext resignFirstResponder];
+    return YES;
+}
 @end
