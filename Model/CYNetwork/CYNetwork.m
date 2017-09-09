@@ -57,5 +57,18 @@ static CYNetwork * _sharedNetwork = nil;
     
 }
 
+-(void)get_ReuqestwithURLParameters:(NSString *)parameters completion:(void (^) (NSError *, id, NSURLSessionTask *))block{
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    [manager GET:[NSString stringWithFormat:@"%@%@",baseURL,parameters] parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        if (block) {
+            block(nil, responseObject, task);
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        if (block) {
+            block(error, nil, task);
+        }
+    }];
+}
 
 @end

@@ -8,7 +8,11 @@
 
 #import "CYPersonView.h"
 #import "CYHelper.h"
+#import "CYNetwork.h"
+#import "CYProgressHUD.h"
+
 @interface CYPersonView ()
+@property (nonatomic,strong) NSDictionary *UserInfo;        /**< 用户信息  */
 
 @end
 
@@ -19,18 +23,25 @@
     // Do any additional setup after loading the view.
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (NSDictionary *)UserInfo {
+    if (!_UserInfo) {
+        _UserInfo = [[NSDictionary alloc]init];
+    }
+    return _UserInfo;
 }
 -(void)setup{
-    [self initUI];
+ [[CYNetwork sharedManager]get_ReuqestwithURLParameters:@"/getUser/userId" completion:^(NSError * error, id response, NSURLSessionTask * task) {
+     if (error) {
+         [[CYProgressHUD sharedHUD]showText:error.description inView:self.view HideAfterDelay:1.0f];
+     }else if(!error){
+         self.UserInfo = response;
+         [self setup];
+     }
+ }];
 }
 -(instancetype)initwithPersonInfoDic:(NSDictionary *)dic{
     if (self == [super init]) {
         [self setup];
-        
-        
     }
     return self;
 }
@@ -41,7 +52,7 @@
     self.view.backgroundColor = [UIColor whiteColor];
     //名字
     UILabel *Name = [[UILabel alloc]initWithFrame:CGRectMake(screenWidth - 140, 80, 120, 40)];
-    Name.text = @"罗阳灿";
+    Name.text = self.UserInfo[@"userName"];
     [Name setFont:[UIFont fontWithName:@"Helvetica-Bold" size:34]];
     Name.textColor = [UIColor grayColor];
     [self.view addSubview:Name];
@@ -64,7 +75,7 @@
     
     //职位详情
     UILabel *pDetail = [[UILabel alloc]initWithFrame:CGRectMake(35, 198, 120, 30)];
-    [pDetail setText:@"iOS开发"];
+    [pDetail setText:self.UserInfo[@"job"]];
     [pDetail setFont:[UIFont systemFontOfSize:24]];
     [self.view addSubview:pDetail];
     
@@ -77,7 +88,7 @@
     
     //电话
     UILabel *phone = [[UILabel alloc]initWithFrame:CGRectMake(35, 324, 160, 20)];
-    [phone setText:@"13983168636"];
+    [phone setText:self.UserInfo[@"tel"]];
     [phone setFont:[UIFont systemFontOfSize:24]];
     [self.view addSubview:phone];
     
@@ -90,7 +101,7 @@
 
     //邮箱
     UILabel *mymail = [[UILabel alloc]initWithFrame:CGRectMake(35, 418,screenWidth - 35, 30)];
-    [mymail setText:@"luo.yangcan@foxmail.cn"];
+    [mymail setText:self.UserInfo[@"eMail"]];
     [mymail setFont:[UIFont systemFontOfSize:22]];
     [self.view addSubview:mymail];
     
@@ -103,18 +114,9 @@
     
     //QQ号码
     UILabel *QQnumber = [[UILabel alloc]initWithFrame:CGRectMake(35, 530, 150, 20)];
-    [QQnumber setText:@"584487926"];
+    [QQnumber setText:self.UserInfo[@"qqNum"]];
     [QQnumber setFont:[UIFont systemFontOfSize:22]];
     [self.view addSubview:QQnumber];
 }
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

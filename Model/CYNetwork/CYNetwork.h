@@ -41,4 +41,14 @@
 -(void)RequestwithData:(NSDictionary *)data andURLParameters:(NSString *)parameters Completion:(void (^)(NSError *, id , NSURLSessionTask * ))Completionblock;
 
 
+
+
+
+/**
+ GET数据
+
+ @param parameters 参数
+ @param block Completion
+ */
+-(void)get_ReuqestwithURLParameters:(NSString *)parameters completion:(void (^) (NSError *, id, NSURLSessionTask *))block;
 @end
