@@ -10,6 +10,8 @@
 #import "CYAllPeopleView.h"
 #import "CYContactViewController.h"
 #import "CYDetailProjectViewController.h"
+#import "CYPersonView.h"
+
 @interface CYContactViewController ()
 @property(nonatomic,strong) CYProjectView *PV;
 @property(nonatomic,strong) CYAllPeopleView *ALLV;
@@ -24,10 +26,6 @@
     // Do any additional setup after loading the view.
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
 -(void)setup{
     [self initUI];
@@ -47,9 +45,22 @@
 
 -(void)initNotification{
     NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
-    [center addObserver:self selector:@selector(pushViewController:) name:@"pushView" object:nil];
+    [center addObserver:self selector:@selector(pushViewController:) name:PUSH_VIEW object:nil];
+    [center addObserver:self selector:@selector(pushDetail:) name:PUSH_DTAIL object:nil];
+}
+-(void)viewDidDisappear:(BOOL)animated{
+    [super viewDidDisappear:animated];
+    [[NSNotificationCenter defaultCenter]removeObserver:self name:PUSH_VIEW object:nil];
+    [[NSNotificationCenter defaultCenter]removeObserver:self name:PUSH_DTAIL object:nil];
+    
 }
 
+-(void)pushDetail:(NSNotification *)sender {
+    NSDictionary *dic = sender.userInfo;
+    CYPersonView *pView = [[CYPersonView alloc]initwithPersonInfoDic:dic];
+    [self presentViewController:pView animated:YES completion:nil];
+    
+}
 - (void)pushViewController:(NSNotification *)sender{
     NSArray *projectMember = [sender.userInfo objectForKey:@"1"];
     NSString *projectName = [sender.userInfo objectForKey:@"2"];

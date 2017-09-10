@@ -11,6 +11,8 @@
 #import "CYContactViewController.h"
 #import "CYManagerViewController.h"
 #import "CYDetailProjectViewController.h"
+#import "CYHelper.h"
+
 @interface CYDiscussViewController ()
 @property(nonatomic,assign) int Childcount;
 @property(nonatomic,strong) CYContactViewController *ContactView;
@@ -37,8 +39,8 @@
 }
 - (void)viewDidDisappear:(BOOL)animated{
     [super viewDidDisappear:animated];
-    [[NSNotificationCenter defaultCenter]removeObserver:self name:@"pushView" object:nil];
-    [[NSNotificationCenter defaultCenter]removeObserver:self name:@"changeView" object:nil];
+    [[NSNotificationCenter defaultCenter]removeObserver:self name:PUSH_VIEW object:nil];
+    [[NSNotificationCenter defaultCenter]removeObserver:self name:CHANGE_VIEW object:nil];
     [self removeObserver:self forKeyPath:@"Childcount" context:nil];
     
 }
@@ -62,8 +64,8 @@
 #pragma mark -通知
 -(void)initNotification{
     NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
-    [center addObserver:self selector:@selector(changeView:) name:@"changeView" object:nil];
-    [center addObserver:self selector:@selector(pushViewController:) name:@"pushView" object:nil];
+    [center addObserver:self selector:@selector(changeView:) name:CHANGE_VIEW object:nil];
+    [center addObserver:self selector:@selector(pushViewController:) name:PUSH_VIEW object:nil];
 }
 
 - (void)pushViewController:(NSNotification *)sender{

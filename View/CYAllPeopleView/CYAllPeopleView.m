@@ -10,15 +10,27 @@
 #import "CYAllPeopleView.h"
 #import "CYHelper.h"
 #import "CYTableViewCell.h"
+#import "CYNetwork.h"
+#import "CYProgressHUD.h"
+
 @interface CYAllPeopleView()<UITableViewDelegate,UITableViewDataSource>
 @property(nonatomic,strong) UITableView *TableView; /**<   列表*/
-@property(nonatomic,strong) NSDictionary *dic;
-@property(nonatomic,strong) NSArray *projectName;
-@property(nonatomic,strong) NSArray *peopleName;
+//@property(nonatomic,strong) NSDictionary *dic;
+//@property(nonatomic,strong) NSArray *projectName;
+@property (nonatomic,strong) NSArray *infoArray;        /**< 信息数组  */
+@property(nonatomic,strong) NSMutableArray *peopleName;
 
 @end
 
 @implementation CYAllPeopleView
+
+-(NSMutableArray *)peopleName{
+    if (!_peopleName) {
+        _peopleName = [[NSMutableArray alloc]init];
+    }
+    return _peopleName;
+}
+
 - (instancetype)init{
     if (self = [super init]) {
         self.frame = wholeScreen;
@@ -27,28 +39,48 @@
     return self;
 }
 -(void)setup{
-    NSBundle *bundle = [NSBundle mainBundle];
-    NSString *plistpath = [bundle pathForResource:@"Property List" ofType:@"plist"];
-    self.dic = [[NSDictionary alloc]initWithContentsOfFile:plistpath];
-    NSArray *templist = [self.dic allKeys];
-    self.projectName = [templist sortedArrayUsingSelector:@selector(compare:)];
-    self.TableView =[[UITableView alloc]initWithFrame:CGRectMake(0, 0, self.bounds.size.width, self.bounds.size.height)];
-    self.TableView.delegate = self;
-    self.TableView.dataSource = self;
-    self.TableView.tableFooterView = [[UIView alloc]initWithFrame:CGRectZero];
-    [self addSubview:self.TableView];
+//    NSBundle *bundle = [NSBundle mainBundle];
+//    NSString *plistpath = [bundle pathForResource:@"Property List" ofType:@"plist"];
+//    self.dic = [[NSDictionary alloc]initWithContentsOfFile:plistpath];
+//    NSArray *templist = [self.dic allKeys];
+//    self.projectName = [templist sortedArrayUsingSelector:@selector(compare:)];
+    [self initTableView];
     [self getAllPeopleName];
     
 }
+-(void)initTableView{
+        self.TableView =[[UITableView alloc]initWithFrame:CGRectMake(0, 0, self.bounds.size.width, self.bounds.size.height)];
+        self.TableView.delegate = self;
+        self.TableView.dataSource = self;
+        self.TableView.tableFooterView = [[UIView alloc]initWithFrame:CGRectZero];
+        [self addSubview:self.TableView];
+}
 -(void)getAllPeopleName{
-    self.peopleName = [[NSArray alloc]init];
-    NSMutableArray *peopl = [NSMutableArray array];
-    for (NSInteger IN=0; IN <= 6; IN++) {
-        NSString *groupname = [self.projectName objectAtIndex:IN];
-        NSArray *tempArr = [self.dic objectForKey:groupname];
-        [peopl addObjectsFromArray:tempArr];
-    }
-    self.peopleName = [peopl valueForKeyPath:@"@distinctUnionOfObjects.self"] ;
+//    self.peopleName = [[NSArray alloc]init];
+//    NSMutableArray *peopl = [NSMutableArray array];
+//    for (NSInteger IN=0; IN <= 6; IN++) {
+//        NSString *groupname = [self.projectName objectAtIndex:IN];
+//        NSArray *tempArr = [self.dic objectForKey:groupname];
+//        [peopl addObjectsFromArray:tempArr];
+//    }
+//    self.peopleName = [peopl valueForKeyPath:@"@distinctUnionOfObjects.self"] ;
+    @weakify(self);
+    [[CYNetwork sharedManager]get_ReuqestwithURLParameters:@"/getUserList" completion:^(NSError * error, id resonse, NSURLSessionTask * task) {
+        @strongify(self);
+        if (error) {
+            [[CYProgressHUD sharedHUD]showText:error.description inView:self HideAfterDelay:1.0f];
+        }else if(!error){
+            self.infoArray = [NSArray arrayWithArray:resonse];
+            if (self.peopleName) {
+                [self.peopleName removeAllObjects];
+            }
+            for (NSDictionary * dic in self.infoArray) {
+                NSString *name = dic[@"userName"];
+                [self.peopleName addObject:name];
+            }
+        }
+
+    }];
 }
 
 
@@ -83,6 +115,9 @@
     return cell;
 }
 
-
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    NSDictionary *infoDic = self.infoArray[indexPath.row];
+    [[NSNotificationCenter defaultCenter]postNotificationName:PUSH_VIEW object:nil userInfo:infoDic];
+}
 
 @end

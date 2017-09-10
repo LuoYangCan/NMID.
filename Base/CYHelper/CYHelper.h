@@ -86,6 +86,13 @@ typedef NS_ENUM(NSInteger,PostType){
 #define kBackgroundGray [UIColor colorWithRGBHex:0xf7f7f7]
 
 
+#define PUSH_DTAIL @"pushDetail"
+
+
+#define PUSH_VIEW @"pushView"
+
+
+#define CHANGE_VIEW @"changeView"
 #ifndef weakify
 #if DEBUG
 #if __has_feature(objc_arc)

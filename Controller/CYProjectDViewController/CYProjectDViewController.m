@@ -12,6 +12,8 @@
 #import "CYContactViewController.h"
 #import "CYManagerViewController.h"
 #import "CYDetailProjectViewController.h"
+#import "CYHelper.h"
+
 @interface CYProjectDViewController ()
 @property(nonatomic,assign) int Childcount;
 @property(nonatomic,strong) CYContactViewController *ContactView;
@@ -38,7 +40,7 @@
 }
 - (void)viewDidDisappear:(BOOL)animated{
     [super viewDidDisappear:animated];
-    [[NSNotificationCenter defaultCenter]removeObserver:self name:@"changeView" object:nil];
+    [[NSNotificationCenter defaultCenter]removeObserver:self name:CHANGE_VIEW object:nil];
     [self removeObserver:self forKeyPath:@"Childcount" context:nil];
     
 }

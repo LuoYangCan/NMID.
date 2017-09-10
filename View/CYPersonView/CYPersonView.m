@@ -30,6 +30,7 @@
     return _UserInfo;
 }
 -(void)setup{
+    [self initbackBtn];
  [[CYNetwork sharedManager]get_ReuqestwithURLParameters:@"/getUser/userId" completion:^(NSError * error, id response, NSURLSessionTask * task) {
      if (error) {
          [[CYProgressHUD sharedHUD]showText:error.description inView:self.view HideAfterDelay:1.0f];
@@ -45,7 +46,18 @@
     }
     return self;
 }
+-(void)initbackBtn{
+    UIButton *backbtn = [[UIButton alloc]initWithFrame:CGRectMake(20, 32, 60, 30)];
+    [backbtn setTitle:@"返回" forState:UIControlStateNormal];
+    [backbtn setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+    [backbtn addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:backbtn];
+}
 
+
+-(void)back{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
 -(void)initUI{
     self.edgesForExtendedLayout = UIRectEdgeNone;
