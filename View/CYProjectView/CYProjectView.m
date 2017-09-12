@@ -20,7 +20,6 @@
     if (self = [super init]) {
         self.frame = wholeScreen;
         self.dic = [dic copy];
-        NSLog(@"%@,%@",&self.dic,&dic)
         [self setupUI];
     }
     return self;

@@ -11,13 +11,15 @@
 #import "CYContactViewController.h"
 #import "CYDetailProjectViewController.h"
 #import "CYPersonView.h"
-#import "CYProgressHUD"
-#import "CYNetwork"
+#import "CYProgressHUD.h"
+#import "CYNetwork.h"
 
 @interface CYContactViewController ()
 @property(nonatomic,strong) CYProjectView *PV;
 @property(nonatomic,strong) CYAllPeopleView *ALLV;
 @property(nonatomic,strong) UISegmentedControl *segment;
+@property (nonatomic,strong) NSArray *infoArray;        /**< 获取到的个人信息  */
+@property (nonatomic,strong) NSDictionary *infoDic;        /**< 信息字典  */
 @end
 
 @implementation CYContactViewController
@@ -27,7 +29,33 @@
     [self setup];
     // Do any additional setup after loading the view.
 }
+-(NSArray *)infoArray{
+    if (!_infoArray) {
+        _infoArray =[NSArray array];
+    }
+    return _infoArray;
+}
 
+-(NSDictionary *)infoDic{
+    if (!_infoDic) {
+        _infoDic = [[NSDictionary alloc]init];
+    }
+    return _infoDic;
+}
+
+-(CYProjectView *)PV{
+    if (!_PV) {
+        _PV =[[CYProjectView alloc]initWithDic:self.infoDic];
+    }
+    return _PV;
+}
+
+-(CYAllPeopleView *)ALLV{
+    if (!_ALLV) {
+        _ALLV = [[CYAllPeopleView alloc]initWithArray:self.infoArray];
+    }
+    return _ALLV;
+}
 
 -(void)setup{
     [self getDatawithCompletionBlock:^(NSError *error) {
@@ -36,22 +64,30 @@
             [self initNotification];
             [self initsegment];
         }else{
-            
+            [[CYProgressHUD sharedHUD]showText:error.description inView:self.view HideAfterDelay:1.0f];
         }
     }];
 
 }
 
 -(void)getDatawithCompletionBlock:(void (^) (NSError * error))Completionblock{
-    
+    [[CYNetwork sharedManager]get_ReuqestwithURLParameters:@"/getUserList" completion:^(NSError * error, id response, NSURLSessionTask * task) {
+        if (Completionblock) {
+            if (error) {
+                Completionblock(error);
+            }else{
+                self.infoArray = response;
+                self.infoDic = response;
+                Completionblock(nil);
+            }
+        }
+    }];
 }
 -(void)initUI{
     self.view.backgroundColor = [UIColor whiteColor];
     self.edgesForExtendedLayout = UIRectEdgeNone;
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.view.backgroundColor = [UIColor whiteColor];
-    self.PV = [[CYProjectView alloc]init ];
-    self.ALLV = [[CYAllPeopleView alloc]init];
     [self.view addSubview:self.ALLV];
     [self.view addSubview:self.PV];
 }

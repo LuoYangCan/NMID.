@@ -23,12 +23,7 @@
 
 @implementation CYAllPeopleView
 
--(NSMutableArray *)peopleName{
-    if (!_peopleName) {
-        _peopleName = [[NSMutableArray alloc]init];
-    }
-    return _peopleName;
-}
+
 -(NSArray *)infoArray{
     if (!_infoArray) {
         _infoArray = [NSArray array];

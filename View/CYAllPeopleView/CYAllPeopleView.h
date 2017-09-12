@@ -10,4 +10,6 @@
 
 @interface CYAllPeopleView : UIView
 
+- (instancetype)initWithArray:(NSArray *)array;
+
 @end
