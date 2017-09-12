@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0820"
+   LastUpgradeVersion = "0830"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2D0E5C311E7D53D000D69F2B"
-               BuildableName = "Young Eagles.app"
-               BlueprintName = "Young Eagles"
-               ReferencedContainer = "container:Young Eagles.xcodeproj">
+               BuildableName = "&#x96cf;&#x9e70;&#x8ba1;&#x5212;.app"
+               BlueprintName = "&#x96cf;&#x9e70;&#x8ba1;&#x5212;"
+               ReferencedContainer = "container:&#x96cf;&#x9e70;&#x8ba1;&#x5212;.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2D0E5C4A1E7D53D100D69F2B"
-               BuildableName = "Young EaglesTests.xctest"
-               BlueprintName = "Young EaglesTests"
-               ReferencedContainer = "container:Young Eagles.xcodeproj">
+               BuildableName = "&#x96cf;&#x9e70;&#x8ba1;&#x5212;Tests.xctest"
+               BlueprintName = "&#x96cf;&#x9e70;&#x8ba1;&#x5212;Tests"
+               ReferencedContainer = "container:&#x96cf;&#x9e70;&#x8ba1;&#x5212;.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
@@ -43,9 +43,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2D0E5C551E7D53D100D69F2B"
-               BuildableName = "Young EaglesUITests.xctest"
-               BlueprintName = "Young EaglesUITests"
-               ReferencedContainer = "container:Young Eagles.xcodeproj">
+               BuildableName = "&#x96cf;&#x9e70;&#x8ba1;&#x5212;UITests.xctest"
+               BlueprintName = "&#x96cf;&#x9e70;&#x8ba1;&#x5212;UITests"
+               ReferencedContainer = "container:&#x96cf;&#x9e70;&#x8ba1;&#x5212;.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -53,9 +53,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2D0E5C311E7D53D000D69F2B"
-            BuildableName = "Young Eagles.app"
-            BlueprintName = "Young Eagles"
-            ReferencedContainer = "container:Young Eagles.xcodeproj">
+            BuildableName = "&#x96cf;&#x9e70;&#x8ba1;&#x5212;.app"
+            BlueprintName = "&#x96cf;&#x9e70;&#x8ba1;&#x5212;"
+            ReferencedContainer = "container:&#x96cf;&#x9e70;&#x8ba1;&#x5212;.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -76,9 +76,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2D0E5C311E7D53D000D69F2B"
-            BuildableName = "Young Eagles.app"
-            BlueprintName = "Young Eagles"
-            ReferencedContainer = "container:Young Eagles.xcodeproj">
+            BuildableName = "&#x96cf;&#x9e70;&#x8ba1;&#x5212;.app"
+            BlueprintName = "&#x96cf;&#x9e70;&#x8ba1;&#x5212;"
+            ReferencedContainer = "container:&#x96cf;&#x9e70;&#x8ba1;&#x5212;.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -95,9 +95,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2D0E5C311E7D53D000D69F2B"
-            BuildableName = "Young Eagles.app"
-            BlueprintName = "Young Eagles"
-            ReferencedContainer = "container:Young Eagles.xcodeproj">
+            BuildableName = "&#x96cf;&#x9e70;&#x8ba1;&#x5212;.app"
+            BlueprintName = "&#x96cf;&#x9e70;&#x8ba1;&#x5212;"
+            ReferencedContainer = "container:&#x96cf;&#x9e70;&#x8ba1;&#x5212;.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

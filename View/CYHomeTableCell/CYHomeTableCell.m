@@ -14,6 +14,7 @@
 @property(nonatomic,strong)UILabel * contentLabel;
 @property(nonatomic,strong)UIImageView * Icon;
 @property(nonatomic,strong)UILabel * UserID;
+@property(nonatomic,strong) UILabel *timeLabl;   /**< 时间  */
 @end
 @implementation CYHomeTableCell
 
@@ -53,6 +54,11 @@
 //    _Icon.layer.mask = masklayer;
     [self addSubview:_Icon];
     
+    _timeLabl = [[UILabel alloc]initWithFrame:CGRectMake(260, 40, 120, 20)];
+//    [_timeLabl sizeToFit];
+    _timeLabl.font = [UIFont systemFontOfSize:16];
+    _timeLabl.textColor = [UIColor grayColor];
+    [self addSubview:_timeLabl];
     
     _contentLabel = [[UILabel alloc]initWithFrame:CGRectMake(30, 60, CellWidth - 70 , CellHeight - 40)];
     _contentLabel.font = [UIFont systemFontOfSize:16.5f];
@@ -72,8 +78,8 @@
     NSString *imgname = dataDic[@"headIcon"];
     UIImage *img = [UIImage imageNamed:imgname];
     _Icon.image = img;
-    _contentLabel.text = dataDic[@"content"];
+    _contentLabel.text = dataDic[@"dcContent"];
     _UserID.text = dataDic[@"name"];
-    
+    _timeLabl.text = dataDic[@"time"];
 }
 @end
