@@ -16,17 +16,29 @@
 @end
 
 @implementation CYProjectView
--(instancetype)init{
+-(instancetype)initWithDic:(NSDictionary *)dic{
     if (self = [super init]) {
         self.frame = wholeScreen;
+        self.dic = [dic copy];
+        NSLog(@"%@,%@",&self.dic,&dic)
         [self setupUI];
     }
     return self;
 }
+
+
+
+-(NSDictionary *)dic{
+    if (!_dic) {
+        _dic = [[NSDictionary alloc]init];
+    }
+    return _dic;
+}
+
 -(void)setupUI{
-    NSBundle *bundle = [NSBundle mainBundle];
-    NSString *plistpath = [bundle pathForResource:@"Property List" ofType:@"plist"];
-    self.dic = [[NSDictionary alloc]initWithContentsOfFile:plistpath];
+//    NSBundle *bundle = [NSBundle mainBundle];
+//    NSString *plistpath = [bundle pathForResource:@"Property List" ofType:@"plist"];
+//    self.dic = [[NSDictionary alloc]initWithContentsOfFile:plistpath];
     self.projectName = [self.dic allKeys];
     self.TableView =[[UITableView alloc]initWithFrame:CGRectMake(0, 0, self.bounds.size.width, self.bounds.size.height)];
     self.TableView.delegate = self;

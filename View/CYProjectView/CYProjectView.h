@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface CYProjectView : UIView
-
+-(instancetype)initWithDic:(NSDictionary *)dic;
 @end

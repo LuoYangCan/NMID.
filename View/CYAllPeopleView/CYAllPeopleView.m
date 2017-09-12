@@ -18,8 +18,7 @@
 //@property(nonatomic,strong) NSDictionary *dic;
 //@property(nonatomic,strong) NSArray *projectName;
 @property (nonatomic,strong) NSArray *infoArray;        /**< 信息数组  */
-@property(nonatomic,strong) NSMutableArray *peopleName;
-
+//@property(nonatomic,strong) NSMutableArray *peopleName;
 @end
 
 @implementation CYAllPeopleView
@@ -30,10 +29,16 @@
     }
     return _peopleName;
 }
-
-- (instancetype)init{
+-(NSArray *)infoArray{
+    if (!_infoArray) {
+        _infoArray = [NSArray array];
+    }
+    return _infoArray;
+}
+- (instancetype)initWithArray:(NSArray *)array{
     if (self = [super init]) {
         self.frame = wholeScreen;
+        self.infoArray = [array copy];
         [self setup];
     }
     return self;
@@ -45,8 +50,7 @@
 //    NSArray *templist = [self.dic allKeys];
 //    self.projectName = [templist sortedArrayUsingSelector:@selector(compare:)];
     [self initTableView];
-    [self getAllPeopleName];
-    
+
 }
 -(void)initTableView{
         self.TableView =[[UITableView alloc]initWithFrame:CGRectMake(0, 0, self.bounds.size.width, self.bounds.size.height)];
@@ -54,33 +58,6 @@
         self.TableView.dataSource = self;
         self.TableView.tableFooterView = [[UIView alloc]initWithFrame:CGRectZero];
         [self addSubview:self.TableView];
-}
--(void)getAllPeopleName{
-//    self.peopleName = [[NSArray alloc]init];
-//    NSMutableArray *peopl = [NSMutableArray array];
-//    for (NSInteger IN=0; IN <= 6; IN++) {
-//        NSString *groupname = [self.projectName objectAtIndex:IN];
-//        NSArray *tempArr = [self.dic objectForKey:groupname];
-//        [peopl addObjectsFromArray:tempArr];
-//    }
-//    self.peopleName = [peopl valueForKeyPath:@"@distinctUnionOfObjects.self"] ;
-    @weakify(self);
-    [[CYNetwork sharedManager]get_ReuqestwithURLParameters:@"/getUserList" completion:^(NSError * error, id resonse, NSURLSessionTask * task) {
-        @strongify(self);
-        if (error) {
-            [[CYProgressHUD sharedHUD]showText:error.description inView:self HideAfterDelay:1.0f];
-        }else if(!error){
-            self.infoArray = [NSArray arrayWithArray:resonse];
-            if (self.peopleName) {
-                [self.peopleName removeAllObjects];
-            }
-            for (NSDictionary * dic in self.infoArray) {
-                NSString *name = dic[@"userName"];
-                [self.peopleName addObject:name];
-            }
-        }
-
-    }];
 }
 
 
@@ -90,7 +67,7 @@
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
-    return self.peopleName.count ;
+    return self.infoArray.count ;
     
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -103,8 +80,8 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     CYTableViewCell *cell = [[CYTableViewCell alloc]init];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    cell.tLabel.text = self.peopleName[indexPath.row];
-    NSString *firstWord = [CYHelper getFirstWordFrom:self.peopleName andRow:indexPath];
+    cell.tLabel.text = self.infoArray[indexPath.row];
+    NSString *firstWord = [CYHelper getFirstWordFrom:self.infoArray andRow:indexPath];
     UIColor *color = [CYHelper getColorfrom:indexPath];
     cell.leftimage.backgroundColor = color;
     cell.imlabel.text = firstWord;

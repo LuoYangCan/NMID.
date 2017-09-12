@@ -11,6 +11,8 @@
 #import "CYContactViewController.h"
 #import "CYDetailProjectViewController.h"
 #import "CYPersonView.h"
+#import "CYProgressHUD"
+#import "CYNetwork"
 
 @interface CYContactViewController ()
 @property(nonatomic,strong) CYProjectView *PV;
@@ -28,16 +30,27 @@
 
 
 -(void)setup{
-    [self initUI];
-    [self initNotification];
-    [self initsegment];
+    [self getDatawithCompletionBlock:^(NSError *error) {
+        if (!error) {
+            [self initUI];
+            [self initNotification];
+            [self initsegment];
+        }else{
+            
+        }
+    }];
+
+}
+
+-(void)getDatawithCompletionBlock:(void (^) (NSError * error))Completionblock{
+    
 }
 -(void)initUI{
     self.view.backgroundColor = [UIColor whiteColor];
     self.edgesForExtendedLayout = UIRectEdgeNone;
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.view.backgroundColor = [UIColor whiteColor];
-    self.PV = [[CYProjectView alloc]init];
+    self.PV = [[CYProjectView alloc]init ];
     self.ALLV = [[CYAllPeopleView alloc]init];
     [self.view addSubview:self.ALLV];
     [self.view addSubview:self.PV];
