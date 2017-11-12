@@ -12,25 +12,35 @@
 #import "CYManagerViewController.h"
 #import "CYDetailProjectViewController.h"
 #import "CYHelper.h"
+#import "CYNetwork.h"
+#import "CYProgressHUD.h"
+#import "CYHomeTableCell.h"
 
-@interface CYDiscussViewController ()
+@interface CYDiscussViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property(nonatomic,assign) int Childcount;
 @property(nonatomic,strong) CYContactViewController *ContactView;
 @property(nonatomic,strong) CYManagerViewController *ManaV;
 @property(nonatomic,strong) CYExpertsViewController *ExpertsV;
+@property(nonatomic,strong) UITableView *baseTableView;   /**< 讨论  */
+@property(nonatomic,strong) NSArray *infoArray;   /**< 信息字典  */
 @end
 
 @implementation CYDiscussViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self initNetwork];
+    [self initTableView];
     // Do any additional setup after loading the view.
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+-(NSArray *)infoArray{
+    if (!_infoArray) {
+        _infoArray = [NSArray array];
+    }
+    return _infoArray;
 }
+
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self initKVO];
@@ -44,6 +54,61 @@
     [self removeObserver:self forKeyPath:@"Childcount" context:nil];
     
 }
+
+
+
+
+-(void)initTableView{
+    self.baseTableView = [[UITableView alloc]initWithFrame:wholeScreen];
+    self.baseTableView.delegate= self;
+    self.baseTableView.dataSource =self;
+}
+
+-(void)initNetwork{
+    [[CYNetwork sharedManager]get_ReuqestwithURLParameters:@"/getMomentList" completion:^(NSError *error, id response, NSURLSessionTask * task) {
+        if (error) {
+            [[CYProgressHUD sharedHUD]showText:error.description inView:self.view HideAfterDelay:1.0f];
+        }else{
+            self.infoArray = response;
+        }
+    }];
+}
+
+
+
+
+
+
+
+#pragma mark -UITableViewDelegate && UITableViewDataSource
+
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return self.infoArray.count;
+}
+
+// Row display. Implementers should *always* try to reuse cells by setting each cell's reuseIdentifier and querying for available reusable cells with dequeueReusableCellWithIdentifier:
+// Cell gets various attributes set automatically based on table (separators) and data source (accessory views, editing controls)
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    CYHomeTableCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DiscussCell"];
+    if (!cell) {
+        cell = [[CYHomeTableCell alloc]init];
+    }
+    NSDictionary *dic = self.infoArray[indexPath.row];
+    [cell setDataWith:dic];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    return cell;
+}
+
+
+
+
+
+
+
+
+
 #pragma mark - kvo
 -(void)initKVO{
     [self addObserver:self forKeyPath:@"Childcount" options:NSKeyValueObservingOptionOld|NSKeyValueObservingOptionNew context:nil];
