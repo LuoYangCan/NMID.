@@ -59,7 +59,7 @@
 }
 
 -(void)initMid{
-    _logintext = [[UITextField alloc]initWithFrame:CGRectMake(screenWidth / 3 - 45,320, 200, 27)];
+    _logintext = [[UITextField alloc]initWithFrame:CGRectMake(screenWidth / 3 - 45,350, 200, 27)];
     UIImageView *loginImage = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"User-50"]];
     _logintext.delegate = self;
     loginImage.frame = CGRectMake(-35,-5, 30, 30);
@@ -68,11 +68,11 @@
     _logintext.leftView = loginImage;
     _logintext.leftViewMode = UITextFieldViewModeAlways;
     [self.view addSubview:_logintext];
-    UIView *line1 = [[UIView alloc]initWithFrame:CGRectMake(screenWidth / 3 -15, 347, 170, 1)];
+    UIView *line1 = [[UIView alloc]initWithFrame:CGRectMake(screenWidth / 3 -15, 377, 170, 1)];
     line1.backgroundColor = LineGray;
     [self.view addSubview:line1];
     
-    _Passwordtext = [[UITextField alloc]initWithFrame:CGRectMake(screenWidth/3 - 45, 370, 200, 27)];
+    _Passwordtext = [[UITextField alloc]initWithFrame:CGRectMake(screenWidth/3 - 45, 400, 200, 27)];
     UIImageView *PasswordImage = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"Lock-50"]];
     PasswordImage.frame = CGRectMake(-35,-5, 30, 30);
     _Passwordtext.delegate = self;
@@ -82,20 +82,20 @@
     _Passwordtext.leftView = PasswordImage;
     _Passwordtext.leftViewMode = UITextFieldViewModeAlways;
     [self.view addSubview:_Passwordtext];
-    UIView *line2= [[UIView alloc]initWithFrame:CGRectMake(screenWidth /3 -15 , 397, 170, 1)];
+    UIView *line2= [[UIView alloc]initWithFrame:CGRectMake(screenWidth /3 -15 , 427, 170, 1)];
     line2.backgroundColor = LineGray;
     [self.view addSubview:line2];
 }
 
 -(void)initBottom{
-    UIButton *LoginBtn = [[UIButton alloc]initWithFrame:CGRectMake(screenWidth /2 -75, 487, 150, 50)];
+    UIButton *LoginBtn = [[UIButton alloc]initWithFrame:CGRectMake(screenWidth /2 -75, 517, 150, 50)];
     UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:LoginBtn.bounds byRoundingCorners:UIRectCornerAllCorners cornerRadii:LoginBtn.bounds.size];
     CAShapeLayer *masklayer = [[CAShapeLayer alloc]init];
     masklayer.frame = LoginBtn.bounds;
     masklayer.path = maskPath.CGPath;
     LoginBtn.layer.mask = masklayer;
     
-    UIButton *Visitor = [[UIButton alloc]initWithFrame:CGRectMake(screenWidth /2 + 50, 544, 80, 30)];
+    UIButton *Visitor = [[UIButton alloc]initWithFrame:CGRectMake(screenWidth /2 + 50, 574, 80, 30)];
     [Visitor setTitle:@"游客访问" forState:UIControlStateNormal];
     [LoginBtn setTitle:@"登陆" forState:UIControlStateNormal];
     Visitor.titleLabel.font = [UIFont systemFontOfSize:14];
@@ -105,7 +105,7 @@
     [LoginBtn addTarget:self action:@selector(LoginBtnAction) forControlEvents:UIControlEventTouchUpInside];
     
     
-    UIButton *regis = [[UIButton alloc]initWithFrame:CGRectMake(screenWidth /2 - 120, 544, 50, 30)];
+    UIButton *regis = [[UIButton alloc]initWithFrame:CGRectMake(screenWidth /2 - 120, 574, 50, 30)];
     [regis setTitle:@"注册" forState:UIControlStateNormal];
     regis.titleLabel.font = [UIFont systemFontOfSize:14];
     [regis setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];

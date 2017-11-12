@@ -62,6 +62,7 @@
 }
 
 -(void)layerAnimation{
+    //需要做兼容X的图
     UIImage *LaunchImage = [UIImage imageNamed:@"Launch_Image"];
     CABasicAnimation *contentsAnimation = [CABasicAnimation animationWithKeyPath:@"contents"];
     contentsAnimation.fromValue = self.imageLayer.contents;
