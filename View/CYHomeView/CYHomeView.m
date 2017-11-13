@@ -49,6 +49,7 @@
 // Cell gets various attributes set automatically based on table (separators) and data source (accessory views, editing controls)
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     CYHomeTableCell *cell = [[CYHomeTableCell alloc]init];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     NSDictionary *dic = @{@"name":@"Reus",
                           @"title":@"关于雏鹰计划App",
                           @"time" : @"2017-09-20",
