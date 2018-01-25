@@ -80,7 +80,7 @@
 
 
 
-#pragma mark -UITableViewDelegate && UITableViewDataSource
+#pragma mark - UITableViewDelegate && UITableViewDataSource
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -100,12 +100,6 @@
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
-
-
-
-
-
-
 
 
 

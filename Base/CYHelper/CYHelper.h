@@ -93,6 +93,8 @@ typedef NS_ENUM(NSInteger,PostType){
 
 
 #define CHANGE_VIEW @"changeView"
+
+
 #ifndef weakify
 #if DEBUG
 #if __has_feature(objc_arc)
