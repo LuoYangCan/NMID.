@@ -14,6 +14,7 @@
 #import "CYProgressHUD.h"
 #import "CYNetwork.h"
 
+
 @interface CYContactViewController ()
 @property(nonatomic,strong) CYProjectView *PV;
 @property(nonatomic,strong) CYAllPeopleView *ALLV;
@@ -60,6 +61,8 @@
 -(void)setup{
     [self getDatawithCompletionBlock:^(NSError *error) {
         if (!error) {
+            NSURLCache *urlCache = [[NSURLCache alloc]initWithMemoryCapacity:4*1024 diskCapacity:20*1024 diskPath:nil];
+            [NSURLCache setSharedURLCache:urlCache];
             [self initUI];
             [self initNotification];
             [self initsegment];
