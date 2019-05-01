@@ -50,7 +50,7 @@
 -(void) setupButton{
     UIButton  *projName = [self setButtonwithTitle:@"        通讯录" forState:UIControlStateNormal andLocation:(screenHeight / 3) andImage:@"Commercial Development Management-50"];
     [projName addTarget:self action:@selector(tapFirstBtn) forControlEvents:UIControlEventTouchUpInside];
-    UIButton  *experts = [self setButtonwithTitle:@"        管理手册" forState:UIControlStateNormal andLocation:(screenHeight / 3 + 45) andImage:@"Literature-64"];
+    UIButton  *experts = [self setButtonwithTitle:@"        文件管理" forState:UIControlStateNormal andLocation:(screenHeight / 3 + 45) andImage:@"Literature-64"];
     [experts addTarget:self action:@selector(tapSecondBtn) forControlEvents:UIControlEventTouchUpInside];
     UIButton  *book = [self setButtonwithTitle:@"        专家" forState:UIControlStateNormal andLocation:(screenHeight / 3 + 90) andImage:@"Contacts-50"];
     [book addTarget:self action:@selector(tapThirdBtn) forControlEvents:UIControlEventTouchUpInside];
@@ -81,7 +81,7 @@
 }
 -(void)tapSecondBtn{
     self.change =@"1";
-    NSDictionary *NotiDic = @{@"1":@"管理手册",
+    NSDictionary *NotiDic = @{@"1":@"文件管理",
                               @"2":self.change};
     NSNotification *notice = [NSNotification notificationWithName:@"changeView" object:nil userInfo:NotiDic];
     [[NSNotificationCenter defaultCenter]postNotification:notice];

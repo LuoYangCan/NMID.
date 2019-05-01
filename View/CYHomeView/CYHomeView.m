@@ -51,7 +51,7 @@
     CYHomeTableCell *cell = [[CYHomeTableCell alloc]init];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     NSDictionary *dic = @{@"name":@"Reus",
-                          @"title":@"关于雏鹰计划App",
+                          @"title":@"关于基于iCloud的文件管理系统App",
                           @"time" : @"2017-09-20",
                           @"headIcon":@"Contacts-50",
                           @"dcContent":@"这是一个四行显示的内容，应该有很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长的文字"
