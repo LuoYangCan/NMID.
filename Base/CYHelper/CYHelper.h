@@ -94,6 +94,7 @@ typedef NS_ENUM(NSInteger,PostType){
 
 #define CHANGE_VIEW @"changeView"
 
+#define kContainerIdentifier @"iCloud.com.test.luoproj"
 
 #ifndef weakify
 #if DEBUG

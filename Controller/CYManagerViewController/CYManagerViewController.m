@@ -12,6 +12,7 @@
 #import "CYManagerViewController.h"
 #import "iCloudHelper.h"
 #import "CYDocument.h"
+#import "textViewController.h"
 
 
 @interface CYManagerViewController ()<UITableViewDelegate, UITableViewDataSource>
@@ -51,7 +52,8 @@
 }
 
 - (void)createNewDoc {
-    
+    textViewController *textVC = [[textViewController alloc] init];
+    [self.navigationController pushViewController:textVC animated:YES];
 }
 
 - (void)setupiCloud {

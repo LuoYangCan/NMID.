@@ -14,25 +14,29 @@ PODS:
   - AFNetworking/Serialization (3.1.0)
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
+  - AlipaySDK-iOS (15.5.9)
   - MBProgressHUD (1.0.0)
   - MJRefresh (3.1.14.1)
 
 DEPENDENCIES:
   - AFNetworking
+  - AlipaySDK-iOS
   - MBProgressHUD
   - MJRefresh
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - AFNetworking
+    - AlipaySDK-iOS
     - MBProgressHUD
     - MJRefresh
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
+  AlipaySDK-iOS: 1c5283b30977a24acecc0114662697f7dc78f618
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
   MJRefresh: 238e6a37e2dba12160ee3b79f6d2a2b26abcab42
 
-PODFILE CHECKSUM: 868c9797cb87444e9115ef83e43ad1d8db6d7621
+PODFILE CHECKSUM: 981e5662b594c1c7212978c9aa57894c2f406aab
 
 COCOAPODS: 1.7.0.beta.3

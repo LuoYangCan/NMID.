@@ -14,6 +14,7 @@
 #import "CYNetwork.h"
 #import "CYProgressHUD.h"
 #import "CYRegisterView.h"
+#import <AlipaySDK/AlipaySDK.h>
 
 @interface CYLoginViewController ()<UITextFieldDelegate>
 @property (nonatomic,strong) UIImageView *image;
