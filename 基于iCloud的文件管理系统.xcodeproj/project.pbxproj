@@ -51,15 +51,13 @@
 		689D0ADA2282A78800DA5ED2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 689D0AD92282A78800DA5ED2 /* Foundation.framework */; };
 		689D0ADC2282A79000DA5ED2 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 689D0ADB2282A79000DA5ED2 /* CFNetwork.framework */; };
 		689D0ADE2282A79700DA5ED2 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 689D0ADD2282A79700DA5ED2 /* CoreMotion.framework */; };
-		689D0AE12282A7E900DA5ED2 /* AlipaySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 689D0ADF2282A7E900DA5ED2 /* AlipaySDK.framework */; };
-		689D0AE22282A7E900DA5ED2 /* AlipaySDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 689D0AE02282A7E900DA5ED2 /* AlipaySDK.bundle */; };
-		689D0AE52282C8AD00DA5ED2 /* AFAuthSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 689D0AE32282C8AD00DA5ED2 /* AFAuthSDK.bundle */; };
-		689D0AE62282C8AD00DA5ED2 /* AFAuthSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 689D0AE42282C8AD00DA5ED2 /* AFAuthSDK.framework */; };
 		68A7438122749007002AC428 /* CYDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 68A7438022749007002AC428 /* CYDocument.m */; };
 		68A74384227848B7002AC428 /* textViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68A74383227848B7002AC428 /* textViewController.m */; };
 		68C01B4A1EB0B72300BF57C7 /* CYStart.m in Sources */ = {isa = PBXBuildFile; fileRef = 68C01B491EB0B72300BF57C7 /* CYStart.m */; };
 		68D45CCC2272DDD000CEF5EE /* iCloudHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 68D45CCB2272DDD000CEF5EE /* iCloudHelper.m */; };
 		68D71C481EC019E000E773C6 /* CYBaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68D71C471EC019E000E773C6 /* CYBaseController.m */; };
+		68E74255228BD2760065262F /* AFAuthSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68E74253228BD2760065262F /* AFAuthSDK.framework */; };
+		68E74256228BD2760065262F /* AFAuthSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 68E74254228BD2760065262F /* AFAuthSDK.bundle */; };
 		AEE4FA1701D121FDEEC4B721 /* libPods-基于iCloud的文件管理系统UITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9574D2950D95F5E61330E87A /* libPods-基于iCloud的文件管理系统UITests.a */; };
 /* End PBXBuildFile section */
 
@@ -156,10 +154,6 @@
 		689D0AD92282A78800DA5ED2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		689D0ADB2282A79000DA5ED2 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		689D0ADD2282A79700DA5ED2 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
-		689D0ADF2282A7E900DA5ED2 /* AlipaySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AlipaySDK.framework; sourceTree = SOURCE_ROOT; };
-		689D0AE02282A7E900DA5ED2 /* AlipaySDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AlipaySDK.bundle; sourceTree = SOURCE_ROOT; };
-		689D0AE32282C8AD00DA5ED2 /* AFAuthSDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = AFAuthSDK.bundle; path = ../../../Downloads/AFAuthSDK/AFAuthSDK.bundle; sourceTree = "<group>"; };
-		689D0AE42282C8AD00DA5ED2 /* AFAuthSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AFAuthSDK.framework; path = ../../../Downloads/AFAuthSDK/AFAuthSDK.framework; sourceTree = "<group>"; };
 		68A7437F22749007002AC428 /* CYDocument.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CYDocument.h; sourceTree = "<group>"; };
 		68A7438022749007002AC428 /* CYDocument.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CYDocument.m; sourceTree = "<group>"; };
 		68A74382227848B7002AC428 /* textViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = textViewController.h; sourceTree = "<group>"; };
@@ -171,6 +165,8 @@
 		68D45CCB2272DDD000CEF5EE /* iCloudHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iCloudHelper.m; sourceTree = "<group>"; };
 		68D71C461EC019E000E773C6 /* CYBaseController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYBaseController.h; sourceTree = "<group>"; };
 		68D71C471EC019E000E773C6 /* CYBaseController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYBaseController.m; sourceTree = "<group>"; };
+		68E74253228BD2760065262F /* AFAuthSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AFAuthSDK.framework; sourceTree = SOURCE_ROOT; };
+		68E74254228BD2760065262F /* AFAuthSDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AFAuthSDK.bundle; sourceTree = SOURCE_ROOT; };
 		9574D2950D95F5E61330E87A /* libPods-基于iCloud的文件管理系统UITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-基于iCloud的文件管理系统UITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		96A003ACC0054F870A660138 /* Pods-基于iCloud的文件管理系统UITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-基于iCloud的文件管理系统UITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-基于iCloud的文件管理系统UITests/Pods-基于iCloud的文件管理系统UITests.release.xcconfig"; sourceTree = "<group>"; };
 		9AB9AD29977C3D7E206D142D /* Pods-基于iCloud的文件管理系统UITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-基于iCloud的文件管理系统UITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-基于iCloud的文件管理系统UITests/Pods-基于iCloud的文件管理系统UITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -184,7 +180,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				689D0AE62282C8AD00DA5ED2 /* AFAuthSDK.framework in Frameworks */,
+				68E74255228BD2760065262F /* AFAuthSDK.framework in Frameworks */,
 				689D0ADE2282A79700DA5ED2 /* CoreMotion.framework in Frameworks */,
 				689D0ADC2282A79000DA5ED2 /* CFNetwork.framework in Frameworks */,
 				689D0ADA2282A78800DA5ED2 /* Foundation.framework in Frameworks */,
@@ -195,7 +191,6 @@
 				689D0AD02282A75F00DA5ED2 /* CoreTelephony.framework in Frameworks */,
 				689D0ACE2282A75700DA5ED2 /* SystemConfiguration.framework in Frameworks */,
 				689D0ACC2282A74F00DA5ED2 /* libz.tbd in Frameworks */,
-				689D0AE12282A7E900DA5ED2 /* AlipaySDK.framework in Frameworks */,
 				689D0ACA2282A74700DA5ED2 /* libc++.tbd in Frameworks */,
 				3648D2D142FE2C6269D042D7 /* libPods-基于iCloud的文件管理系统.a in Frameworks */,
 			);
@@ -277,10 +272,8 @@
 		2D0E5C4E1E7D53D100D69F2B /* Young EaglesTests */ = {
 			isa = PBXGroup;
 			children = (
-				689D0AE32282C8AD00DA5ED2 /* AFAuthSDK.bundle */,
-				689D0AE42282C8AD00DA5ED2 /* AFAuthSDK.framework */,
-				689D0AE02282A7E900DA5ED2 /* AlipaySDK.bundle */,
-				689D0ADF2282A7E900DA5ED2 /* AlipaySDK.framework */,
+				68E74254228BD2760065262F /* AFAuthSDK.bundle */,
+				68E74253228BD2760065262F /* AFAuthSDK.framework */,
 				2D0E5C4F1E7D53D100D69F2B /* Young_EaglesTests.m */,
 				2D0E5C511E7D53D100D69F2B /* Info.plist */,
 			);
@@ -715,12 +708,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				689D0AE22282A7E900DA5ED2 /* AlipaySDK.bundle in Resources */,
 				2D0E5C451E7D53D000D69F2B /* LaunchScreen.storyboard in Resources */,
 				2D3F0A6C1E7D793E007642DF /* Property List.plist in Resources */,
 				2DE177D31EAAFB0D0049B41A /* Assets.xcassets in Resources */,
 				2D0E5C401E7D53D000D69F2B /* Main.storyboard in Resources */,
-				689D0AE52282C8AD00DA5ED2 /* AFAuthSDK.bundle in Resources */,
+				68E74256228BD2760065262F /* AFAuthSDK.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -748,12 +740,10 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-基于iCloud的文件管理系统/Pods-基于iCloud的文件管理系统-resources.sh",
-				"${PODS_ROOT}/AlipaySDK-iOS/AlipaySDK.bundle",
 				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AlipaySDK.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MJRefresh.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;

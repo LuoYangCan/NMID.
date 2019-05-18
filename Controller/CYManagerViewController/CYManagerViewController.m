@@ -30,7 +30,6 @@
     [super viewDidLoad];
     [self setupUI];
     [self setupiCloud];
-    // Do any additional setup after loading the view.
 }
 
 - (void)setupUI {
@@ -47,7 +46,6 @@
     self.dataLabel.hidden = true;
     
     UIBarButtonItem *rightBarButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(createNewDoc)];
-//    self.navigationController.navigationItem.rightBarButtonItem = rightBarButton;
     self.navigationItem.rightBarButtonItem = rightBarButton;
 }
 
@@ -57,9 +55,6 @@
 }
 
 - (void)setupiCloud {
-//    iCloudHelper *helper = [iCloudHelper sharedManager];
-//    self.keyValue = helper.keyValueStore;
-//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(docShouldUpdateWithNotification:) name:NSUbiquitousKeyValueStoreDidChangeExternallyNotification object:self.keyValue];
     if (!self.query) {
         self.query = [[NSMetadataQuery alloc] init];
         self.query.searchScopes = @[NSMetadataQueryUbiquitousDocumentsScope];
@@ -77,12 +72,6 @@
     }
     [self.query startQuery];
 }
-
-
-//- (void)docShouldUpdateWithNotification:(NSNotification *)noti {
-//    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"检测到变化" message:@"正在同步" preferredStyle:UIAlertControllerStyleAlert];
-//    [self presentViewController:alert animated:YES completion:nil];
-//}
 
 
 - (void)handleQueryStatus:(NSNotification *)noti {

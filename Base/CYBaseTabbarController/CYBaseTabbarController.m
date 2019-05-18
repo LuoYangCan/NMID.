@@ -30,7 +30,7 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void)initTabbar{
+- (void)initTabbar{
     NSMutableArray *viewControllers = [NSMutableArray arrayWithCapacity:[self setViewControllerArray].count];
     for (NSDictionary *itemDic in [self setViewControllerArray]) {
         Class vcClass = NSClassFromString(itemDic[@"viewcontroller_class"]);
@@ -47,7 +47,7 @@
     self.viewControllers = viewControllers;
     self.selectedIndex = 0;
 }
--(NSArray *)setViewControllerArray{
+- (NSArray *)setViewControllerArray{
     NSArray * array = @[@{@"name":@"首页",
                           @"icon":@"Home-64",
                           @"viewcontroller_class":NSStringFromClass([CYHomeController class])

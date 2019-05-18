@@ -114,16 +114,20 @@
     UIImageView *logo = [[UIImageView alloc]initWithFrame:CGRectMake(10, 10, 80, 80)];
     logo.image = [UIImage imageNamed:@"base"];
     [logoBackground addSubview:logo];
+    
+    UIButton *backButton = [[UIButton alloc] initWithFrame:CGRectMake(10, 20, 40, 20)];
+    [backButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [backButton setTitle:@"返回" forState:UIControlStateNormal];
+    backButton.titleLabel.font = [UIFont systemFontOfSize:14];
+    [backButton addTarget:self action:@selector(backAction) forControlEvents:UIControlEventTouchUpInside];
+    [backgroundView addSubview:backButton];
+    
 }
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)backAction {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
-*/
+
 #pragma mark - UITextFiledDelegate
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{
     [_logintext resignFirstResponder];

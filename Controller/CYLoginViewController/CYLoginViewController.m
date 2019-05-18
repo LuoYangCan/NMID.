@@ -14,7 +14,7 @@
 #import "CYNetwork.h"
 #import "CYProgressHUD.h"
 #import "CYRegisterView.h"
-#import <AlipaySDK/AlipaySDK.h>
+#import <AFAuthSDK/AFAuthSDK.h>
 
 @interface CYLoginViewController ()<UITextFieldDelegate>
 @property (nonatomic,strong) UIImageView *image;
@@ -28,11 +28,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self setup];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 -(void)setup{
@@ -111,16 +106,50 @@
     regis.titleLabel.font = [UIFont systemFontOfSize:14];
     [regis setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
     [regis addTarget:self action:@selector(regis) forControlEvents:UIControlEventTouchUpInside];
+    [LoginBtn addTarget:self action:@selector(LoginBtnAction) forControlEvents:UIControlEventTouchUpInside];
     
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(screenWidth / 2 - 80, 620, 30, 30)];
+    imageView.image = [UIImage imageNamed:@"zfb"];
+    
+    UIButton *zfbLoginBtn = [[UIButton alloc] initWithFrame:CGRectMake(screenWidth / 2 - 47, 620, 100, 30)];
+    [zfbLoginBtn addTarget:self action:@selector(AliLogin) forControlEvents:UIControlEventTouchUpInside];
+    [zfbLoginBtn setTitle:@"支付宝登陆" forState:UIControlStateNormal];
+    zfbLoginBtn.titleLabel.font = [UIFont systemFontOfSize:14];
+    [zfbLoginBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
     
     [self.view addSubview:LoginBtn];
     [self.view addSubview:Visitor];
     [self.view addSubview:regis];
+    [self.view addSubview:zfbLoginBtn];
+    [self.view addSubview:imageView];
     
 }
 -(void)VisitorLogin{
     CYBaseController *base = [[CYBaseController alloc]init];
     [self presentViewController:base animated:YES completion:nil];
+}
+- (void)AliLogin {
+    //你在info中/或plist中设置的appScheme
+    NSString *appScheme = @"LiuBinScheme://";
+    //authStr参数后台获取！和开发中心配置的app有关系，包含appid\name等等信息。
+    NSString *authStr = @"apiname=com.alipay.account.auth&app_id= 2019051464573611&app_name=mc&auth_type=AUTHACCOUNT&biz_type=openservice&method=alipay.open.auth.sdk.code.get&pid=2088212105637072&product_id=APP_FAST_LOGIN&scope=kuaijie&sign_type=RSA2&target_id=20141225850&sign=fMcp4GtiM6rxSIeFnJCVePJKV43eXrUP86CQgiLhDHH2u%2FdN75eEvmywc2ulkm7qKRetkU9fbVZtJIqFdMJcJ9Yp%2BJI%2FF%2FpESafFR6rB2fRjiQQLGXvxmDGVMjPSxHxVtIqpZy5FDoKUSjQ2%2FILDKpu3%2F%2BtAtm2jRw1rUoMhgt0%3D";
+    //没有安装支付宝客户端的跳到网页授权时会在这个方法里回调
+    [[AFAuthSDK defaultService] authv2WithInfo:authStr fromScheme:appScheme callback:^(NSDictionary *result) {
+        // 解析 auth code
+        NSString *resultString = result[@"result"];
+        NSString *authCode = nil;
+        if (resultString.length>0) {
+            NSArray *resultArr = [resultString componentsSeparatedByString:@"&"];
+            for (NSString *subResult in resultArr) {
+                if (subResult.length > 10 && [subResult hasPrefix:@"auth_code="]) {
+                    authCode = [subResult substringFromIndex:10];
+                    break;
+                }
+            }
+        }
+        NSLog(@"resultString = %@",resultString);
+        //        NSLog(@"authv2WithInfo授权结果 authCode = %@", authCode?:@"");
+    }];
 }
 -(void)regis{
     CYRegisterView *regis = [[CYRegisterView alloc]init];
@@ -141,6 +170,10 @@
             [[CYProgressHUD sharedHUD]showText:[NSString stringWithFormat:@"%@",error.localizedDescription ] inView:self.view HideAfterDelay:1.0f];
             return ;
         }
+        if (!response) {
+            [[CYProgressHUD sharedHUD]showText:@"服务器连接错误" inView:self.view HideAfterDelay:1.0f];
+            return;
+        }
         if (![response[@"status"] boolValue] && [response[@"code"] longValue] == 500) {
             [[CYProgressHUD sharedHUD]hideAfterDelay:0];
             [[CYProgressHUD sharedHUD]showText:@"用户名或密码错误" inView:self.view HideAfterDelay:1.0f];
@@ -151,15 +184,7 @@
         
     }];
 }
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
+
 #pragma mark - UITextFiledDelegate
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{
     [_logintext resignFirstResponder];

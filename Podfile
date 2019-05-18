@@ -7,7 +7,6 @@ target '基于iCloud的文件管理系统' do
 pod 'AFNetworking'
 pod ‘MBProgressHUD’
 pod ‘MJRefresh’
-pod 'AlipaySDK-iOS'
 
   # Pods for 基于iCloud的文件管理系统
 
